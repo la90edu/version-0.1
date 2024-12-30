@@ -1,31 +1,35 @@
 import schools
 import ids
+from after_simulation import ReflectiveQuestions
 
 ids_levels1 = [
+     "😃 דומה לחלוטין",
+     "🙂 דומה",
+      "😐 קצת דומה",
+      "🙁 לא כל כך דומה",
     "😡 לא דומה בכלל",
-    "🙁 לא כל כך דומה",
-    "😐 קצת דומה",
-    "🙂 דומה",
-    "😃 דומה לחלוטין",   
+     
+       
 ]
 
-ids_levels2=[
-    "בדיוק כמוני 🎯",       # פגיעה מדויקת
-    "כמוני 🔗",            # חיבור קרוב
-    "קצת כמוני 🌗",        # חצי דרך, כמו חצי ירח
-    "קצת לא כמוני 🌪️",    # קצת מבולבל או רחוק
-    "כלל לא כמוני 🚫"       # שלילה מוחלטת
+ids_levels2 = [
+    "בדיוק כמוני 😄",  # פגיעה מדויקת
+    "כמוני 🙂",         # חיבור קרוב
+    "קצת כמוני 😐",     # חצי דרך
+    "קצת לא כמוני 😕",  # קצת רחוק
+    "כלל לא כמוני 🙁"   # שלילה מוחלטת
 ]
 
 ids_levels3= [
-    "תמיד 🔄",               # חזרה אינסופית
-    "לעיתים קרובות 📈",      # משהו שמתרחש הרבה, כמו עלייה
-    "לפעמים ⏳",             # משהו קורה לעיתים, כמו חול שעובר
-    "לעיתים רחוקות 🌍",      # משהו רחוק, כאילו במדינה אחרת
-    "אף פעם ❌"              # שלילה מוחלטת
+    "לחלוטין 😃"
+     , "מסכימ/ה 🙂"
+     , "ככה ככה 😐",
+       "לא ממש 😕"
+     , "בכלל לא 🙁"
+
 ]
 
-
+# is_simulation_correct=None
 
 questions = [
     
@@ -61,6 +65,7 @@ questions = [
                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
         "feedback_system_prompt_name":'common_feedback',
         "feedback_type":"none",
+        "reflection"  : "False",
         "time_count":"no"
     },
     {
@@ -105,6 +110,7 @@ questions = [
                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
         "feedback_system_prompt_name":'common_feedback',
         "feedback_type":"none",
+        "reflection"  : "False",
         "time_count":"no"
     },
     
@@ -126,6 +132,7 @@ questions = [
                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
         "feedback_system_prompt_name":'common_feedback',
         "feedback_type":"none",
+        "reflection"  : "False",
         "time_count":"no"
     },
      
@@ -148,6 +155,7 @@ questions = [
                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
         "feedback_system_prompt_name":'common_feedback',
         "feedback_type":"none",
+        "reflection"  : "False",
         "time_count":"no"
     },
      
@@ -177,6 +185,7 @@ questions = [
                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
+        "reflection"  : "False",
         "time_count": "no"
     },
     {
@@ -190,6 +199,7 @@ questions = [
                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
+        "reflection"  : "False",
         "time_count": "no"
     },
     {
@@ -203,6 +213,7 @@ questions = [
                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
+        "reflection"  : "False",
         "time_count": "no"
     },
     {
@@ -216,6 +227,7 @@ questions = [
                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
+        "reflection"  : "False",
         "time_count": "no"
     },
     {
@@ -229,6 +241,7 @@ questions = [
                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
+        "reflection"  : "False",
         "time_count": "no"
     },
     {
@@ -242,6 +255,7 @@ questions = [
                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
+        "reflection"  : "False",
         "time_count": "no"
     },
     {
@@ -255,6 +269,7 @@ questions = [
                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
+        "reflection"  : "False",
         "time_count": "no"
     },
     {
@@ -268,6 +283,7 @@ questions = [
                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
+        "reflection"  : "False",
         "time_count": "no"
     },
     {
@@ -281,6 +297,7 @@ questions = [
                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
+        "reflection"  : "False",
         "time_count": "no"
     },
 
@@ -303,6 +320,7 @@ questions = [
                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
+        "reflection"  : "False",
         "time_count": "no"
     },
     {
@@ -316,6 +334,7 @@ questions = [
                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
+        "reflection"  : "False",
         "time_count": "no"
     },
     {
@@ -329,6 +348,7 @@ questions = [
                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
+        "reflection"  : "False",
         "time_count": "no"
     },
     {
@@ -342,6 +362,7 @@ questions = [
                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
+        "reflection"  : "False",
         "time_count": "no"
     },
     {
@@ -355,6 +376,7 @@ questions = [
                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
+        "reflection"  : "False",
         "time_count": "no"
     },
     {
@@ -368,6 +390,7 @@ questions = [
                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
+        "reflection"  : "False",
         "time_count": "no"
     },
     {
@@ -381,6 +404,7 @@ questions = [
                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
+        "reflection"  : "False",
         "time_count": "no"
     },
     {
@@ -394,6 +418,7 @@ questions = [
                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
+        "reflection"  : "False",
         "time_count": "no"
     },
     {
@@ -407,6 +432,7 @@ questions = [
                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
+        "reflection"  : "False",
         "time_count": "no"
     },
 
@@ -428,6 +454,7 @@ questions = [
                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
+        "reflection"  : "False",
         "time_count": "no"
     },
     {
@@ -441,6 +468,7 @@ questions = [
                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
+        "reflection"  : "False",
         "time_count": "no"
     },
     {
@@ -454,6 +482,7 @@ questions = [
                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
+        "reflection"  : "False",
         "time_count": "no"
     },
     {
@@ -467,6 +496,7 @@ questions = [
                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
+        "reflection"  : "False",
         "time_count": "no"
     },
     {
@@ -480,6 +510,7 @@ questions = [
                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
+        "reflection"  : "False",
         "time_count": "no"
     },
     {
@@ -493,6 +524,7 @@ questions = [
                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
+        "reflection"  : "False",
         "time_count": "no"
     },
     {
@@ -506,6 +538,7 @@ questions = [
                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
+        "reflection"  : "False",
         "time_count": "no"
     },
     {
@@ -519,6 +552,7 @@ questions = [
                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
+        "reflection"  : "False",
         "time_count": "no"
     },
     {
@@ -532,16 +566,177 @@ questions = [
                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
+         "reflection"  : "False",
         "time_count": "no"
     },
+
+ ###LLM
+      {
+         "question": "",
+         "type": "text_llm",
+         "system_prompt_name":"higedim_feedback",
+         "time_count":"no"
+     },
 
     {
         "question": "",
         "type": "simulation",  # סימולציות
         "time_count":"no"
-    }
+    },
+    
+    {
+         "question":  ReflectiveQuestions.get_question_by_id(0),
+         "type": "closed",
+         "options": ReflectiveQuestions.get_options_by_id(0),
+         "options_style":"horizontal",
+         "feedbacks": [],
+         "feedback_system_prompt_name": 'common_feedback',
+         "feedback_type": "none",
+         "reflection"  : "True",
+         "time_count": "no"
+    },
+    {
+         "question": ReflectiveQuestions.get_question_by_id(1),
+         "type": "closed",
+         "options": ReflectiveQuestions.get_options_by_id(1),
+         "options_style":"horizontal",
+         "feedbacks": [],
+         "feedback_system_prompt_name": 'common_feedback',
+         "feedback_type": "none",
+         "reflection"  : "True",
+         "time_count": "no"
+    },
+    {
+         "question": ReflectiveQuestions.get_question_by_id(2),
+         "type": "closed",
+         "options": ReflectiveQuestions.get_options_by_id(2),
+         "options_style":"horizontal",
+         "feedbacks": [],
+         "feedback_system_prompt_name": 'common_feedback',
+         "feedback_type": "none",
+         "reflection"  : "True",
+         "time_count": "no"
+    },
+    {
+         "question": ReflectiveQuestions.get_question_by_id(3),
+         "type": "closed",
+         "options": ReflectiveQuestions.get_options_by_id(3),
+         "options_style":"horizontal",
+         "feedbacks": [],
+         "feedback_system_prompt_name": 'common_feedback',
+         "feedback_type": "none",
+         "reflection"  : "True",
+         "time_count": "no"
+    },
+    {
+         "question": ReflectiveQuestions.get_question_by_id(4),
+         "type": "closed",
+         "options": ReflectiveQuestions.get_options_by_id(4),
+         "options_style":"horizontal",
+         "feedbacks": [],
+         "feedback_system_prompt_name": 'common_feedback',
+         "feedback_type": "none",
+         "reflection"  : "True",
+         "time_count": "no"
+    },
+    {
+         "question": ReflectiveQuestions.get_question_by_id(5),
+         "type": "closed",
+         "options": ReflectiveQuestions.get_options_by_id(5),
+         "options_style":"horizontal",
+         "feedbacks": [],
+         "feedback_system_prompt_name": 'common_feedback',
+         "feedback_type": "none",
+         "reflection"  : "True",
+         "time_count": "no"
+    },
+    {
+         "question": ReflectiveQuestions.get_question_by_id(6),
+         "type": "closed",
+         "options": ReflectiveQuestions.get_options_by_id(6),
+         "options_style":"horizontal",
+         "feedbacks": [],
+         "feedback_system_prompt_name": 'common_feedback',
+         "feedback_type": "none",
+         "reflection"  : "True",
+         "time_count": "no"
+    },
+    
+    {
+         "question": ReflectiveQuestions.get_question_by_id(7),
+         "type": "closed",
+         "options": ReflectiveQuestions.get_options_by_id(7),
+         "options_style":"horizontal",
+         "feedbacks": [],
+         "feedback_system_prompt_name": 'common_feedback',
+         "feedback_type": "none",
+         "reflection"  : "True",
+         "time_count": "no"
+    },
+    
+    ###LLM
+      {
+         "question": "",
+         "type": "text_llm",
+         "system_prompt_name":"final_feedback",
+         "time_count":"no"
+     }
    
+]
      
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     ####old#########################
     # {
     #     "question": "בנקודת זמן זאת, לפני תחילת התוכנית, אשמח לדעת מה אתם חושבים שהסיכוי שלכם להשתלב בעתיד בתחום ההייטק:",
     #     "type": "closed_new",  # שאלה סגורה
@@ -592,4 +787,4 @@ questions = [
     # }
      
     
-]
+

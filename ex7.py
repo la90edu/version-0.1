@@ -12,7 +12,7 @@ import time_1 as ti
 from schools import School_Type
 import schools
 import simulations
-import after_simulation
+from after_simulation import ReflectiveQuestions
 
 st.set_page_config(
     page_title="מבט לרגע",
@@ -211,12 +211,11 @@ def show_simulation0():
 def show_simulation1():
     simulation_question=simulations.return_simulation_question_by_id(st.session_state.simulation_id)
     
-    st.session_state.is_question_waiting_to_be_written_simulation[0]
     if (st.session_state.is_question_waiting_to_be_written_simulation[0]):
         display_bot_message_with_typing_effect(simulation_question)
+        st.session_state.messages.append({"role": "assistant", "content": simulation_question})
         st.session_state.is_question_waiting_to_be_written_simulation[0]=False
           
-    st.session_state.messages.append({"role": "assistant", "content": simulation_question})
            
     
     options=simulations.return_simulation_options_by_id(st.session_state.simulation_id)
@@ -230,22 +229,26 @@ def show_simulation1():
             st.session_state.user_data.append(option)
 
             is_correct_answer=simulations.is_answer_correct(st.session_state.simulation_id,option)
-            
+            stam=simulations.is_answer_correct
             st.session_state.is_correct_answer=is_correct_answer
             st.session_state.user_data.append(is_correct_answer)
-            after_simulation.is_correct_answer=is_correct_answer
-            
+            #after_simulation.is_correct_answer=is_correct_answer
+            #after_simulation.update_simulation_answer(is_correct_answer)
+            # questions2.is_simulation_correct=is_correct_answer
+            ReflectiveQuestions.simulation_answer=is_correct_answer
+            x=ReflectiveQuestions.simulation_answer
             st.session_state.question_stage=2  
             st.rerun()         
     
 def show_simulation2():
+
     if st.session_state.is_correct_answer:
         display_bot_message_with_typing_effect("תשובה נכונה")
         st.session_state.messages.append({"role": "assistant", "content": "תשובה נכונה"})
 
     else:
         display_bot_message_with_typing_effect("תשובה שגויה")   
-        st.session_state.messages.append({"role": "assistant", "content": "תשובה נכונה"})
+        st.session_state.messages.append({"role": "assistant", "content": "תשובה שגויה"})
 
         
     st.session_state.question_stage=0
@@ -263,7 +266,7 @@ def display_user_message(text):
     </div>
     """, unsafe_allow_html=True)
 
-def display_bot_message_with_typing_effect(text, typing_speed=0.01):
+def display_bot_message_with_typing_effect(text, typing_speed=0.03):
     """
     מציג הודעה מהבוט עם אפקט הקלדה
     
@@ -300,8 +303,7 @@ def display_bot_message(text):
 st.logo("logo1.jpg")#,size="large")
  
 #questions functions
-def show_closed_question(question, options,options_style, feedbacks):
-    # time.sleep(0.5)  # הוספת השהיה של 0.5 שניות
+def show_closed_question(question, options,options_style, feedbacks):       
     if st.session_state.is_question_waiting_to_be_written[st.session_state.current_question]:
         display_bot_message_with_typing_effect(question)
         st.session_state.is_question_waiting_to_be_written[st.session_state.current_question]=False
@@ -459,6 +461,10 @@ def show_text(text):
 
     st.rerun()
 
+def handle_llm(llm_system_prompt_name):
+    text=llm.return_llm_answer(llm_system_prompt_name,st.session_state.messages)
+    show_text(text)
+
 
 def show_selectbox_schools_question(question, feedbacks):
     # הצגת השאלה
@@ -511,6 +517,7 @@ if 'messages' not in st.session_state:
         st.session_state.grade=[]
         st.session_state.write=True
         st.session_state.is_question_waiting_to_be_written=[True]*(len(questions))
+        st.session_state.is_buttoms_needs_to_be_displayed=[True]*(len(questions))
         st.session_state.is_question_waiting_to_be_written_simulation=[True]*(1)
         st.session_state.close_question_answer=None
         st.session_state.question_stage=0
@@ -536,8 +543,19 @@ if not st.session_state.finished:
                     show_open_question(current_q["question"], current_q["feedback"])
                     display_input_box(disabled=False)  # הפעלת תיבת ה-input
                 case "closed":
+                    question=current_q["question"]
+                    options=current_q["options"]
+                    reflection=current_q["reflection"]
+                    if (reflection =="True"):
+                        is_correct_answer_in_simulation=st.session_state.is_correct_answer
+                        if is_correct_answer_in_simulation:
+                            question=question[0]
+                            options=options[0]
+                        else:
+                            question=question[1]
+                            options=options[1]
                     match st.session_state.question_stage:
-                        case 0:show_closed_question(current_q["question"], current_q["options"],current_q["options_style"] ,current_q["feedbacks"])
+                        case 0:show_closed_question(question, options,current_q["options_style"] ,current_q["feedbacks"])
                         case 1:show_closed_question2(current_q["feedback_type"],current_q["feedback_system_prompt_name"],current_q["feedbacks"])
                         #case 3:show_closed_question_other
                     display_input_box(disabled=False)  # השבתת תיבת ה-input
@@ -564,6 +582,10 @@ if not st.session_state.finished:
                 case "text":
                     show_text(current_q["question"])
                     display_input_box(disabled=True)  # השבתת תיבת ה-input
+                case "text_llm":
+                    handle_llm(current_q["system_prompt_name"])
+                    display_input_box(disabled=True)  # השבתת תיבת ה-input
+
                 
             if current_q["time_count"] == "yes":
                 start_counting_time()
@@ -572,11 +594,11 @@ if not st.session_state.finished:
             st.session_state.finished = True
 
             
-            summary_message = llm.summerize_conversation(st.session_state.messages)
+            # summary_message = llm.summerize_conversation(st.session_state.messages)
             
-            display_bot_message_with_typing_effect(summary_message)
+            # display_bot_message_with_typing_effect(summary_message)
             
-            st.session_state.messages.append({"role": "assistant", "content": summary_message})
+            # st.session_state.messages.append({"role": "assistant", "content": summary_message})
 
             # השבתת תיבת ה-input בסיום השיחה
             display_input_box(disabled=True)

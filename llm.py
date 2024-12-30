@@ -53,19 +53,38 @@ def return_llm_answer_for_common_feedback(conversation):
     )
     return response.choices[0].message.content#.strip()
 
-def return_llm_answer(system_prompt_name ,last_assistant_history,user_assistant_history):
-#  prompt = (
-#      system_prompts.return_prompt()
-# ) 
-    system_prompt=system_prompts.return_system_prompt_for(system_prompt_name)
-    user_prompt=f"assistant: {last_assistant_history}, user: {user_assistant_history}"
+# def return_llm_answer(system_prompt_name ,history):
+# #  prompt = (
+# #      system_prompts.return_prompt()
+# # ) 
+#     system_prompt=system_prompts.return_system_prompt_for(system_prompt_name)
+#     #user_prompt=f"assistant: {last_assistant_history}, user: {user_assistant_history}"
+#     user_prompt=history
  
+#     response = client.chat.completions.create(
+#     model="gpt-4o-mini",
+#     messages=[
+#          {"role":"system","content":system_prompt},
+#          {"role":"user","content":user_prompt}
+#          ]
+#     )
+    # return response.choices[0].message.content
+
+def return_llm_answer(system_prompt_name ,history):
+    system_prompt = system_prompts.return_system_prompt_for(system_prompt_name)
+    
+    # ודא שהיסטוריה מעוצבת כראוי
+    formatted_conversation = [
+        {"role": msg["role"], "content": str(msg["content"])}
+        for msg in history
+    ]
+
     response = client.chat.completions.create(
-    model="gpt-4o-mini",
-    messages=[
-         {"role":"system","content":system_prompt},
-         {"role":"user","content":user_prompt}
-         ]
+        model="gpt-4o-mini",
+        messages=[
+            {"role": "system", "content": system_prompt},
+            *formatted_conversation
+        ]
     )
     return response.choices[0].message.content
 
