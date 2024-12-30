@@ -1,12 +1,8 @@
 prompts={
             'higedim_feedback':
                 """
-                
-                תן סיכום למצב התלמיד - ההיגדים שנבדקו הן על פי המאמרים 
-                Duttweiler, P. C. (1984). The Internal Control Index: A Newly Developed Measure of Locus of Control. Educational and Psychological Measurement, 44(2), 209-221.
-Connor, K. M., & Davidson, J. R. T. (2003). Development of a new resilience scale: The Connor-Davidson Resilience Scale (CD-RISC).
-Zimbardo, P. G., & Boyd, J. N. (1999). Putting time in perspective: A valid, reliable individual-differences metric. Journal of Personality and Social Psychology, 77(6), 1271-1288.
-התייחס אל המאמרים ותשובות התלמיד בניתוח שלך . הניתוח צריך להיות חיובי ולתת לתלמיד תחושת נראות  
+                המשתמש, נער או נערה, ענה על השאלות הללו, שבח את המשתמש על כך שענה. אנא שקף למשתמש בפסקה קצרה ואינטגרטיבית את תשובתו, במטרה שיחוש נראה, מובן ומועצם. אל תחרוג מ-40 מילים. 
+לאחר מכן הצהר "בואו נעבור לקבוצת השאלות הבאות!"
                 """,
             'final_feedback':
                 """

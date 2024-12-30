@@ -453,9 +453,9 @@ def display_input_box(disabled):
         st.rerun()
         
 def show_text(text):
-    if st.session_state.is_question_waiting_to_be_written[st.session_state.current_question]:
-        display_bot_message_with_typing_effect(text)
-        st.session_state.is_question_waiting_to_be_written[st.session_state.current_question]=False
+    #if st.session_state.is_question_waiting_to_be_written[st.session_state.current_question]:
+    display_bot_message_with_typing_effect(text)
+        #st.session_state.is_question_waiting_to_be_written[st.session_state.current_question]=False
     st.session_state.messages.append({"role": "assistant", "content": text})
     st.session_state.current_question += 1
 
