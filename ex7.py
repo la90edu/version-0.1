@@ -303,48 +303,53 @@ def display_bot_message(text):
 st.logo("logo1.jpg")#,size="large")
  
 #questions functions
-def show_closed_question(question, options,options_style, feedbacks):       
-    if st.session_state.is_question_waiting_to_be_written[st.session_state.current_question]:
-        display_bot_message_with_typing_effect(question)
-        st.session_state.is_question_waiting_to_be_written[st.session_state.current_question]=False
+def show_closed_question(question, options,options_style, feedbacks,not_for_school_8): 
+    if ((not_for_school_8=="True")and(st.session_state.grade=='SCHOOL_8')):
+        st.session_state.user_data.append("ללא")
+        st.session_state.current_question += 1
+        st.rerun()
+    else:     
+        if st.session_state.is_question_waiting_to_be_written[st.session_state.current_question]:
+            display_bot_message_with_typing_effect(question)
+            st.session_state.is_question_waiting_to_be_written[st.session_state.current_question]=False
 
     #options_style="vertical"
     
-    match options_style:
-        case "horizontal":
+        match options_style:
+            case "horizontal":
                 # יצירת כפתורים לבחירת תשובה
-                cols = st.columns(len(options))
-                for i, option in enumerate(options):
-                    if cols[i].button(option, key=f"{st.session_state.current_question}_{option}"):
-                        st.session_state.messages.append({"role": "assistant", "content": question})
-                        st.session_state.messages.append({"role": "user", "content": option})
+                    cols = st.columns(len(options))
+                    for i, option in enumerate(options):
+                        if cols[i].button(option, key=f"{st.session_state.current_question}_{option}"):
+                            st.session_state.messages.append({"role": "assistant", "content": question})
+                            st.session_state.messages.append({"role": "user", "content": option})
 
-                        st.session_state.temp_history.append({"role": "assistant", "content": question})
-                        st.session_state.temp_history.append({"role": "user", "content": option})
+                            st.session_state.temp_history.append({"role": "assistant", "content": question})
+                            st.session_state.temp_history.append({"role": "user", "content": option})
 
                         # שמירת התשובה של המשתמש במשתנה user_data
-                        st.session_state.user_data.append(option)
+                            st.session_state.user_data.append(option)
             
-                        st.close_question_selection_i = i
-                        st.session_state.question_stage = 1
-                        st.rerun()
+                            st.close_question_selection_i = i
+                            st.session_state.question_stage = 1
+                            st.rerun()
                         
-        case "vertical":
-                for i, option in enumerate(options):
-                    if st.button(option, key=f"{st.session_state.current_question}_{option}"):
+            case "vertical":
+                    for i, option in enumerate(options):
+                        if st.button(option, key=f"{st.session_state.current_question}_{option}"):
                         # הוספת השאלה והתשובה להיסטוריה
-                        st.session_state.messages.append({"role": "assistant", "content": question})
-                        st.session_state.messages.append({"role": "user", "content": option})
+                            st.session_state.messages.append({"role": "assistant", "content": question})
+                            st.session_state.messages.append({"role": "user", "content": option})
 
-                        st.session_state.temp_history.append({"role": "assistant", "content": question})
-                        st.session_state.temp_history.append({"role": "user", "content": option})
+                            st.session_state.temp_history.append({"role": "assistant", "content": question})
+                            st.session_state.temp_history.append({"role": "user", "content": option})
 
                         # שמירת התשובה של המשתמש במשתנה user_data
-                        st.session_state.user_data.append(option)
+                            st.session_state.user_data.append(option)
             
-                        st.close_question_selection_i = i
-                        st.session_state.question_stage = 1
-                        st.rerun()
+                            st.close_question_selection_i = i
+                            st.session_state.question_stage = 1
+                            st.rerun()
             
           
 def show_closed_question2(feedback_type,system_prompt_name,auto_feedbacks):
@@ -555,7 +560,7 @@ if not st.session_state.finished:
                             question=question[1]
                             options=options[1]
                     match st.session_state.question_stage:
-                        case 0:show_closed_question(question, options,current_q["options_style"] ,current_q["feedbacks"])
+                        case 0:show_closed_question(question, options,current_q["options_style"] ,current_q["feedbacks"],current_q["not_for_school_8"])
                         case 1:show_closed_question2(current_q["feedback_type"],current_q["feedback_system_prompt_name"],current_q["feedbacks"])
                         #case 3:show_closed_question_other
                     display_input_box(disabled=False)  # השבתת תיבת ה-input

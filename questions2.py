@@ -66,6 +66,7 @@ questions = [
         "feedback_system_prompt_name":'common_feedback',
         "feedback_type":"none",
         "reflection"  : "False",
+        "not_for_school_8":"False",
         "time_count":"no"
     },
     {
@@ -91,26 +92,37 @@ questions = [
         "feedback_type":"auto",
         "time_count":"no"
     },
+    
     {
-        "question": "סמנ/י את הפעילויות שאת/ה משתתפ/ת בהן מחוץ לבית הספר:",
+        "question": """
+        באיזה פעילויות את/ה משתתפ/ת מחוץ לבית הספר ? 
+        פרטו חוגים , פעילות ספורטיבית / אומנותית , עבודה וכדומה
+        """,
+        "type": "open",  # שאלה פתוחה
+        "feedback": "תודה",
+        "time_count":"no",
+    },
+    
+    {
+        "question": "הרחבות (מלבד מתמטיקה ואנגלית) - אנא בחר/י את הקרוב ביותר",
         "type": "closed",  # שאלה סגורה
-        "options": [
-            "תנועת נוער",
-            "פעילות ספורטיבית עצמאית / מאורגנת",
-            "פעילות טכנולוגית",
-            "פעילות אומנותית מאורגנת / עצמאית",
-            "מסגרת דתית לימודית",
-            "עבודה בחופשים / במהלך שנת הלימודים",
-            "אחר"
-            ],
+        "options":[
+             "אין הרחבות נוספות",
+             "מגמות טכנולוגיות", 
+             "מגמות מדעיות", 
+             "מגמות שפה",
+             "מגמות אומנותיות",
+             "מגמות מדעי החברה", 
+             "מגמות מדעי הרוח", 
+             "אחר"
+             ],
         "options_style":"horizontal",
-        "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
+        
+        "feedbacks": [],
         "feedback_system_prompt_name":'common_feedback',
         "feedback_type":"none",
         "reflection"  : "False",
+        "not_for_school_8":"True",
         "time_count":"no"
     },
     
@@ -133,6 +145,7 @@ questions = [
         "feedback_system_prompt_name":'common_feedback',
         "feedback_type":"none",
         "reflection"  : "False",
+        "not_for_school_8":"False",
         "time_count":"no"
     },
      
@@ -156,6 +169,7 @@ questions = [
         "feedback_system_prompt_name":'common_feedback',
         "feedback_type":"none",
         "reflection"  : "False",
+        "not_for_school_8":"False",
         "time_count":"no"
     },
      
@@ -186,6 +200,7 @@ questions = [
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
         "reflection"  : "False",
+        "not_for_school_8":"False",
         "time_count": "no"
     },
     {
@@ -200,6 +215,7 @@ questions = [
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
         "reflection"  : "False",
+        "not_for_school_8":"False",
         "time_count": "no"
     },
     {
@@ -214,6 +230,7 @@ questions = [
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
         "reflection"  : "False",
+        "not_for_school_8":"False",
         "time_count": "no"
     },
     {
@@ -228,6 +245,7 @@ questions = [
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
         "reflection"  : "False",
+        "not_for_school_8":"False",
         "time_count": "no"
     },
     {
@@ -242,6 +260,7 @@ questions = [
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
         "reflection"  : "False",
+        "not_for_school_8":"False",
         "time_count": "no"
     },
     {
@@ -256,6 +275,7 @@ questions = [
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
         "reflection"  : "False",
+        "not_for_school_8":"False",
         "time_count": "no"
     },
     {
@@ -270,6 +290,7 @@ questions = [
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
         "reflection"  : "False",
+        "not_for_school_8":"False",
         "time_count": "no"
     },
     {
@@ -284,6 +305,7 @@ questions = [
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
         "reflection"  : "False",
+        "not_for_school_8":"False",
         "time_count": "no"
     },
     {
@@ -298,6 +320,7 @@ questions = [
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
         "reflection"  : "False",
+        "not_for_school_8":"False",
         "time_count": "no"
     },
 
@@ -321,6 +344,7 @@ questions = [
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
         "reflection"  : "False",
+        "not_for_school_8":"False",
         "time_count": "no"
     },
     {
@@ -335,6 +359,7 @@ questions = [
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
         "reflection"  : "False",
+        "not_for_school_8":"False",
         "time_count": "no"
     },
     {
@@ -349,6 +374,7 @@ questions = [
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
         "reflection"  : "False",
+        "not_for_school_8":"False",
         "time_count": "no"
     },
     {
@@ -363,6 +389,7 @@ questions = [
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
         "reflection"  : "False",
+        "not_for_school_8":"False",
         "time_count": "no"
     },
     {
@@ -377,6 +404,7 @@ questions = [
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
         "reflection"  : "False",
+        "not_for_school_8":"False",
         "time_count": "no"
     },
     {
@@ -391,6 +419,7 @@ questions = [
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
         "reflection"  : "False",
+        "not_for_school_8":"False",
         "time_count": "no"
     },
     {
@@ -405,6 +434,7 @@ questions = [
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
         "reflection"  : "False",
+        "not_for_school_8":"False",
         "time_count": "no"
     },
     {
@@ -419,6 +449,7 @@ questions = [
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
         "reflection"  : "False",
+        "not_for_school_8":"False",
         "time_count": "no"
     },
     {
@@ -433,6 +464,7 @@ questions = [
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
         "reflection"  : "False",
+        "not_for_school_8":"False",
         "time_count": "no"
     },
 
@@ -455,6 +487,7 @@ questions = [
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
         "reflection"  : "False",
+        "not_for_school_8":"False",
         "time_count": "no"
     },
     {
@@ -469,6 +502,7 @@ questions = [
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
         "reflection"  : "False",
+        "not_for_school_8":"False",
         "time_count": "no"
     },
     {
@@ -483,6 +517,7 @@ questions = [
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
         "reflection"  : "False",
+        "not_for_school_8":"False",
         "time_count": "no"
     },
     {
@@ -497,6 +532,7 @@ questions = [
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
         "reflection"  : "False",
+        "not_for_school_8":"False",
         "time_count": "no"
     },
     {
@@ -511,6 +547,7 @@ questions = [
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
         "reflection"  : "False",
+        "not_for_school_8":"False",
         "time_count": "no"
     },
     {
@@ -525,6 +562,7 @@ questions = [
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
         "reflection"  : "False",
+        "not_for_school_8":"False",
         "time_count": "no"
     },
     {
@@ -539,6 +577,7 @@ questions = [
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
         "reflection"  : "False",
+        "not_for_school_8":"False",
         "time_count": "no"
     },
     {
@@ -553,6 +592,7 @@ questions = [
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
         "reflection"  : "False",
+        "not_for_school_8":"False",
         "time_count": "no"
     },
     {
@@ -567,6 +607,7 @@ questions = [
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
          "reflection"  : "False",
+        "not_for_school_8":"False",
         "time_count": "no"
     },
 
@@ -577,10 +618,27 @@ questions = [
          "system_prompt_name":"higedim_feedback",
          "time_count":"no"
      },
+      
+       {
+        "question": """
+        כל הכבוד, הגעת לחלק השלישי! 
+          תוצג בפניך חידת חשיבה, ולאחריה יוצגו שאלות בנוגע אליה.
+           בהצלחה!""",
+        "type": "text",  
+        "time_count":"no"
+    },
 
     {
         "question": "",
         "type": "simulation",  # סימולציות
+        "time_count":"no"
+    },
+    
+    {
+        "question": """
+        עכשיו יוצגו בפניך שאלות לגבי המשימה שזה עתה ביצעת.
+        """,
+        "type": "text",  
         "time_count":"no"
     },
     
@@ -593,6 +651,7 @@ questions = [
          "feedback_system_prompt_name": 'common_feedback',
          "feedback_type": "none",
          "reflection"  : "True",
+        "not_for_school_8":"False",
          "time_count": "no"
     },
     {
@@ -604,6 +663,7 @@ questions = [
          "feedback_system_prompt_name": 'common_feedback',
          "feedback_type": "none",
          "reflection"  : "True",
+        "not_for_school_8":"False",
          "time_count": "no"
     },
     {
@@ -615,6 +675,7 @@ questions = [
          "feedback_system_prompt_name": 'common_feedback',
          "feedback_type": "none",
          "reflection"  : "True",
+         "not_for_school_8":"False",
          "time_count": "no"
     },
     {
@@ -626,6 +687,7 @@ questions = [
          "feedback_system_prompt_name": 'common_feedback',
          "feedback_type": "none",
          "reflection"  : "True",
+         "not_for_school_8":"False",
          "time_count": "no"
     },
     {
@@ -637,6 +699,7 @@ questions = [
          "feedback_system_prompt_name": 'common_feedback',
          "feedback_type": "none",
          "reflection"  : "True",
+         "not_for_school_8":"False",
          "time_count": "no"
     },
     {
@@ -648,6 +711,7 @@ questions = [
          "feedback_system_prompt_name": 'common_feedback',
          "feedback_type": "none",
          "reflection"  : "True",
+         "not_for_school_8":"False",
          "time_count": "no"
     },
     {
@@ -659,6 +723,7 @@ questions = [
          "feedback_system_prompt_name": 'common_feedback',
          "feedback_type": "none",
          "reflection"  : "True",
+         "not_for_school_8":"False",
          "time_count": "no"
     },
     
@@ -671,6 +736,7 @@ questions = [
          "feedback_system_prompt_name": 'common_feedback',
          "feedback_type": "none",
          "reflection"  : "True",
+         "not_for_school_8":"False",
          "time_count": "no"
     },
     
@@ -786,5 +852,27 @@ questions = [
     #     "time_count":"yes"
     # }
      
+#      {
+#         "question": "סמנ/י את הפעילויות שאת/ה משתתפ/ת בהן מחוץ לבית הספר:",
+#         "type": "closed",  # שאלה סגורה
+#         "options": [
+#             "תנועת נוער",
+#             "פעילות ספורטיבית עצמאית / מאורגנת",
+#             "פעילות טכנולוגית",
+#             "פעילות אומנותית מאורגנת / עצמאית",
+#             "מסגרת דתית לימודית",
+#             "עבודה בחופשים / במהלך שנת הלימודים",
+#             "אחר"
+#             ],
+#         "options_style":"horizontal",
+#         "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
+#         "feedback_system_prompt_name":'common_feedback',
+#         "feedback_type":"none",
+#         "reflection"  : "False",
+#         "time_count":"no"
+#     },
     
 

@@ -70,20 +70,21 @@ def return_llm_answer_for_common_feedback(conversation):
 #     )
     # return response.choices[0].message.content
 
-def return_llm_answer(system_prompt_name ,history):
+def return_llm_answer(system_prompt_name ,conversation):
     system_prompt = system_prompts.return_system_prompt_for(system_prompt_name)
-    
+    user_prompt="\n".join([f"{msg['role']}: {msg['content']}" for msg in conversation])
+
     # ודא שהיסטוריה מעוצבת כראוי
-    formatted_conversation = [
-        {"role": msg["role"], "content": str(msg["content"])}
-        for msg in history
-    ]
+    # formatted_conversation = [
+    #     {"role": msg["role"], "content": str(msg["content"])}
+    #     for msg in history
+    # ]
 
     response = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[
             {"role": "system", "content": system_prompt},
-            *formatted_conversation
+            {"role":"user","content":user_prompt}
         ]
     )
     return response.choices[0].message.content
