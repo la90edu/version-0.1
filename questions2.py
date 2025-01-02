@@ -95,7 +95,7 @@ questions = [
     
     {
         "question": """
-        באיזה פעילויות את/ה משתתפ/ת מחוץ לבית הספר ? 
+        אנא כתוב באיזה פעילויות את/ה משתתפ/ת מחוץ לבית הספר ? 
         פרטו חוגים , פעילות ספורטיבית / אומנותית , עבודה וכדומה
         """,
         "type": "open",  # שאלה פתוחה
@@ -177,7 +177,7 @@ questions = [
 
         #הקדמה
       {
-        "question": "בחלק הקרוב יוצגו היגדים. עבור כל היגד, בחר את התשובה שהכי דומה להתנהגותך, עמדתך או דעתך",
+        "question": "בחלק הקרוב יוצגו לפניך 27 היגדים. ",
         "type": "text",  
         "time_count":"no"
     },
@@ -326,11 +326,7 @@ questions = [
 
 
 ##### Q2
-        {
-        "question": ids.return_text_by_the_id("Q2"),
-        "type": "text",  
-        "time_count":"no"
-    },
+       
        
     {
         "question": ids.return_text_by_the_id("ICI4"),
@@ -615,7 +611,7 @@ questions = [
       {
          "question": "",
          "type": "text_llm",
-         "system_prompt_name":"higedim_feedback",
+         "system_prompt_name":"hegedim",
          "time_count":"no"
      },
       
@@ -744,7 +740,7 @@ questions = [
       {
          "question": "",
          "type": "text_llm",
-         "system_prompt_name":"final_feedback",
+         "system_prompt_name":"reflection",
          "time_count":"no"
      }
    

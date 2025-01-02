@@ -5,7 +5,7 @@ from pathlib import Path
 from questions2 import questions  # ייבוא השאלות מקובץ חיצוני
 import time
 import gd
-import llm
+import llm_gpt
 import pathlib
 from PIL import Image
 import time_1 as ti
@@ -13,6 +13,8 @@ from schools import School_Type
 import schools
 import simulations
 from after_simulation import ReflectiveQuestions
+import write_to_file
+import llm_manager
 
 st.set_page_config(
     page_title="מבט לרגע",
@@ -213,6 +215,7 @@ def show_simulation1():
     
     if (st.session_state.is_question_waiting_to_be_written_simulation[0]):
         display_bot_message_with_typing_effect(simulation_question)
+        start_counting_time() ##start counting time of simulations
         st.session_state.messages.append({"role": "assistant", "content": simulation_question})
         st.session_state.is_question_waiting_to_be_written_simulation[0]=False
           
@@ -225,9 +228,10 @@ def show_simulation1():
     #         # הוספת השאלה והתשובה להיסטוריה
     #         st.session_state.messages.append({"role": "assistant", "content": q1})
             st.session_state.messages.append({"role": "user", "content": option})
+            
     #          # שמירת התשובה של המשתמש במשתנה user_data
             st.session_state.user_data.append(option)
-
+            stop_counting_time() #stop time counting
             is_correct_answer=simulations.is_answer_correct(st.session_state.simulation_id,option)
             stam=simulations.is_answer_correct
             st.session_state.is_correct_answer=is_correct_answer
@@ -243,10 +247,16 @@ def show_simulation1():
 def show_simulation2():
 
     if st.session_state.is_correct_answer:
+        display_bot_message_with_typing_effect("תשובתך היא:")
+        st.session_state.messages.append({"role": "assistant", "content": "תשובתך היא:"})
+
         display_bot_message_with_typing_effect("תשובה נכונה")
         st.session_state.messages.append({"role": "assistant", "content": "תשובה נכונה"})
 
     else:
+        display_bot_message_with_typing_effect("תשובתך היא:")
+        st.session_state.messages.append({"role": "assistant", "content": "תשובתך היא:"})
+        
         display_bot_message_with_typing_effect("תשובה שגויה")   
         st.session_state.messages.append({"role": "assistant", "content": "תשובה שגויה"})
 
@@ -365,7 +375,7 @@ def show_closed_question2(feedback_type,system_prompt_name,auto_feedbacks):
                     user=next((entry['content'] for entry in reversed(st.session_state.temp_history) if entry['role'] == 'user'), None)
                     assistant=last_assistant_content = next((entry['content'] for entry in reversed(st.session_state.temp_history) if entry['role'] == 'assistant'), None)
 
-                    feedback=llm.return_llm_answer(system_prompt_name,assistant,user)
+                    feedback=llm_gpt.return_llm_answer(system_prompt_name,assistant,user)
                     st.session_state.temp_history=[]
                     display_bot_message_with_typing_effect(feedback)#feedbacks[i])
                     st.session_state.messages.append({"role": "assistant", "content": feedback})#feedbacks[i]})
@@ -466,8 +476,12 @@ def show_text(text):
 
     st.rerun()
 
-def handle_llm(llm_system_prompt_name):
-    text=llm.return_llm_answer(llm_system_prompt_name,st.session_state.messages)
+def handle_llm(system_prompt_name):
+    text=""
+    if (system_prompt_name=="hegedim"):
+        text=llm_manager.give_feedback_hegedim(st.session_state.messages)
+    elif (system_prompt_name=="reflection"):
+        text=llm_manager.give_feedback_reflection(st.session_state.messages)
     show_text(text)
 
 
@@ -511,6 +525,8 @@ def show_selectbox_schools_question(question, feedbacks):
 
 #MAIN#####
 # כותרת
+
+# write_to_file.write_to_file("messages.txt")
 st.markdown('<h1 class="main-title">מבט לרגע🚀</h1>', unsafe_allow_html=True)
 # אתחול משתני session_state במידת הצורך
 if 'messages' not in st.session_state:
@@ -536,8 +552,8 @@ show_chat_history()
 
 
 #checks if it counting time - stop time
-if (st.session_state.is_counting_time==True):
-                stop_counting_time()
+# if (st.session_state.is_counting_time==True):
+#                 stop_counting_time()
 
     # הצגת השאלה הנוכחית (אם עדיין לא סיימנו את כל השאלות)
 if not st.session_state.finished:
@@ -592,8 +608,8 @@ if not st.session_state.finished:
                     display_input_box(disabled=True)  # השבתת תיבת ה-input
 
                 
-            if current_q["time_count"] == "yes":
-                start_counting_time()
+            # if current_q["time_count"] == "yes":
+            #     start_counting_time()
                 
         else:
             st.session_state.finished = True
@@ -610,5 +626,7 @@ if not st.session_state.finished:
 
             user_data = st.session_state.user_data
             gd.add_row_to_sheet(user_data)
+            
+            write_to_file.write_to_file(st.session_state.messages)
     
 
