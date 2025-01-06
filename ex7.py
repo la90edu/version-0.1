@@ -510,23 +510,45 @@ def show_selectbox_schools_question(question, feedbacks):
         placeholder="שם בית הספר שלך...",
     )
     
+    # לחצן אישור לבחירת התשובה
+    if st.button("אישור", key=f"{st.session_state.current_question}_confirm"):
+        if selected_option is not None:  # בדיקה אם נבחרה תשובה
+            # הוספת השאלה והתשובה להיסטוריה
+            st.session_state.messages.append({"role": "assistant", "content": question})
+            st.session_state.messages.append({"role": "user", "content": selected_option})
+
+            # שמירת התשובה של המשתמש במשתנה user_data
+            st.session_state.user_data.append(selected_option)
+
+            # הוספת הפידבק לפי הבחירה
+            feedback_index = options.index(selected_option)  # אין בעיה כי בדקנו קודם
+            display_bot_message_with_typing_effect(feedbacks)
+            st.session_state.messages.append({"role": "assistant", "content": feedbacks})
+            st.session_state.current_question += 1
+            st.rerun()
+        else:
+            # הודעת שגיאה אם לא נבחרה תשובה
+            st.error("אנא בחר/י תשובה לפני שאתם ממשיכים.")
 
 
     # לחצן אישור לבחירת התשובה
-    if st.button("אישור", key=f"{st.session_state.current_question}_confirm"):
-        # הוספת השאלה והתשובה להיסטוריה
-        st.session_state.messages.append({"role": "assistant", "content": question})
-        st.session_state.messages.append({"role": "user", "content": selected_option})
+    # if st.button("אישור", key=f"{st.session_state.current_question}_confirm"):
+    #     # הוספת השאלה והתשובה להיסטוריה
+    #     st.session_state.messages.append({"role": "assistant", "content": question})
+    #     st.session_state.messages.append({"role": "user", "content": selected_option})
 
-        # שמירת התשובה של המשתמש במשתנה user_data
-        st.session_state.user_data.append(selected_option)
+    #     # שמירת התשובה של המשתמש במשתנה user_data
+    #     st.session_state.user_data.append(selected_option)
 
-        # הוספת הפידבק לפי הבחירה
-        feedback_index = options.index(selected_option)
-        display_bot_message_with_typing_effect(feedbacks)
-        st.session_state.messages.append({"role": "assistant", "content": feedbacks})
-        st.session_state.current_question += 1
-        st.rerun()
+    #     # הוספת הפידבק לפי הבחירה
+    #     feedback_index = options.index(selected_option)
+    #     display_bot_message_with_typing_effect(feedbacks)
+    #     st.session_state.messages.append({"role": "assistant", "content": feedbacks})
+    #     st.session_state.current_question += 1
+    #     st.rerun()
+    # else:
+    #     # הודעת שגיאה אם לא נבחרה תשובה
+    #     st.error("אנא בחר/י תשובה .")
         
 
 #MAIN#####
