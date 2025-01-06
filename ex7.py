@@ -131,6 +131,11 @@ st.markdown(
     # st.session_state.close_question_stage=1
     # return()
 
+def add_and_update_user_data(data_to_add):
+    st.session_state.user_data.append(data_to_add)
+    user_data = st.session_state.user_data
+    gd.add_row_to_sheet(user_data)
+    
 def feedback_after_selection():
     selection=st.session_state.close_question_answer
     st.markdown(f"Your selected options: {selection}.")
@@ -283,7 +288,6 @@ def display_bot_message_with_typing_effect(text, typing_speed=0.03):
     :param text: הטקסט להצגה
     :param typing_speed: מהירות ההקלדה (בשניות בין תווים)
     """
-
     placeholder = st.empty()
     displayed_text = ""
     
@@ -297,6 +301,8 @@ def display_bot_message_with_typing_effect(text, typing_speed=0.03):
         </div>
         """, unsafe_allow_html=True)
         time.sleep(typing_speed)
+        
+
     
    
 def display_bot_message(text):
@@ -627,6 +633,6 @@ if not st.session_state.finished:
             user_data = st.session_state.user_data
             gd.add_row_to_sheet(user_data)
             
-            write_to_file.write_to_file(st.session_state.messages)
+#            write_to_file.write_to_file(st.session_state.messages)
     
 

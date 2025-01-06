@@ -78,7 +78,7 @@ class ReflectiveQuestions:
         "correct_reflection_question": "הסיבה העיקרית שהצלחתי לפתור את הבעיה היא",
         "incorrect_reflection_question": "הסיבה העיקרית שלא הצלחתי לפתור את הבעיה היא",
         "correct_answer_options": [
-            "העבודה הקשה שהשקעתי בלימוד של החומר שצריך",
+            "העבודה הקשה שהשקעתי בחשיבה על החומר שצריך",
             "שילוב של היכולות שלי והמאמץ שהשקעתי",
             "בעיקר הכשרון שלי, אבל גם קצת מאמץ",
             "באופן חד משמעי הכשרון המולד שלי לתחום",
@@ -127,7 +127,7 @@ class ReflectiveQuestions:
     {
         "id": 7,
         "correct_reflection_question": "כשניגשתי לבעיה הנוכחית",
-        "incorrect_reflection_question": "כשסיימתי את לפתור את הבעיה",
+        "incorrect_reflection_question": "כשסיימתי לפתור את הבעיה ",
         "correct_answer_options": [
             "מיד חיפשתי דרכים שכבר השתמשתי בהם לפתרון בעיות בעבר",
             "ניגשתי לעבוד עליה, כל בעיה שונה מבעיה אחרת ואין מה ללמוד מאחת לשניה",

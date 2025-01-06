@@ -21,11 +21,11 @@ ids_levels2 = [
 ]
 
 ids_levels3= [
-    "לחלוטין 😃"
+    "מסכים לחלוטין 😃"
      , "מסכימ/ה 🙂"
      , "ככה ככה 😐",
-       "לא ממש 😕"
-     , "בכלל לא 🙁"
+       "לא מסכימ/ה 😕"
+     , " בכלל לא מסכימ/ה 🙁"
 
 ]
 
@@ -181,6 +181,8 @@ questions = [
         "type": "text",  
         "time_count":"no"
     },
+      
+      
       #Q1
       {
         "question": ids.return_text_by_the_id("Q1"),
@@ -189,7 +191,7 @@ questions = [
     }, 
    
     {
-        "question": ids.return_text_by_the_id("ICI2"),
+        "question": ids.return_text_by_the_id('ICI2'),
         "type": "closed",
         "options": ids_levels1,
         "options_style":"horizontal",
@@ -608,6 +610,15 @@ questions = [
     },
 
  ###LLM
+ 
+  {
+        "question": """
+        היית מעולה עכשיו אני רק צריך רגע לנתח את התשובות כדי להגיד לך מה אפשר ללמוד מהן.
+הידעת? שאלונים כאלה הם לרוב ברמת אמינות די גבוהה, אבל זה לא אומר שזו אמת מוחלטת. כדי להפיק מהמשוב האישי את המקסימום, כדאי לשתף אנשים וחברים בו כדי לקבל מהם פרספקטיבה נוספת
+""",
+        "type": "text",  
+        "time_count":"no"
+    },
       {
          "question": "",
          "type": "text_llm",
@@ -735,6 +746,14 @@ questions = [
          "not_for_school_8":"False",
          "time_count": "no"
     },
+    
+    {
+        "question": """
+          מעולה! סיימת את החלק השלישי והאחרון! אני כבר עובד על ניתוח תשובותיך, מקווה שתלמד משהו חדש על עצמך!        """,
+        "type": "text",  
+        "time_count":"no"
+    },
+    
     
     ###LLM
       {

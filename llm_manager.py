@@ -127,7 +127,7 @@ data = [
 ]
 
 
-answer=give_feedback_hegedim(data)
-print(answer)
+# answer=give_feedback_hegedim(data)
+# print(answer)
 # answer=give_feedback_reflection(data)
 # print(answer)

@@ -4,34 +4,30 @@ hegedim_start_phrase =  'יש לי רצון לקחת על עצמי משימות 
 reflection_start_phrase = "תשובתך היא:"
 
 def crop_hegedim(data):
+    data_returned=[]
     for i, item in enumerate(data):
         if hegedim_start_phrase in item.get('content', ''):
-            return data[i:]
+            data_returned= data[i:]
+            data_returned.pop()
+            return data_returned
     return []  # Return an empty list if the start_phrase is not found
 
 def crop_reflection(data):
+    data_returned=[]
     for i, item in enumerate(data):
         if reflection_start_phrase in item.get('content', ''):
-            return data[i:]
+            data_returned= data[i:]
+            data_returned.pop()
+            return data_returned
     return []  # Return an empty list if the start_phrase is not found
 
-# def convert_to_string(data):
-#     result = []
-#     for item in data:
-#         role = item.get('role', '')
-#         content = item.get('content', '')
-#         result.append(f"{{'role': '{role}', 'content': '{content}'}}")
-#     #return "\n".join(result)
-#     return result
 
-# # Example usage
-# data2 = [
-#     {'role': 'assistant', 'content': '👋 אתם עומדים למלא שאלון מטעם תכנית ההייטק...'},
-#     {'role': 'assistant', 'content': '🤔 באיזו מידה ההתנהגות למטה דומה לדרך שבה את/ה מתנהג?'},
-#     {'role': 'assistant', 'content': ' יש לי רצון לקחת על עצמי משימות שדורשות ממני להיות אחראי/ת על אחרים. 💪'},
-#     {'role': 'user', 'content': '😐 קצת דומה'},
-#     # Add more data items here...
-# ]
+data2 = [
+    {'role': 'assistant', 'content': '👋 אתם עומדים למלא שאלון מטעם תכנית ההייטק...'},
+    {'role': 'assistant', 'content': '🤔 באיזו מידה ההתנהגות למטה דומה לדרך שבה את/ה מתנהג?'},
+    {'role': 'assistant', 'content': ' יש לי רצון לקחת על עצמי משימות שדורשות ממני להיות אחראי/ת על אחרים. 💪'},
+    {'role': 'user', 'content': '😐 קצת דומה'},
+]
 
 
 def data_to_string(data):
@@ -42,29 +38,6 @@ def data_to_string(data):
     for item in data:
         result += f"{item}\n"
     return result.strip()
-
-# a=convert_to_string(data)
-# print(a)
-
-
-# def crop_and_change_to_string(data,start_phrase):
-#     filtered_data = crop_hegedim(data, start_phrase)
-#     if filtered_data==[]:
-#         return []
-#     else:
-#         return convert_to_string(filtered_data)
-
-# start_phrase = "🤔 באיזו מידה ההתנהגות למטה דומה לדרך שבה את/ה מתנהג?"
-# filtered_data = crop_and_change_to_string(data, start_phrase)
-
-# for entry in filtered_data:
-#     print(entry)
-
-# def crop_hegedim(data):
-#     for i, item in enumerate(data):
-#         if start_phrase in item.get('content', ''):
-#             return data[i:]
-#     return []  # Return an empty list if the start_phrase is not found
 
 
 # data = [
@@ -110,6 +83,6 @@ def data_to_string(data):
 # {'role': 'user', 'content': 'קצת כמוני 😐'}
 # ]
 
-# # print(crop_hegedim(data))
+print(crop_hegedim(data2))
 
 # print(data_to_string(data))
