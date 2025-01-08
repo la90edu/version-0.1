@@ -7,8 +7,8 @@ import os
 
 scopes = [ "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive"]
-#creds = Credentials.from_service_account_file("/etc/secrets/cred.json", scopes=scopes)#for deployment
-creds = Credentials.from_service_account_file("cred.json", scopes=scopes)#local development
+creds = Credentials.from_service_account_file("/etc/secrets/cred.json", scopes=scopes)#for deployment
+#creds = Credentials.from_service_account_file("cred.json", scopes=scopes)#local development
 client = gspread.authorize(creds)
 
 #sheet_id=os.getenv("GOOGLE_SHEET_ID")
