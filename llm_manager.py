@@ -2,6 +2,7 @@ import crop_for_llm
 import llm_claude
 import llm_gpt
 import ids
+import gd
 
 reflection_prompt="""
 המשתמש ענה על חידה. לאחר שענה נאמר לו האם התשובה היא נכונה או לא, והוצגו לו שאלות בנוגע לחוויה שלו בפתרון השאלה. 
@@ -28,11 +29,6 @@ hegedim_prompt="""
 """
 
 def give_feedback_reflection(conversation_history):
-    #crop
-    #start_pharse=ids.return_text_by_the_id("Q1")
-    #print(start_pharse)
-    #croped_string=crop_for_llm.crop_and_change_to_string(conversation_history,start_pharse)
-    #print(croped_string)
     croped=crop_for_llm.crop_reflection(conversation_history)
     string_format=crop_for_llm.data_to_string(croped)
     #send_to_llm
@@ -41,19 +37,18 @@ def give_feedback_reflection(conversation_history):
     
     
 def give_feedback_hegedim(conversation_history):
-    #crop
-    #start_pharse="תשובה שגויה"
-    #croped_string=crop_for_llm.crop_and_change_to_string(conversation_history,start_pharse)
-    #if croped_string==[]:
-    #    start_pharse="תשובה נכונה"
-    #    croped_string=crop_for_llm.crop_and_change_to_string(conversation_history,start_pharse)
+    save_data=[]
     croped=crop_for_llm.crop_hegedim(conversation_history)
     string_format=crop_for_llm.data_to_string(croped)
+    save_data.append(string_format)
     #send_to_llm for hamarat_hideim  #gpt4o
     # croped_string=conversation_history ## temporary
     tenslated_hegedim=llm_gpt.return_llm_answer(hamarat_hegedim_prompt,string_format)
+    save_data.append(tenslated_hegedim) 
     #send_to_llm for hegedim
     text=llm_claude.return_llm_answer(tenslated_hegedim,hegedim_prompt)
+    save_data.append(text)
+    gd.add_row_to_sheet2(save_data)
     return text
     
     

@@ -134,7 +134,7 @@ st.markdown(
 def add_and_update_user_data(data_to_add):
     st.session_state.user_data.append(data_to_add)
     user_data = st.session_state.user_data
-    gd.add_row_to_sheet(user_data)
+    gd.add_data_to_the_row(st.session_state.gd_line, user_data)
     
 def feedback_after_selection():
     selection=st.session_state.close_question_answer
@@ -344,7 +344,8 @@ def show_closed_question(question, options,options_style, feedbacks,not_for_scho
                             st.session_state.temp_history.append({"role": "user", "content": option})
 
                         # שמירת התשובה של המשתמש במשתנה user_data
-                            st.session_state.user_data.append(option)
+                            #st.session_state.user_data.append(option)
+                            add_and_update_user_data(option)
             
                             st.close_question_selection_i = i
                             st.session_state.question_stage = 1
@@ -531,25 +532,7 @@ def show_selectbox_schools_question(question, feedbacks):
             st.error("אנא בחר/י תשובה לפני שאתם ממשיכים.")
 
 
-    # לחצן אישור לבחירת התשובה
-    # if st.button("אישור", key=f"{st.session_state.current_question}_confirm"):
-    #     # הוספת השאלה והתשובה להיסטוריה
-    #     st.session_state.messages.append({"role": "assistant", "content": question})
-    #     st.session_state.messages.append({"role": "user", "content": selected_option})
-
-    #     # שמירת התשובה של המשתמש במשתנה user_data
-    #     st.session_state.user_data.append(selected_option)
-
-    #     # הוספת הפידבק לפי הבחירה
-    #     feedback_index = options.index(selected_option)
-    #     display_bot_message_with_typing_effect(feedbacks)
-    #     st.session_state.messages.append({"role": "assistant", "content": feedbacks})
-    #     st.session_state.current_question += 1
-    #     st.rerun()
-    # else:
-    #     # הודעת שגיאה אם לא נבחרה תשובה
-    #     st.error("אנא בחר/י תשובה .")
-        
+   
 
 #MAIN#####
 # כותרת
@@ -574,6 +557,7 @@ if 'messages' not in st.session_state:
         st.session_state.close_question_selection_i=None
         st.session_state.temp_history=[]
         st.session_state.is_correct_answer=None
+        st.session_state.gd_line=gd.return_next_row()
 
     # הצגת היסטוריית השיחה
 show_chat_history()
