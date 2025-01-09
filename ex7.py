@@ -23,17 +23,17 @@ st.set_page_config(
 )
 
 
-# # פונקציה להמרת תמונה ל-base64
-# def img_to_base64(image_path):
-#     with open(image_path, "rb") as img_file:
-#         return base64.b64encode(img_file.read()).decode('utf-8')
+# פונקציה להמרת תמונה ל-base64
+def img_to_base64(image_path):
+    with open(image_path, "rb") as img_file:
+        return base64.b64encode(img_file.read()).decode('utf-8')
 
-# # המרת התמונה ל-base64
-# try:
-#     img_base64 = img_to_base64("mop_logo.jpg")
-#     avatar_img = f"data:image/jpeg;base64,{img_base64}"
-# except Exception as e:
-#     avatar_img = ""
+# המרת התמונה ל-base64
+try:
+    img_base64 = img_to_base64("mop_logo.jpg")
+    avatar_img = f"data:image/jpeg;base64,{img_base64}"
+except Exception as e:
+    avatar_img = ""
 
 st.markdown(
      """
@@ -142,7 +142,8 @@ def feedback_after_selection():
     st.session_state.messages.append({"role": "user", "content": selection})
 
             # שמירת התשובה של המשתמש במשתנה user_data
-    st.session_state.user_data.append(selection)
+    #st.session_state.user_data.append(selection)
+    add_and_update_user_data(selection)
     
 
 def display_bot_image(image_path):
@@ -180,7 +181,8 @@ def start_counting_time():
 def stop_counting_time():
                 st.session_state.is_counting_time=False
                 response_time_count=ti.end()
-                st.session_state.user_data.append(response_time_count)
+                #st.session_state.user_data.append(response_time_count)
+                add_and_update_user_data(response_time_count)
 
 def show_simulation0():
     q1="בחר דרגת קושי "
@@ -205,7 +207,8 @@ def show_simulation0():
             st.session_state.messages.append({"role": "assistant", "content": q1})
             st.session_state.messages.append({"role": "user", "content": level})
              # שמירת התשובה של המשתמש במשתנה user_data
-            st.session_state.user_data.append(level)
+            #st.session_state.user_data.append(level)
+            add_and_update_user_data(level)
             # st.session_state.simulation_id=i
             
             st.session_state.question_stage=1
@@ -240,10 +243,9 @@ def show_simulation1():
             is_correct_answer=simulations.is_answer_correct(st.session_state.simulation_id,option)
             stam=simulations.is_answer_correct
             st.session_state.is_correct_answer=is_correct_answer
-            st.session_state.user_data.append(is_correct_answer)
-            #after_simulation.is_correct_answer=is_correct_answer
-            #after_simulation.update_simulation_answer(is_correct_answer)
-            # questions2.is_simulation_correct=is_correct_answer
+            #st.session_state.user_data.append(is_correct_answer)
+            add_and_update_user_data(is_correct_answer)
+            
             ReflectiveQuestions.simulation_answer=is_correct_answer
             x=ReflectiveQuestions.simulation_answer
             st.session_state.question_stage=2  
@@ -321,7 +323,8 @@ st.logo("logo1.jpg")#,size="large")
 #questions functions
 def show_closed_question(question, options,options_style, feedbacks,not_for_school_8): 
     if ((not_for_school_8=="True")and(st.session_state.grade=='SCHOOL_8')):
-        st.session_state.user_data.append("ללא")
+        #st.session_state.user_data.append("ללא")
+        add_and_update_user_data("ללא")
         st.session_state.current_question += 1
         st.rerun()
     else:     
@@ -362,7 +365,8 @@ def show_closed_question(question, options,options_style, feedbacks,not_for_scho
                             st.session_state.temp_history.append({"role": "user", "content": option})
 
                         # שמירת התשובה של המשתמש במשתנה user_data
-                            st.session_state.user_data.append(option)
+                            #st.session_state.user_data.append(option)
+                            add_and_update_user_data(option)
             
                             st.close_question_selection_i = i
                             st.session_state.question_stage = 1
@@ -408,7 +412,8 @@ def show_closed_grade_question(question, options,feedbacks, session_state_answer
             st.session_state.messages.append({"role": "user", "content": option})
 
             # שמירת התשובה של המשתמש במשתנה user_data
-            st.session_state.user_data.append(option)
+            add_and_update_user_data(option)
+            #st.session_state.user_data.append(option)
             # שמירת הכיתה במשתשנה בsession_state
             grade=session_state_answer[i]
             st.session_state.grade=grade
@@ -458,7 +463,8 @@ def display_input_box(disabled):
             st.session_state.messages.append({"role": "user", "content": user_input})
             
             # שמירת התשובה של המשתמש במשתנה user_data
-            st.session_state.user_data.append(user_input)
+            #st.session_state.user_data.append(user_input)
+            add_and_update_user_data(user_input)
 
             # טיפול בשאלה הפתוחה או החזרה לשאלה הסגורה
             if st.session_state.current_question < len(questions):
@@ -519,7 +525,8 @@ def show_selectbox_schools_question(question, feedbacks):
             st.session_state.messages.append({"role": "user", "content": selected_option})
 
             # שמירת התשובה של המשתמש במשתנה user_data
-            st.session_state.user_data.append(selected_option)
+            #st.session_state.user_data.append(selected_option)
+            add_and_update_user_data(selected_option)
 
             # הוספת הפידבק לפי הבחירה
             feedback_index = options.index(selected_option)  # אין בעיה כי בדקנו קודם
@@ -636,8 +643,8 @@ if not st.session_state.finished:
             # השבתת תיבת ה-input בסיום השיחה
             display_input_box(disabled=True)
 
-            user_data = st.session_state.user_data
-            gd.add_row_to_sheet(user_data)
+            #user_data = st.session_state.user_data
+            #gd.add_row_to_sheet(user_data)
             
 #            write_to_file.write_to_file(st.session_state.messages)
     

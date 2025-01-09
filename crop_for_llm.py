@@ -4,8 +4,9 @@ hegedim_start_phrase =  'יש לי רצון לקחת על עצמי משימות 
 reflection_start_phrase = "תשובתך היא:"
 
 def crop_hegedim(data):
+    filtered_data = [message for message in data if message["content"] is not None]
     data_returned=[]
-    for i, item in enumerate(data):
+    for i, item in enumerate(filtered_data):
         if hegedim_start_phrase in item.get('content', ''):
             data_returned= data[i:]
             data_returned.pop()
@@ -13,8 +14,11 @@ def crop_hegedim(data):
     return []  # Return an empty list if the start_phrase is not found
 
 def crop_reflection(data):
+    #remove messages with no content (images, etc.)    
+    filtered_data = [message for message in data if message["content"] is not None]
+
     data_returned=[]
-    for i, item in enumerate(data):
+    for i, item in enumerate(filtered_data):
         if reflection_start_phrase in item.get('content', ''):
             data_returned= data[i:]
             data_returned.pop()
@@ -22,12 +26,12 @@ def crop_reflection(data):
     return []  # Return an empty list if the start_phrase is not found
 
 
-data2 = [
-    {'role': 'assistant', 'content': '👋 אתם עומדים למלא שאלון מטעם תכנית ההייטק...'},
-    {'role': 'assistant', 'content': '🤔 באיזו מידה ההתנהגות למטה דומה לדרך שבה את/ה מתנהג?'},
-    {'role': 'assistant', 'content': ' יש לי רצון לקחת על עצמי משימות שדורשות ממני להיות אחראי/ת על אחרים. 💪'},
-    {'role': 'user', 'content': '😐 קצת דומה'},
-]
+# data2 = [
+#     {'role': 'assistant', 'content': '👋 אתם עומדים למלא שאלון מטעם תכנית ההייטק...'},
+#     {'role': 'assistant', 'content': '🤔 באיזו מידה ההתנהגות למטה דומה לדרך שבה את/ה מתנהג?'},
+#     {'role': 'assistant', 'content': ' יש לי רצון לקחת על עצמי משימות שדורשות ממני להיות אחראי/ת על אחרים. 💪'},
+#     {'role': 'user', 'content': '😐 קצת דומה'},
+# ]
 
 
 def data_to_string(data):
@@ -83,6 +87,6 @@ def data_to_string(data):
 # {'role': 'user', 'content': 'קצת כמוני 😐'}
 # ]
 
-print(crop_hegedim(data2))
+# print(crop_hegedim(data2))
 
 # print(data_to_string(data))

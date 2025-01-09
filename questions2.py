@@ -21,13 +21,13 @@ ids_levels2 = [
 ]
 
 ids_levels3= [
-    "מסכים לחלוטין 😃"
-     , "מסכימ/ה 🙂"
-     , "ככה ככה 😐",
-       "לא מסכימ/ה 😕"
-     , " בכלל לא מסכימ/ה 🙁"
-
+    "😄 נכון מאוד לגביי",
+    "😊 נכון לגביי",
+    "😐 נכון לגביי באופן חלקי",
+    "🙁 לא כל כך נכון לגביי",
+    "😡 ממש לא נכון לגביי"
 ]
+
 
 # is_simulation_correct=None
 
@@ -85,7 +85,7 @@ questions = [
     
      
     {
-        "question": "בחר את שם בית הספר שלך:",
+        "question": "בחר/י את שם בית הספר שלך:",
         "type": "selectbox_schools",  # שאלה מסוג Selectbox
         "options": "null" ,#["אפק", "גוונים", "בגין"],  # שמות בתי הספר
         "feedbacks": "תודה",
@@ -612,13 +612,18 @@ questions = [
  ###LLM
  
   {
-        "question": """
-        היית מעולה עכשיו אני רק צריך רגע לנתח את התשובות כדי להגיד לך מה אפשר ללמוד מהן.
-הידעת? שאלונים כאלה הם לרוב ברמת אמינות די גבוהה, אבל זה לא אומר שזו אמת מוחלטת. כדי להפיק מהמשוב האישי את המקסימום, כדאי לשתף אנשים וחברים בו כדי לקבל מהם פרספקטיבה נוספת
-""",
+        "question": """מנתח תשובות...
+עוד כמה רגעים אומר לך מה אפשר ללמוד מהם...        """,
         "type": "text",  
         "time_count":"no"
     },
+      {
+         "question": "מנתח תשובות...",
+         "type": "image",  # שאלה סגורה
+         "url":"cat.gif",
+         "time_count":"no"
+     },
+
       {
          "question": "",
          "type": "text_llm",
@@ -753,6 +758,13 @@ questions = [
         "type": "text",  
         "time_count":"no"
     },
+    {
+         "question": "מנתח תשובות...",
+         "type": "image",  # שאלה סגורה
+         "url":"cat.gif",
+         "time_count":"no"
+     },
+    
     
     
     ###LLM
