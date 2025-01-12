@@ -20,6 +20,12 @@ st.set_page_config(
     page_title="מבט לרגע",
     page_icon="🚀",  # אייקון של בוט
     layout="wide",  # הגדרה לתצוגה רחבה
+    # initial_sidebar_state="expanded",
+    # menu_items={
+    #     "Get Help": None,
+    #     "Report a bug": None,
+    #     "About": None
+    
 )
 
 
@@ -318,7 +324,7 @@ def display_bot_message(text):
     
 
     
-st.logo("logo1.jpg")#,size="large")
+st.logo("logo1.jpg",size="large")
  
 #questions functions
 def show_closed_question(question, options,options_style, feedbacks,not_for_school_8): 
@@ -643,8 +649,6 @@ if not st.session_state.finished:
             # השבתת תיבת ה-input בסיום השיחה
             display_input_box(disabled=True)
 
-            #user_data = st.session_state.user_data
-            #gd.add_row_to_sheet(user_data)
             
 #            write_to_file.write_to_file(st.session_state.messages)
     
