@@ -15,6 +15,11 @@ import simulations
 from after_simulation import ReflectiveQuestions
 import write_to_file
 import llm_manager
+import data_translation
+import crop_for_llm
+import llm_claude
+from anthropic import Anthropic
+import os
 
 st.set_page_config(
     page_title="מבט לרגע",
@@ -138,7 +143,8 @@ st.markdown(
     # return()
 
 def add_and_update_user_data(data_to_add):
-    st.session_state.user_data.append(data_to_add)
+    data_after_translation=data_translation.get_content_by_key(data_to_add)
+    st.session_state.user_data.append(data_after_translation)
     user_data = st.session_state.user_data
     gd.add_data_to_the_row(st.session_state.gd_line, user_data)
     
@@ -233,8 +239,6 @@ def show_simulation1():
         st.session_state.messages.append({"role": "assistant", "content": simulation_question})
         st.session_state.is_question_waiting_to_be_written_simulation[0]=False
           
-           
-    
     options=simulations.return_simulation_options_by_id(st.session_state.simulation_id)
     cols = st.columns(len(options))
     for i, option in enumerate(options):
@@ -309,9 +313,7 @@ def display_bot_message_with_typing_effect(text, typing_speed=0.03):
         </div>
         """, unsafe_allow_html=True)
         time.sleep(typing_speed)
-        
-
-    
+            
    
 def display_bot_message(text):
     st.markdown(f"""
@@ -321,8 +323,6 @@ def display_bot_message(text):
         </div>
     </div>
     """, unsafe_allow_html=True)
-    
-
     
 st.logo("logo1.jpg",size="large")
  
@@ -494,15 +494,72 @@ def show_text(text):
     st.session_state.current_question += 1
 
     st.rerun()
+    
+    ##LLM
 
 def handle_llm(system_prompt_name):
     text=""
     if (system_prompt_name=="hegedim"):
-        text=llm_manager.give_feedback_hegedim(st.session_state.messages)
+        give_feedback_hegedim(st.session_state.messages)
     elif (system_prompt_name=="reflection"):
-        text=llm_manager.give_feedback_reflection(st.session_state.messages)
-    show_text(text)
+        give_feedback_reflection(st.session_state.messages)
+    st.session_state.current_question += 1
+    st.rerun()    
+    
+def give_feedback_hegedim(conversation_history):
+    croped=crop_for_llm.crop_hegedim(conversation_history)
+    string_format=crop_for_llm.data_to_string(croped)
+    
+    translated_hegedim=llm_claude.return_llm_answer(string_format,llm_manager.get_hamarat_hegedim_prompt())
+    #send_to_llm for hegedim
+    generate_claude_stream(llm_manager.get_hegedim_prompt(),translated_hegedim)
+    #text=llm_claude.return_llm_answer(translated_hegedim,llm_manager.get_hegedim_prompt())
+    
 
+def give_feedback_reflection(conversation_history):
+    croped=crop_for_llm.crop_reflection(conversation_history)
+    string_format=crop_for_llm.data_to_string(croped)
+    #send_to_llm
+    generate_claude_stream(llm_manager.get_reflection_prompt(),string_format)
+    #text=llm_claude.return_llm_answer(string_format,reflection_prompt)
+    
+
+client = Anthropic(api_key=os.getenv('ANTHROPIC_API_KEY'))
+def generate_claude_stream(system_prompt,user_prompt):
+# Create the stream
+    with client.messages.stream(
+        model="claude-3-sonnet-20240229",  
+        max_tokens=1024,  
+        system=system_prompt,
+        messages=[
+            {"role": "user", "content": user_prompt}
+        ]
+    ) as stream:
+    
+    # Create a placeholder for the story
+        story_placeholder = st.empty()
+        full_response = ""
+    
+    # Process each chunk of the response
+        for chunk in stream:
+            if chunk.type == "content_block_delta":
+                full_response += chunk.delta.text
+                #story_placeholder.markdown(full_response + "▌")
+                #story_placeholder.markdown(f'<div style="direction: rtl; text-align: right;">{full_response}▌</div>', unsafe_allow_html=True)
+                story_placeholder.markdown(f'<div style="direction: rtl; text-align: right;">{full_response}</div>', unsafe_allow_html=True)
+
+    
+    # Show final response without cursor
+        #story_placeholder.markdown(full_response)
+        story_placeholder.markdown(f'<div style="direction: rtl; text-align: right;">{full_response}</div>', unsafe_allow_html=True)
+
+    
+    #insert full_response to the history 
+    st.session_state.messages.append({"role": "assistant", "content": full_response})
+
+
+
+    #LLM
 
 def show_selectbox_schools_question(question, feedbacks):
     # הצגת השאלה

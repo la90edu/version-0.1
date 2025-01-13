@@ -1,6 +1,6 @@
 import ids
 
-hegedim_start_phrase =  'יש לי רצון לקחת על עצמי משימות שדורשות ממני להיות אחראי/ת על אחרים. 💪'
+hegedim_start_phrase =  '1. יש לי רצון לקחת על עצמי משימות שדורשות ממני להיות אחראי/ת על אחרים 💪'
 reflection_start_phrase = "תשובתך היא:"
 
 def crop_hegedim(data):
@@ -9,6 +9,7 @@ def crop_hegedim(data):
     for i, item in enumerate(filtered_data):
         if hegedim_start_phrase in item.get('content', ''):
             data_returned= data[i:]
+            data_returned.pop()
             data_returned.pop()
             return data_returned
     return []  # Return an empty list if the start_phrase is not found
