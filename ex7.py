@@ -146,6 +146,8 @@ def add_and_update_user_data(data_to_add):
     data_after_translation=data_translation.get_content_by_key(data_to_add)
     st.session_state.user_data.append(data_after_translation)
     user_data = st.session_state.user_data
+    if  (st.session_state.gd_line==None):
+             st.session_state.gd_line=gd.return_next_row()
     gd.add_data_to_the_row(st.session_state.gd_line, user_data)
     
 def feedback_after_selection():
@@ -293,7 +295,7 @@ def display_user_message(text):
     </div>
     """, unsafe_allow_html=True)
 
-def display_bot_message_with_typing_effect(text, typing_speed=0.03):
+def display_bot_message_with_typing_effect(text, typing_speed=0.015):
     """
     מציג הודעה מהבוט עם אפקט הקלדה
     
@@ -507,20 +509,30 @@ def handle_llm(system_prompt_name):
     st.rerun()    
     
 def give_feedback_hegedim(conversation_history):
+    gender=crop_for_llm.return_gender_from_conversation(conversation_history)
     croped=crop_for_llm.crop_hegedim(conversation_history)
     string_format=crop_for_llm.data_to_string(croped)
-    
+    gd.add_row_to_sheet2(["new hegedim"])
+    gd.add_row_to_sheet2([string_format])
     translated_hegedim=llm_claude.return_llm_answer(string_format,llm_manager.get_hamarat_hegedim_prompt())
+    gd.add_row_to_sheet2([translated_hegedim])
     #send_to_llm for hegedim
-    generate_claude_stream(llm_manager.get_hegedim_prompt(),translated_hegedim)
+    generate_claude_stream(llm_manager.get_hegedim_prompt(gender),translated_hegedim)
+    # save_data=[]
+    # save_data.append(string_format)
+    # save_data.append(translated_hegedim)
+    # gd.add_row_to_sheet2(save_data)
+
     #text=llm_claude.return_llm_answer(translated_hegedim,llm_manager.get_hegedim_prompt())
     
 
 def give_feedback_reflection(conversation_history):
+    gender=crop_for_llm.return_gender_from_conversation(conversation_history)
     croped=crop_for_llm.crop_reflection(conversation_history)
     string_format=crop_for_llm.data_to_string(croped)
     #send_to_llm
-    generate_claude_stream(llm_manager.get_reflection_prompt(),string_format)
+    gd.add_row_to_sheet2(["reflection:"])
+    generate_claude_stream(llm_manager.get_reflection_prompt(gender),string_format)
     #text=llm_claude.return_llm_answer(string_format,reflection_prompt)
     
 
@@ -528,7 +540,8 @@ client = Anthropic(api_key=os.getenv('ANTHROPIC_API_KEY'))
 def generate_claude_stream(system_prompt,user_prompt):
 # Create the stream
     with client.messages.stream(
-        model="claude-3-sonnet-20240229",  
+        model="claude-3-sonnet-20240229", 
+        temperature=0.1,
         max_tokens=1024,  
         system=system_prompt,
         messages=[
@@ -556,6 +569,7 @@ def generate_claude_stream(system_prompt,user_prompt):
     
     #insert full_response to the history 
     st.session_state.messages.append({"role": "assistant", "content": full_response})
+    gd.add_row_to_sheet2([full_response])
 
 
 
@@ -627,7 +641,7 @@ if 'messages' not in st.session_state:
         st.session_state.close_question_selection_i=None
         st.session_state.temp_history=[]
         st.session_state.is_correct_answer=None
-        st.session_state.gd_line=gd.return_next_row()
+        st.session_state.gd_line=None
 
     # הצגת היסטוריית השיחה
 show_chat_history()

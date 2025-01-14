@@ -44,6 +44,14 @@ def data_to_string(data):
         result += f"{item}\n"
     return result.strip()
 
+def return_gender_from_conversation(conversation):
+    data=conversation[2]
+    answer=data.get('content') 
+    if (answer=="אעדיף לא לענות"):
+        answer="זכר"
+    return answer
+    
+
 
 # data = [
 # {'role': 'assistant', 'content': '👋 אתם עומדים למלא שאלון מטעם תכנית ההייטק...'},
@@ -87,6 +95,8 @@ def data_to_string(data):
 # {'role': 'assistant', 'content': 'יש לי צורך שמישהו אחר יפרגן ויחמיא לי על העבודה שלי כדי שאהיה מרוצה ממה שעשיתי. 🙌'},
 # {'role': 'user', 'content': 'קצת כמוני 😐'}
 # ]
+
+# print(return_gender_from_conversation(data))
 
 # print(crop_hegedim(data2))
 
