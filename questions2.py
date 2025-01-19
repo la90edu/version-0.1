@@ -69,6 +69,11 @@ questions = [
         "not_for_school_8":"False",
         "time_count":"no"
     },
+     {
+        "type": "insert_data",  
+        "options": [""],
+        "time_count":"no"
+    },
     {
         "question": "באיזו כיתה את/ה?",
         "type": "closed_grade",  # שאלה סגורה
@@ -611,6 +616,12 @@ questions = [
         "not_for_school_8":"False",
         "time_count": "no"
     },
+    
+     {
+        "type": "insert_data",  
+        "options": [""],
+        "time_count":"no"
+    },
 
  ###LLM
  
@@ -756,6 +767,12 @@ questions = [
          "reflection"  : "True",
          "not_for_school_8":"False",
          "time_count": "no"
+    },
+    
+     {
+        "type": "insert_data",  
+        "options": [""],
+        "time_count":"no"
     },
     
     {
