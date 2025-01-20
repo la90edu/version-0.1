@@ -52,7 +52,7 @@ questions = [
 ככה שתיקח/י את הזמן להגיב ולענות, 
 
 ומה הקשר לבינה מלאכותית? 
-כנסו, מלאו עד הסוף ותגלו 🚀
+מלא/י עד הסוף ותגלה/י 🚀
         """,
         "type": "text",  
         "time_count":"no"
