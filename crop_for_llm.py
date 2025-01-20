@@ -21,7 +21,8 @@ def crop_reflection(data):
     data_returned=[]
     for i, item in enumerate(filtered_data):
         if reflection_start_phrase in item.get('content', ''):
-            data_returned= data[i:]
+            data_returned= data[i+1:]
+            data_returned.pop()
             data_returned.pop()
             return data_returned
     return []  # Return an empty list if the start_phrase is not found

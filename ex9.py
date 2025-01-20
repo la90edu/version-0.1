@@ -257,7 +257,7 @@ def show_simulation1():
             st.session_state.messages.append({"role": "user", "content": option})
             
     #          # שמירת התשובה של המשתמש במשתנה user_data
-            st.session_state.user_data.append(option)
+            #st.session_state.user_data.append(option)
             stop_counting_time() #stop time counting
             is_correct_answer=simulations.is_answer_correct(st.session_state.simulation_id,option)
             stam=simulations.is_answer_correct
@@ -403,12 +403,12 @@ def show_closed_grade_question(question, options,feedbacks, session_state_answer
         
     if (st.session_state.is_question_waiting_to_be_written[st.session_state.current_question]):
         display_bot_message_with_typing_effect(question)
+        st.session_state.messages.append({"role": "assistant", "content": question})
         st.session_state.is_question_waiting_to_be_written[st.session_state.current_question]=False
     cols = st.columns(len(options))
     for i, option in enumerate(options):
         if cols[i].button(option, key=f"{st.session_state.current_question}_{option}"):
             # הוספת השאלה והתשובה להיסטוריה
-            st.session_state.messages.append({"role": "assistant", "content": question})
             st.session_state.messages.append({"role": "user", "content": option})
 
             # שמירת התשובה של המשתמש במשתנה user_data
@@ -535,7 +535,7 @@ def generate_claude_stream(system_prompt,user_prompt):
     with client.messages.stream(
         model="claude-3-sonnet-20240229", 
         temperature=0.1,
-        max_tokens=1024,  
+        max_tokens=1500,  
         system=system_prompt,
         messages=[
             {"role": "user", "content": user_prompt}
@@ -572,6 +572,7 @@ def show_selectbox_schools_question(question, feedbacks):
     # הצגת השאלה
     if st.session_state.is_question_waiting_to_be_written[st.session_state.current_question]:
         display_bot_message_with_typing_effect(question)
+        st.session_state.messages.append({"role": "assistant", "content": question})
         st.session_state.is_question_waiting_to_be_written[st.session_state.current_question]=False
 
     # קבלת סוגי בתי הספר
@@ -591,7 +592,6 @@ def show_selectbox_schools_question(question, feedbacks):
     if st.button("אישור", key=f"{st.session_state.current_question}_confirm"):
         if selected_option is not None:  # בדיקה אם נבחרה תשובה
             # הוספת השאלה והתשובה להיסטוריה
-            st.session_state.messages.append({"role": "assistant", "content": question})
             st.session_state.messages.append({"role": "user", "content": selected_option})
 
             # שמירת התשובה של המשתמש במשתנה user_data
