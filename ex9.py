@@ -20,6 +20,7 @@ import crop_for_llm
 import llm_claude
 from anthropic import Anthropic
 import os
+import translate_hegedim
 
 st.set_page_config(
     page_title="מבט לרגע",
@@ -150,6 +151,13 @@ def update_data_in_sheet():
     
     st.session_state.current_question += 1
     st.rerun()
+    
+def update_data_in_sheet_without_increasing_question_number():
+    if  (st.session_state.gd_line==None):
+             st.session_state.gd_line=gd.return_next_row()
+    user_data = st.session_state.user_data
+    gd.add_data_to_the_row(st.session_state.gd_line, user_data)
+    
 
 
     
@@ -246,6 +254,8 @@ def show_simulation1():
         display_bot_message_with_typing_effect(simulation_question)
         start_counting_time() ##start counting time of simulations
         st.session_state.messages.append({"role": "assistant", "content": simulation_question})
+        update_data_in_sheet_without_increasing_question_number()
+
         st.session_state.is_question_waiting_to_be_written_simulation[0]=False
           
     options=simulations.return_simulation_options_by_id(st.session_state.simulation_id)
@@ -504,13 +514,18 @@ def handle_llm(system_prompt_name):
 def give_feedback_hegedim(conversation_history):
     gender=crop_for_llm.return_gender_from_conversation(conversation_history)
     croped=crop_for_llm.crop_hegedim(conversation_history)
-    string_format=crop_for_llm.data_to_string(croped)
-    gd.add_row_to_sheet2(["new hegedim"])
-    gd.add_row_to_sheet2([string_format])
-    translated_hegedim=llm_claude.return_llm_answer(string_format,llm_manager.get_hamarat_hegedim_prompt())
-    gd.add_row_to_sheet2([translated_hegedim])
+    hegedim_after_translation=translate_hegedim.translate_hegedim(croped)
+    #gd.add_row_to_sheet2([hegedim_after_translation])
+
+    string_format=crop_for_llm.data_to_string(hegedim_after_translation)
+    #gd.add_row_to_sheet2(["new hegedim"])
+    #gd.add_row_to_sheet2([string_format])
+    
+    
+    
+    #gd.add_row_to_sheet2([hegedim_after_translation])
     #send_to_llm for hegedim
-    generate_claude_stream(llm_manager.get_hegedim_prompt(gender),translated_hegedim)
+    generate_claude_stream(llm_manager.get_hegedim_prompt(gender),string_format)
     # save_data=[]
     # save_data.append(string_format)
     # save_data.append(translated_hegedim)
@@ -524,7 +539,7 @@ def give_feedback_reflection(conversation_history):
     croped=crop_for_llm.crop_reflection(conversation_history)
     string_format=crop_for_llm.data_to_string(croped)
     #send_to_llm
-    gd.add_row_to_sheet2(["reflection:"])
+    #gd.add_row_to_sheet2(["reflection:"])
     generate_claude_stream(llm_manager.get_reflection_prompt(gender),string_format)
     #text=llm_claude.return_llm_answer(string_format,reflection_prompt)
     
@@ -535,7 +550,7 @@ def generate_claude_stream(system_prompt,user_prompt):
     with client.messages.stream(
         model="claude-3-sonnet-20240229", 
         temperature=0.1,
-        max_tokens=1500,  
+        max_tokens=1024,  
         system=system_prompt,
         messages=[
             {"role": "user", "content": user_prompt}
@@ -562,7 +577,7 @@ def generate_claude_stream(system_prompt,user_prompt):
     
     #insert full_response to the history 
     st.session_state.messages.append({"role": "assistant", "content": full_response})
-    gd.add_row_to_sheet2([full_response])
+    #gd.add_row_to_sheet2([full_response])
 
 
 
