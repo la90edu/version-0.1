@@ -672,6 +672,7 @@ if not st.session_state.finished:
                     show_open_question(current_q["question"], current_q["feedback"])
                     display_input_box(disabled=False)  # הפעלת תיבת ה-input
                 case "closed":
+                    display_input_box(disabled=True)  # השבתת תיבת ה-input
                     question=current_q["question"]
                     options=current_q["options"]
                     reflection=current_q["reflection"]
@@ -687,7 +688,7 @@ if not st.session_state.finished:
                         case 0:show_closed_question(question, options,current_q["options_style"] ,current_q["feedbacks"],current_q["not_for_school_8"])
                         case 1:show_closed_question2(current_q["feedback_type"],current_q["feedback_system_prompt_name"],current_q["feedbacks"])
                         #case 3:show_closed_question_other
-                    display_input_box(disabled=False)  # השבתת תיבת ה-input
+                    #display_input_box(disabled=False)  # השבתת תיבת ה-input
                 #case "close_with_othewise"
                 case "simulation":
                     stage=st.session_state.question_stage
