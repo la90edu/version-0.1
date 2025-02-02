@@ -21,6 +21,7 @@ import llm_claude
 from anthropic import Anthropic
 import os
 import translate_hegedim
+import date
 
 st.set_page_config(
     page_title="מבט לרגע",
@@ -146,6 +147,9 @@ st.markdown(
 def update_data_in_sheet():
     if  (st.session_state.gd_line==None):
              st.session_state.gd_line=gd.return_next_row()
+             current_date=date.return_current_time()
+             st.session_state.user_data=[current_date]+st.session_state.user_data
+             
     user_data = st.session_state.user_data
     gd.add_data_to_the_row(st.session_state.gd_line, user_data)
     

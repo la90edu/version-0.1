@@ -13,11 +13,11 @@ ids_levels1 = [
 ]
 
 ids_levels2 = [
-    "בדיוק כמוני 😄",  
-    "כמוני 🙂",         
+    "לגמרי כמוני 😄",  
+    "די כמוני 🙂",         
     "קצת כמוני 😐",     
-    "קצת לא כמוני 😕", 
-    "כלל לא כמוני 🙁"   
+    "בקושי כמוני 😕", 
+    "ממש לא כמוני 🙁"   
 ]
 
 ids_levels3= [
@@ -76,11 +76,7 @@ questions = [
         "not_for_school_8":"False",
         "time_count":"no"
     },
-     {
-        "type": "insert_data",  
-        "options": [""],
-        "time_count":"no"
-    },
+     
     {
         "question": "באיזו כיתה את/ה?",
         "type": "closed_grade",  # שאלה סגורה
@@ -102,6 +98,12 @@ questions = [
         "options": "null" ,#["אפק", "גוונים", "בגין"],  # שמות בתי הספר
         "feedbacks": "תודה",
         "feedback_type":"auto",
+        "time_count":"no"
+    },
+    
+    {
+        "type": "insert_data",  
+        "options": [""],
         "time_count":"no"
     },
     
