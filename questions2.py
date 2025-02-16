@@ -101,11 +101,11 @@ questions = [
         "time_count":"no"
     },
     
-    {
-        "type": "insert_data",  
-        "options": [""],
-        "time_count":"no"
-    },
+    # {
+    #     "type": "insert_data",  
+    #     "options": [""],
+    #     "time_count":"no"
+    # },
     
     {
         "question": """
@@ -634,28 +634,28 @@ questions = [
 
  ###LLM
  
-  {
-        "question": """
-        כל הכבוד, סיימת את החלק השני ועוד מעט נעבור לחלק השלישי! 
-בינתיים אני מנתח את התשובות שלך...
-עוד כמה רגעים אומר לך מה אפשר ללמוד מהן       
-        """,
-        "type": "text",  
-        "time_count":"no"
-    },
-      {
-         "question": "מנתח תשובות...",
-         "type": "image",  # שאלה סגורה
-         "url":"cat.gif",
-         "time_count":"no"
-     },
+#   {
+#         "question": """
+#         כל הכבוד, סיימת את החלק השני ועוד מעט נעבור לחלק השלישי! 
+# בינתיים אני מנתח את התשובות שלך...
+# עוד כמה רגעים אומר לך מה אפשר ללמוד מהן       
+#         """,
+#         "type": "text",  
+#         "time_count":"no"
+#     },
+#       {
+#          "question": "מנתח תשובות...",
+#          "type": "image",  # שאלה סגורה
+#          "url":"cat.gif",
+#          "time_count":"no"
+#      },
 
-      {
-         "question": "",
-         "type": "text_llm",
-         "system_prompt_name":"hegedim",
-         "time_count":"no"
-     },
+#       {
+#          "question": "",
+#          "type": "text_llm",
+#          "system_prompt_name":"hegedim",
+#          "time_count":"no"
+#      },
       
        {
         "question": """

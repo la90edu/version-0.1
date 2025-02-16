@@ -18,10 +18,11 @@ import llm_manager
 import data_translation
 import crop_for_llm
 import llm_claude
-from anthropic import Anthropic
 import os
 import translate_hegedim
 import date
+import os
+from anthropic import Anthropic, APIError
 
 st.set_page_config(
     page_title="מבט לרגע",
@@ -548,41 +549,85 @@ def give_feedback_reflection(conversation_history):
     #text=llm_claude.return_llm_answer(string_format,reflection_prompt)
     
 
+# client = Anthropic(api_key=os.getenv('ANTHROPIC_API_KEY'))
+# def generate_claude_stream(system_prompt,user_prompt):
+# # Create the stream
+#     with client.messages.stream(
+#         model="claude-3-sonnet-20240229", 
+#         temperature=0.1,
+#         max_tokens=1024,  
+#         system=system_prompt,
+#         messages=[
+#             {"role": "user", "content": user_prompt}
+#         ]
+#     ) as stream:
+    
+#     # Create a placeholder for the story
+#         story_placeholder = st.empty()
+#         full_response = ""
+    
+#     # Process each chunk of the response
+#         for chunk in stream:
+#             if chunk.type == "content_block_delta":
+#                 full_response += chunk.delta.text
+#                 #story_placeholder.markdown(full_response + "▌")
+#                 #story_placeholder.markdown(f'<div style="direction: rtl; text-align: right;">{full_response}▌</div>', unsafe_allow_html=True)
+#                 story_placeholder.markdown(f'<div style="direction: rtl; text-align: right;">{full_response}</div>', unsafe_allow_html=True)
+
+    
+#     # Show final response without cursor
+#         #story_placeholder.markdown(full_response)
+#         story_placeholder.markdown(f'<div style="direction: rtl; text-align: right;">{full_response}</div>', unsafe_allow_html=True)
+
+    
+#     #insert full_response to the history 
+#     st.session_state.messages.append({"role": "assistant", "content": full_response})
+#     #gd.add_row_to_sheet2([full_response])
+
+
 client = Anthropic(api_key=os.getenv('ANTHROPIC_API_KEY'))
-def generate_claude_stream(system_prompt,user_prompt):
-# Create the stream
-    with client.messages.stream(
-        model="claude-3-sonnet-20240229", 
-        temperature=0.1,
-        max_tokens=1024,  
-        system=system_prompt,
-        messages=[
-            {"role": "user", "content": user_prompt}
-        ]
-    ) as stream:
-    
-    # Create a placeholder for the story
-        story_placeholder = st.empty()
-        full_response = ""
-    
-    # Process each chunk of the response
-        for chunk in stream:
-            if chunk.type == "content_block_delta":
-                full_response += chunk.delta.text
-                #story_placeholder.markdown(full_response + "▌")
-                #story_placeholder.markdown(f'<div style="direction: rtl; text-align: right;">{full_response}▌</div>', unsafe_allow_html=True)
-                story_placeholder.markdown(f'<div style="direction: rtl; text-align: right;">{full_response}</div>', unsafe_allow_html=True)
 
-    
-    # Show final response without cursor
-        #story_placeholder.markdown(full_response)
-        story_placeholder.markdown(f'<div style="direction: rtl; text-align: right;">{full_response}</div>', unsafe_allow_html=True)
+def generate_claude_stream(system_prompt, user_prompt):
+    try:
+        # Create the stream
+        with client.messages.stream(
+            model="claude-3-sonnet-20240229", 
+            temperature=0.1,
+            max_tokens=1024,  
+            system=system_prompt,
+            messages=[
+                {"role": "user", "content": user_prompt}
+            ]
+        ) as stream:
+        
+            # Create a placeholder for the story
+            story_placeholder = st.empty()
+            full_response = ""
+        
+            # Process each chunk of the response
+            for chunk in stream:
+                if chunk.type == "content_block_delta":
+                    full_response += chunk.delta.text
+                    story_placeholder.markdown(f'<div style="direction: rtl; text-align: right;">{full_response}</div>', unsafe_allow_html=True)
 
-    
-    #insert full_response to the history 
-    st.session_state.messages.append({"role": "assistant", "content": full_response})
-    #gd.add_row_to_sheet2([full_response])
+            # Show final response without cursor
+            story_placeholder.markdown(f'<div style="direction: rtl; text-align: right;">{full_response}</div>', unsafe_allow_html=True)
 
+            # Insert full_response to the history 
+            st.session_state.messages.append({"role": "assistant", "content": full_response})
+            # gd.add_row_to_sheet2([full_response])  # אם צריך לשמור את התשובה
+        
+            return full_response  # מחזיר את התשובה המלאה
+
+    except APIError as e:
+        st.warning("⚠️ מערכת עמוסה כרגע. נסה שוב בעוד כמה רגעים.")
+        #print(f"שגיאת API: {e}")
+        return ""  # מחזיר מחרוזת ריקה במקרה של שגיאה
+    
+    except Exception as e:
+        st.error("❌ שגיאה בלתי צפויה התרחשה.")
+        #print(f"שגיאה כללית: {e}")
+        return ""  # מחזיר מחרוזת ריקה עבור כל שגיאה אחרת
 
 
     #LLM
