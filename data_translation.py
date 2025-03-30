@@ -29,3 +29,4 @@ def get_content_by_key(key):
         if item["key"] == key:
             return item["content"]
     return key  # אם ה-key לא נמצא, נחזיר את המפתח עצמו
+

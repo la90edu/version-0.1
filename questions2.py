@@ -21,11 +21,11 @@ ids_levels2 = [
 ]
 
 ids_levels3= [
-    "😄 נכון מאוד לגביי",
-    "😊 נכון לגביי",
-    "😐 נכון לגביי באופן חלקי",
-    "🙁 לא כל כך נכון לגביי",
-    "😡 ממש לא נכון לגביי"
+    "😄 מתאר אותי במדויק",
+    "😊 מתאר אותי",
+    "😐 מתאר אותי במעט",
+    "🙁 לא ממש מתאר אותי",
+    "😡 כלל לא מתאר אותי "
 ]
 
 
@@ -297,51 +297,51 @@ questions = [
         "not_for_school_8":"False",
         "time_count": "no"
     },
-    {
-        "question": ids.return_text_by_the_id("ZPTI1"),
-        "type": "closed",
-        "options": ids_levels1,
-        "options_style":"horizontal",
-        "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
-        "feedback_system_prompt_name": 'common_feedback',
-        "feedback_type": "none",
-        "reflection"  : "False",
-        "not_for_school_8":"False",
-        "time_count": "no"
-    },
-    {
-        "question": ids.return_text_by_the_id("ZPTI4"),
-        "type": "closed",
-        "options": ids_levels1,
-        "options_style":"horizontal",
-        "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
-        "feedback_system_prompt_name": 'common_feedback',
-        "feedback_type": "none",
-        "reflection"  : "False",
-        "not_for_school_8":"False",
-        "time_count": "no"
-    },
-    {
-        "question": ids.return_text_by_the_id("ZPTI13"),
-        "type": "closed",
-        "options": ids_levels1,
-        "options_style":"horizontal",
-        "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
-        "feedback_system_prompt_name": 'common_feedback',
-        "feedback_type": "none",
-        "reflection"  : "False",
-        "not_for_school_8":"False",
-        "time_count": "no"
-    },
+    # {
+    #     "question": ids.return_text_by_the_id("ZPTI1"),
+    #     "type": "closed",
+    #     "options": ids_levels1,
+    #     "options_style":"horizontal",
+    #     "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+    #                   "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+    #                   "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+    #                   "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
+    #     "feedback_system_prompt_name": 'common_feedback',
+    #     "feedback_type": "none",
+    #     "reflection"  : "False",
+    #     "not_for_school_8":"False",
+    #     "time_count": "no"
+    # },
+    # {
+    #     "question": ids.return_text_by_the_id("ZPTI4"),
+    #     "type": "closed",
+    #     "options": ids_levels1,
+    #     "options_style":"horizontal",
+    #     "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+    #                   "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+    #                   "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+    #                   "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
+    #     "feedback_system_prompt_name": 'common_feedback',
+    #     "feedback_type": "none",
+    #     "reflection"  : "False",
+    #     "not_for_school_8":"False",
+    #     "time_count": "no"
+    # },
+    # {
+    #     "question": ids.return_text_by_the_id("ZPTI13"),
+    #     "type": "closed",
+    #     "options": ids_levels1,
+    #     "options_style":"horizontal",
+    #     "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+    #                   "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+    #                   "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+    #                   "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
+    #     "feedback_system_prompt_name": 'common_feedback',
+    #     "feedback_type": "none",
+    #     "reflection"  : "False",
+    #     "not_for_school_8":"False",
+    #     "time_count": "no"
+    # },
 
 
 ##### Q2
@@ -452,36 +452,36 @@ questions = [
         "not_for_school_8":"False",
         "time_count": "no"
     },
-    {
-        "question": ids.return_text_by_the_id("ZPTI9"),
-        "type": "closed",
-        "options": ids_levels2,
-        "options_style":"horizontal",
-        "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
-        "feedback_system_prompt_name": 'common_feedback',
-        "feedback_type": "none",
-        "reflection"  : "False",
-        "not_for_school_8":"False",
-        "time_count": "no"
-    },
-    {
-        "question": ids.return_text_by_the_id("RISC4"),
-        "type": "closed",
-        "options": ids_levels2,
-        "options_style":"horizontal",
-        "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
-        "feedback_system_prompt_name": 'common_feedback',
-        "feedback_type": "none",
-        "reflection"  : "False",
-        "not_for_school_8":"False",
-        "time_count": "no"
-    },
+    # {
+    #     "question": ids.return_text_by_the_id("ZPTI9"),
+    #     "type": "closed",
+    #     "options": ids_levels2,
+    #     "options_style":"horizontal",
+    #     "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+    #                   "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+    #                   "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+    #                   "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
+    #     "feedback_system_prompt_name": 'common_feedback',
+    #     "feedback_type": "none",
+    #     "reflection"  : "False",
+    #     "not_for_school_8":"False",
+    #     "time_count": "no"
+    # },
+    # {
+    #     "question": ids.return_text_by_the_id("RISC4"),
+    #     "type": "closed",
+    #     "options": ids_levels2,
+    #     "options_style":"horizontal",
+    #     "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+    #                   "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+    #                   "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+    #                   "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
+    #     "feedback_system_prompt_name": 'common_feedback',
+    #     "feedback_type": "none",
+    #     "reflection"  : "False",
+    #     "not_for_school_8":"False",
+    #     "time_count": "no"
+    # },
 
 #########Q3
 
@@ -595,36 +595,36 @@ questions = [
         "not_for_school_8":"False",
         "time_count": "no"
     },
-    {
-        "question": ids.return_text_by_the_id("ICI3"),
-        "type": "closed",
-        "options": ids_levels3,
-        "options_style":"horizontal",
-        "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
-        "feedback_system_prompt_name": 'common_feedback',
-        "feedback_type": "none",
-        "reflection"  : "False",
-        "not_for_school_8":"False",
-        "time_count": "no"
-    },
-    {
-        "question": ids.return_text_by_the_id("ZPTI14"),
-        "type": "closed",
-        "options": ids_levels3,
-        "options_style":"horizontal",
-        "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
-        "feedback_system_prompt_name": 'common_feedback',
-        "feedback_type": "none",
-         "reflection"  : "False",
-        "not_for_school_8":"False",
-        "time_count": "no"
-    },
+    # {
+    #     "question": ids.return_text_by_the_id("ICI3"),
+    #     "type": "closed",
+    #     "options": ids_levels3,
+    #     "options_style":"horizontal",
+    #     "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+    #                   "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+    #                   "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+    #                   "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
+    #     "feedback_system_prompt_name": 'common_feedback',
+    #     "feedback_type": "none",
+    #     "reflection"  : "False",
+    #     "not_for_school_8":"False",
+    #     "time_count": "no"
+    # },
+    # {
+    #     "question": ids.return_text_by_the_id("ZPTI14"),
+    #     "type": "closed",
+    #     "options": ids_levels3,
+    #     "options_style":"horizontal",
+    #     "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+    #                   "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+    #                   "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+    #                   "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
+    #     "feedback_system_prompt_name": 'common_feedback',
+    #     "feedback_type": "none",
+    #      "reflection"  : "False",
+    #     "not_for_school_8":"False",
+    #     "time_count": "no"
+    # },
     
      {
         "type": "insert_data",  
