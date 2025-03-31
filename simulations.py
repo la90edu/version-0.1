@@ -9,163 +9,107 @@ simulations = [
     "school_type": "SCHOOL_8",
     "difficulty": "hard",
     "question": """
-    בלה הקוסמת נוהגת כלפי כל יצור שמגיע אל ביתה לפי הכלל הבא:
-היא משנה כל יצור כחול לאדום וכל יצור עגול למרובע, אלא אם כן יצור מסוים הוא גם כחול גם עגול - במקרה כזה היא משאירה אותו כמות שהוא.
-שני יצורים עגולים, שאחד מהם כחול והאחר אדום, הגיעו לביתה של בלה הקוסמת.
-לפיכך, מן הבית יצאו -
+   כמה משלושים בתמונה?
 """,
     "options": [
-        "יצור כחול ועגול ויצור כחול ומרובע",
-        "שני יצורים אדומים ומרובעים",
-        "יצור כחול ומרובע ויצור אדום ומרובע",
-        "יצור כחול ועגול ויצור אדום ומרובע"
+        "18",
+        "14",
+        "24",
+        "19"
+        # "יצור כחול ועגול ויצור אדום ומרובע"
     ],
-    "correct_answer": "יצור כחול ועגול ויצור אדום ומרובע"
+    "correct_answer": "18",
+    "image": "img/H_hard-1.png"
 },
 
     ### SCHOOL_8 MEDIUM###
     {
     "school_type": "SCHOOL_8",
     "difficulty": "medium",
-    "question": """טענה: מי שעיניו כחולות אינו יכול שלא לנהל יומן.
-איזו מן האפשרויות הבאות סותרת את הטענה?""",
+    "question": """
+   מה המספרים הבאים בסדרה 1, 4, 10, 22, 46
+""",
     "options": [
-        "פנינה מנהלת יומן ועיניה כחולות",
-        "פנינה מנהלת יומן ועיניה אינן כחולות",
-        "פנינה אינה מנהלת יומן ועיניה כחולות",
-        "פנינה אינה מנהלת יומן ועיניה אינן כחולות"
+        "85, 133",
+        "67, 88",
+        "82, 126",
+        "94, 190"
+  
     ],
-    "correct_answer": "פנינה אינה מנהלת יומן ועיניה כחולות"
+    "correct_answer": "94, 190",
+    "image": ""
 },
     
     ### SCHOOL_8 EASY ###
     {
     "school_type": "SCHOOL_8",
     "difficulty": "easy",
-    "question": """כל משפט שעידו אומר הוא נכון, אלא אם מופיעות בו שלוש המילים "גם", "אני" ו-"לא", ושתיים מהן, ולא יותר, צמודות זו לזו.
-איזה מן המשפטים הבאים שאמר עידו איננו נכון?""",
+    "question": """
+מה האותיות הבאות בסדרה א, ה, ט, י\"ג, י\"ז, __, __
+""",
     "options": [
-        "גם הם לא חשבו שאתה צודק",
-        "גם אני לא חשבתי שהם צודקים",
-        "גם היום אני עדיין לא חושב שהם צודקים",
-        "גם אני חשבתי שהם לא צדקו"
+        "י\"ח, י\"ט",
+        "כ, כ\"ג",
+        "כ\"א, כ\"ח",
+        "כ\"א, כ\"ה"
+        # "גם אני חשבתי שהם לא צדקו"
     ],
-    "correct_answer": "גם אני חשבתי שהם לא צדקו"
+    "correct_answer": "כ\"א, כ\"ה",
+    "image": ""
 },
     ### SCHOOL_10 HARD ###
     
     {
     "school_type": "SCHOOL_10",
     "difficulty": "hard",
-    "question": """ליאת: "שום אדם אינו צנוע, אלא אם כן הוא חרוץ."
-מיכל: "אינך צודקת. קחי לדוגמה את _____."
-
-איזה מהאנשים הבאים יכול להיות הדוגמה שנתנה מיכל כדי להוכיח את טענתה?""",
+    "question": """
+    עליך להתחיל מהפינה השמאלית התחתונה (עם הספרה 3) ולנוע או למעלה או ימינה ולחבר את המספרים לאורך הדרך.
+    מה הסכום הגבוה ביותר שניתן ליצור? 
+    לדוגמה אם ההחלטה היא לעלות למעלה אז 3+2=5 ואם אז ימינה אז 3+2+3= 8 וכן הלאה.
+    """,
     "options": [
-        "אריק שהוא חרוץ וצנוע",
-        "בני שהוא חרוץ אך אינו צנוע",
-        "גולן שהוא צנוע אך אינו חרוץ",
-        "דודו שאינו חרוץ ואינו צנוע"
+        "35",
+        "38",
+        "34",
+        "36"
     ],
-    "correct_answer": "גולן שהוא צנוע אך אינו חרוץ"
+    "correct_answer": "38",
+    "image": "img/Y_hard.png"
 },
     ### SCHOOL_10 MEDIUM ###
     {
     "school_type": "SCHOOL_10",
     "difficulty": "medium",
-    "question": """- בת-שבע אוכלת מכל מאכל שמגיע אליה, ולעולם אינה אוכלת מאכלים מתוקים.
-- יאיר אוכל מכל מה שבת-שבע אוכלת.
-
-לשולחנם של בת-שבע ויאיר הוגשו קרקרים מלוחים ובוטנים מלוחים, עוגה מתוקה ותמרים מתוקים.
-
-מה אינו אפשרי?""",
+    "question": """מה המספר במקום סימן השאלה?""",
     "options": [
-        "יאיר לא אכל קרקרים מלוחים",
-        "יאיר לא אכל עוגה מתוקה",
-        "בת-שבע אכלה בוטנים מלוחים",
-        "יאיר אכל תמרים מתוקים"
+        "31",
+        "28",
+        "30",   
+        "32"
     ],
-    "correct_answer": "יאיר לא אכל קרקרים מלוחים"
+    "correct_answer": "30",
+    "image": "img/Y_mid.png"
 },
     ### SCHOOL_10 EASY ###
     {
     "school_type": "SCHOOL_10",
     "difficulty": "easy",
-    "question": """גברת כהן אפתה עוגיות עם שבבי שוקולד והניחה אותן במטבח להתקרר. כעבור חצי שעה, כשחזרה, מצאה את ארבעת ילדיה ניצבים מול הצלחת הריקה.
-
-"טוב," היא הכריזה. "מי לקח את העוגיות?"
-
-יונתן היה הראשון להגיב. "אני יודע מי לקח את העוגיות," הוא אמר.
-
-אחיו אורי התערב ואמר: "זו לא הייתה תמר או נועה."
-
-נועה מיהרה להתערב: "אורי אכל אותן!"
-
-ואז הודתה תמר: "אני גנבתי את העוגיות."
-
-גברת כהן ידעה שכל הילדים משקרים. אם היא צודקת, מי לקח את העוגיות?""",
+    "question": """
+    מה התבנית הבאה בסדרה?
+    """,
     "options": [
-        "יונתן",
-        "אורי",
-        "תמר",
-        "נועה"
+        "A",
+        "B",
+        "C",
+        "D"
     ],
-    "correct_answer": "נועה"
+    "correct_answer": "A",
+    "image": "img/Y_easy.png"
 }
         
  ]       
         
         
-#         ###
-#         "school_type":"SCHOOL_8",
-#          "difficulty": "hard",
-#         "question": "איש אחד דובר אמת בימים א', ב', ג', ואיש אחר דובר אמת בימים ד', ה', ו'. בשבת שניהם דוברים אמת. יום אחד נפגשו ואמרו זה לזה: 'אתמול שיקרתי'. באיזה יום נפגשו?",
-#         "options": [
-#             "יום א'",
-#             "יום ב'",
-#             "יום ד'",
-#             "יום שבת"
-#         ],
-#        "correct_answer":"יום ד'"
-#     },
-#     {
-#         "school_type":"SCHOOL_8",
-#          "difficulty": "easy",
-#         "question": 
-#             """
-#             ישנם חמישה אנשים.
-# כל איש יכול או לשקר, או להגיד את האמת.
-
-# איש אחד אומר: ישנו רק שקרן אחד בלבד ביננו.
-# איש שני אומר: ישנם בדיוק שני שקרנים ביננו.
-# איש שלישי אומר: ישנם בדיוק שלושה שקרנים ביננו.
-# איש רביעי אומר: ישנם בדיוק ארבעה שקרנים ביננו.
-# איש חמישי אומר: ישנם בדיוק חמישה שקרנים ביננו.
-
-# מי דובר אמת?
-#             """,
-#         "options": [
-#             "איש מס' 1",
-#             "איש מס' 3",
-#             "איש מס' 4",
-#             "איש מס' 5"  
-#             ],
-#         "correct_answer":"איש מס' 5"  
-
-
-#     },
-#     {
-#         "school_type":"SCHOOL_10",
-#          "difficulty": "hard",
-#         "question": "איש אחד דובר אמת בימים א', ב', ג', ואיש אחר דובר אמת בימים ד', ה', ו'. בשבת שניהם דוברים אמת. יום אחד נפגשו ואמרו זה לזה: 'אתמול שיקרתי'. באיזה יום נפגשו?",
-#         "options": [
-#             "יום א'",
-#             "יום ב'",
-#             "יום ד'",
-#             "יום שבת"
-#         ],
-#         "correct_answer": "יום ד'"
-#     }
 
 
 hebrew_levels = ["קל", "בינוני", "קשה"]
@@ -181,14 +125,6 @@ def translate_to_english(level):
     return translations.get(level, "Translation not found")
     
 
-# def return_options(school_Type):
-#     match (school_Type):
-#         case (School_Type.SCHOOL_8):
-#             simulations=simulations_8_grade
-#             return [simulation["level"] for simulation in simulations]
-#         case (School_Type.SCHOOL_10):
-#             simulations=simulations_10_grade
-#             return [simulation["level"] for simulation in simulations]
 
 #return "id simulation" by :"school_type" and "level"
 def find_simulation_index( school_type, difficulty_hebrew):
@@ -201,17 +137,7 @@ def find_simulation_index( school_type, difficulty_hebrew):
     return None  # מחזיר None אם לא נמצא
 
 
-# index = find_simulation_index("SCHOOL_8", "קשה")
-# print(index)
-# קריאה לפונקציה
-# index = find_simulation_index(simulations, "10_grade", "hard")
 
-# if index is not None:
-#     print(f"Simulation found at index: {index}")
-# else:
-#     print("No simulation found matching the criteria.")
-
-    
 #return "simulation" by: "id"
 def return_simulation_question_by_id(id):
     if 0 <= id < len(simulations):  # בדיקת אינדקס תקין
@@ -226,7 +152,11 @@ def return_simulation_options_by_id(id):
     else:
         return None  # מחזיר None אם האינדקס לא תקין
 
-
+def return_simulation_image_by_id(id):
+    if 0 <= id < len(simulations):  # בדיקת אינדקס תקין
+        return simulations[id]["image"]  # מחזיר את השאלה
+    else:
+        return None  # מחזיר None אם האינדקס לא תקין
 
 #return "true/false" by :"id", "student_answer"
 def is_answer_correct(id,student_answer):
@@ -237,43 +167,4 @@ def is_answer_correct(id,student_answer):
         return False
 
 
-# id=find_simulation_index("8_grade","easy")
-# answer=return_simulation_options_by_id(id)
-# print(answer[3])
-# #print(correct_answer=simulations[id]["correct_answer"] )
-# is_currect=is_answer_correct(id,answer[3])
-# print(is_currect )
-
-# def return_simulation_by_id(school_type,id):
-#     match (school_type):
-#         case (School_Type.SCHOOL_8):
-#             simulations=simulations_8_grade
-#             for simulation in simulations:
-#                 if simulation["id"] == id:
-#                     return simulation["simulation"]
-#             return None
-#         case (School_Type.SCHOOL_10):
-#             simulations=simulations_10_grade
-#             for simulation in simulations:
-#                 if simulation["id"] == id:
-#                     return simulation["simulation"]
-#             return None
-
-# def return_answer_by_id(school_type,id):
-#      match (school_type):
-#         case (School_Type.SCHOOL_8):
-#             simulations=simulations_8_grade
-#             for simulation in simulations:
-#                 if simulation["id"] == id:
-#                     return simulation["answer"]
-#             return None
-#         case (School_Type.SCHOOL_10):
-#             simulations=simulations_10_grade
-#             for simulation in simulations:
-#                 if simulation["id"] == id:
-#                     return simulation["answer"]
-#             return None
-    
-# print(return_answer_by_id(School_Type.SCHOOL_8,2))
-# print(return_simulation_by_id(School_Type.SCHOOL_8,2))
       

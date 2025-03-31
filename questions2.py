@@ -192,7 +192,7 @@ questions = [
       {
         "question":"""
         עכשיו נעבור לחלק השני!
-        בחלק הקרוב יוצגו לפניך 27 היגדים.
+        בחלק הקרוב יוצגו לפניך 20 היגדים.
         אנא ענה/י עליהם בכנות לגבי עצמך.
         """,
         "type": "text",  
@@ -595,36 +595,36 @@ questions = [
         "not_for_school_8":"False",
         "time_count": "no"
     },
-    # {
-    #     "question": ids.return_text_by_the_id("ICI3"),
-    #     "type": "closed",
-    #     "options": ids_levels3,
-    #     "options_style":"horizontal",
-    #     "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-    #                   "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-    #                   "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-    #                   "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
-    #     "feedback_system_prompt_name": 'common_feedback',
-    #     "feedback_type": "none",
-    #     "reflection"  : "False",
-    #     "not_for_school_8":"False",
-    #     "time_count": "no"
-    # },
-    # {
-    #     "question": ids.return_text_by_the_id("ZPTI14"),
-    #     "type": "closed",
-    #     "options": ids_levels3,
-    #     "options_style":"horizontal",
-    #     "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-    #                   "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-    #                   "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-    #                   "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
-    #     "feedback_system_prompt_name": 'common_feedback',
-    #     "feedback_type": "none",
-    #      "reflection"  : "False",
-    #     "not_for_school_8":"False",
-    #     "time_count": "no"
-    # },
+    {
+        "question": ids.return_text_by_the_id("ICI3"),
+        "type": "closed",
+        "options": ids_levels3,
+        "options_style":"horizontal",
+        "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
+        "feedback_system_prompt_name": 'common_feedback',
+        "feedback_type": "none",
+        "reflection"  : "False",
+        "not_for_school_8":"False",
+        "time_count": "no"
+    },
+    {
+        "question": ids.return_text_by_the_id("ZPTI14"),
+        "type": "closed",
+        "options": ids_levels3,
+        "options_style":"horizontal",
+        "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
+        "feedback_system_prompt_name": 'common_feedback',
+        "feedback_type": "none",
+         "reflection"  : "False",
+        "not_for_school_8":"False",
+        "time_count": "no"
+    },
     
      {
         "type": "insert_data",  
@@ -728,54 +728,83 @@ questions = [
          "not_for_school_8":"False",
          "time_count": "no"
     },
-    {
-         "question": ReflectiveQuestions.get_question_by_id(4),
-         "type": "closed",
-         "options": ReflectiveQuestions.get_options_by_id(4),
-         "options_style":"horizontal",
-         "feedbacks": [],
-         "feedback_system_prompt_name": 'common_feedback',
-         "feedback_type": "none",
-         "reflection"  : "True",
-         "not_for_school_8":"False",
-         "time_count": "no"
-    },
-    {
-         "question": ReflectiveQuestions.get_question_by_id(5),
-         "type": "closed",
-         "options": ReflectiveQuestions.get_options_by_id(5),
-         "options_style":"horizontal",
-         "feedbacks": [],
-         "feedback_system_prompt_name": 'common_feedback',
-         "feedback_type": "none",
-         "reflection"  : "True",
-         "not_for_school_8":"False",
-         "time_count": "no"
-    },
-    {
-         "question": ReflectiveQuestions.get_question_by_id(6),
-         "type": "closed",
-         "options": ReflectiveQuestions.get_options_by_id(6),
-         "options_style":"horizontal",
-         "feedbacks": [],
-         "feedback_system_prompt_name": 'common_feedback',
-         "feedback_type": "none",
-         "reflection"  : "True",
-         "not_for_school_8":"False",
-         "time_count": "no"
-    },
+    # {
+    #      "question": ReflectiveQuestions.get_question_by_id(4),
+    #      "type": "closed",
+    #      "options": ReflectiveQuestions.get_options_by_id(4),
+    #      "options_style":"horizontal",
+    #      "feedbacks": [],
+    #      "feedback_system_prompt_name": 'common_feedback',
+    #      "feedback_type": "none",
+    #      "reflection"  : "True",
+    #      "not_for_school_8":"False",
+    #      "time_count": "no"
+    # },
+    # {
+    #      "question": ReflectiveQuestions.get_question_by_id(5),
+    #      "type": "closed",
+    #      "options": ReflectiveQuestions.get_options_by_id(5),
+    #      "options_style":"horizontal",
+    #      "feedbacks": [],
+    #      "feedback_system_prompt_name": 'common_feedback',
+    #      "feedback_type": "none",
+    #      "reflection"  : "True",
+    #      "not_for_school_8":"False",
+    #      "time_count": "no"
+    # },
+    # {
+    #      "question": ReflectiveQuestions.get_question_by_id(6),
+    #      "type": "closed",
+    #      "options": ReflectiveQuestions.get_options_by_id(6),
+    #      "options_style":"horizontal",
+    #      "feedbacks": [],
+    #      "feedback_system_prompt_name": 'common_feedback',
+    #      "feedback_type": "none",
+    #      "reflection"  : "True",
+    #      "not_for_school_8":"False",
+    #      "time_count": "no"
+    # },
     
-    {
-         "question": ReflectiveQuestions.get_question_by_id(7),
-         "type": "closed",
-         "options": ReflectiveQuestions.get_options_by_id(7),
-         "options_style":"horizontal",
-         "feedbacks": [],
-         "feedback_system_prompt_name": 'common_feedback',
-         "feedback_type": "none",
-         "reflection"  : "True",
-         "not_for_school_8":"False",
-         "time_count": "no"
+    # {
+    #      "question": ReflectiveQuestions.get_question_by_id(7),
+    #      "type": "closed",
+    #      "options": ReflectiveQuestions.get_options_by_id(7),
+    #      "options_style":"horizontal",
+    #      "feedbacks": [],
+    #      "feedback_system_prompt_name": 'common_feedback',
+    #      "feedback_type": "none",
+    #      "reflection"  : "True",
+    #      "not_for_school_8":"False",
+    #      "time_count": "no"
+    # },
+    
+    #simulation - קבלת החלטות 
+     {
+        "question": """
+ מגיעה השנה האחרונה שלך בתיכון. בשיחה עם המורה למתמטיקה נאמר לך שיש לך פוטנציאל, אבל הציון שלך כנראה לא יהיה אפשר להמשיך גם שנה הבאה ל-5 יחידות. מה היית עושה?       
+""",
+        "type": "open",  # שאלה פתוחה
+        "feedback": "תודה",
+        "time_count":"no",
+    },
+     
+    
+     {
+        "question": """
+זו היא סוף שנת הלימודים והקיץ בפתח. קיבלת הצעה לעבוד כל הקיץ ולהרוויח סכומם של 10,000 ש"ח לחודש, מצד שני, שנה הבאה היא כיתה י"ב ובה רוב הבגרויות. מה היית עושה?     
+""",
+        "type": "open",  # שאלה פתוחה
+        "feedback": "תודה",
+        "time_count":"no",
+    },
+     
+     {
+        "question": """
+אתם עומדים לסיים את התיכון עם ציונים בסדר גמור (85 פלוס). חברה מקומית הציעה לכם משרה במשרה מלאה המתחילה במשכורת של 9,000 ש"ח לחודש עם צמיחה קבועה של 1,500 ש"ח בשנה כך שעוד 5 שנים המשכורת שלך תעמוד על 16,500 ש"ח. במקביל התקבלת לתואר ראשון במדמ"ח שיעלה 100,000 ש"ח לארבע שנים ובסיומו משרות הכניסה לשוק יהיו בשכר התחלתי של 20,000 ש"ח. מה היית עושה?   
+""",
+        "type": "open",  # שאלה פתוחה
+        "feedback": "תודה",
+        "time_count":"no",
     },
     
      {
@@ -784,28 +813,28 @@ questions = [
         "time_count":"no"
     },
     
-    {
-        "question": """
-          מעולה! סיימת את החלק השלישי והאחרון! אני כבר עובד על ניתוח תשובותיך, מקווה שתלמד/י משהו חדש על עצמך!        """,
-        "type": "text",  
-        "time_count":"no"
-    },
-    {
-         "question": "מנתח תשובות...",
-         "type": "image",  # שאלה סגורה
-         "url":"cat.gif",
-         "time_count":"no"
-     },
+    # {
+    #     "question": """
+    #       מעולה! סיימת את החלק השלישי והאחרון! אני כבר עובד על ניתוח תשובותיך, מקווה שתלמד/י משהו חדש על עצמך!        """,
+    #     "type": "text",  
+    #     "time_count":"no"
+    # },
+    # {
+    #      "question": "מנתח תשובות...",
+    #      "type": "image",  # שאלה סגורה
+    #      "url":"cat.gif",
+    #      "time_count":"no"
+    #  },
     
     
     
-    ###LLM
-      {
-         "question": "",
-         "type": "text_llm",
-         "system_prompt_name":"reflection",
-         "time_count":"no"
-     },
+    # ###LLM
+    #   {
+    #      "question": "",
+    #      "type": "text_llm",
+    #      "system_prompt_name":"reflection",
+    #      "time_count":"no"
+    #  },
       
     {
         "question": """

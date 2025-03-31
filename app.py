@@ -166,9 +166,15 @@ def show_simulation0():
 
 def show_simulation1():
     simulation_question=simulations.return_simulation_question_by_id(st.session_state.simulation_id)
+    simulation_image_path=simulations.return_simulation_image_by_id(st.session_state.simulation_id)
     
     if (st.session_state.is_question_waiting_to_be_written_simulation[0]):
+        if (simulation_image_path!=""):
+            conversation.display_bot_image_without_increase_question_number(simulation_image_path)
+                    # st.session_state.messages.append({"role": "assistant", "content": simulation_image_path})
         conversation.display_bot_message_with_typing_effect(simulation_question)
+        
+            # st.session_state.messages.append({"role": "assistant", "content": simulation_image_path})
         start_counting_time() ##start counting time of simulations
         st.session_state.messages.append({"role": "assistant", "content": simulation_question})
         data.update_data_in_sheet_without_increasing_question_number()
