@@ -74,6 +74,7 @@ questions = [
         "feedback_type":"none",
         "reflection"  : "False",
         "not_for_school_8":"False",
+        "not_for_school_10":"False",
         "time_count":"no"
     },
      
@@ -109,15 +110,17 @@ questions = [
     
     {
         "question": """
-        אנא כתוב באיזה פעילויות את/ה משתתפ/ת מחוץ לבית הספר ? 
-למשל חוגים , אימונים וכו'        """,
+אנא כתב/י את הפעילויות שאת/ה משתתפ/ת בהן מחוץ לבית הספר למשל חוגים, אימונים וכו
+""",
         "type": "open",  # שאלה פתוחה
         "feedback": "תודה",
         "time_count":"no",
     },
     
     {
-        "question": "הרחבות (מלבד מתמטיקה ואנגלית) - אנא בחר/י את הקרוב ביותר",
+        "question": """
+        הרחבות (בנוסף למתמטיקה, אנגלית, פיזיקה/מדמ"ח), אנא בחר/י את הקרוב ביותר
+        """,
         "type": "closed",  # שאלה סגורה
         "options":[
              "אין הרחבות נוספות",
@@ -130,12 +133,56 @@ questions = [
              "אחר"
              ],
         "options_style":"horizontal",
+        "feedbacks": [],
+        "feedback_system_prompt_name":'common_feedback',
+        "feedback_type":"none",
+        "reflection"  : "False",
+        "not_for_school_8":"True",
+        "not_for_school_10":"False",
+        "time_count":"no"
+    },
+    
+     
+    {
+        "question": """
+        בהסתכלות קדימה לקראת שנה הבאה, האם היית רוצה לפרוש מ-5 יחידות מתמטיקה?
+        """,
+        "type": "closed",  # שאלה סגורה
+        "options":[
+             "בוודאי",
+             "כנראה שכן", 
+             "כנראה שלא", 
+             "בוודאות לא"
+             ],
+        "options_style":"horizontal",
         
         "feedbacks": [],
         "feedback_system_prompt_name":'common_feedback',
         "feedback_type":"none",
         "reflection"  : "False",
         "not_for_school_8":"True",
+        "not_for_school_10":"False",
+        "time_count":"no"
+    },
+    
+     {
+        "question": """
+בהסתכלות קדימה לקראת שנת התיכון, האם היית רוצה ללמוד מ-5 יחידות מתמטיקה?        """,
+        "type": "closed",  # שאלה סגורה
+        "options":[
+             "בוודאי",
+             "כנראה שכן", 
+             "כנראה שלא", 
+             "בוודאות לא"
+             ],
+        "options_style":"horizontal",
+        
+        "feedbacks": [],
+        "feedback_system_prompt_name":'common_feedback',
+        "feedback_type":"none",
+        "reflection"  : "False",
+        "not_for_school_8":"False",
+        "not_for_school_10":"True",
         "time_count":"no"
     },
     
@@ -143,12 +190,13 @@ questions = [
         "question": "האם את/ה מכיר/ה מישהו שעובד בהיי-טק?",
         "type": "closed",  # שאלה סגורה
         "options":[
-            "מישהו מהמשפחה הגרעינית",
-            "משפחה מורחבת",
-            "מישהו מהשכונה",
-            "חברים של ההורים",
-            "מישהו שלא קשור למשפחה",
-            "אחר"
+            "לא מכיר/ה",
+            " כן, מישהו מהמשפחה הגרעינית",
+            " כן, מישהו מהמשפחה מורחבת",
+            "כן, מישהו מהשכונה",
+            "כן, חברים של ההורים",
+            "כן, מישהו שלא קשור למשפחה"
+            # "אחר"
             ],
         "options_style":"horizontal",
         "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
@@ -159,6 +207,7 @@ questions = [
         "feedback_type":"none",
         "reflection"  : "False",
         "not_for_school_8":"False",
+        "not_for_school_10":"False",
         "time_count":"no"
     },
      
@@ -183,6 +232,7 @@ questions = [
         "feedback_type":"none",
         "reflection"  : "False",
         "not_for_school_8":"False",
+        "not_for_school_10":"False",
         "time_count":"no"
     },
      
@@ -220,6 +270,7 @@ questions = [
         "feedback_type": "none",
         "reflection"  : "False",
         "not_for_school_8":"False",
+        "not_for_school_10":"False",
         "time_count": "no"
     },
     {
@@ -235,6 +286,8 @@ questions = [
         "feedback_type": "none",
         "reflection"  : "False",
         "not_for_school_8":"False",
+         "not_for_school_10":"False",
+
         "time_count": "no"
     },
     {
@@ -250,6 +303,7 @@ questions = [
         "feedback_type": "none",
         "reflection"  : "False",
         "not_for_school_8":"False",
+         "not_for_school_10":"False",
         "time_count": "no"
     },
     {
@@ -265,6 +319,7 @@ questions = [
         "feedback_type": "none",
         "reflection"  : "False",
         "not_for_school_8":"False",
+         "not_for_school_10":"False",
         "time_count": "no"
     },
     {
@@ -280,6 +335,7 @@ questions = [
         "feedback_type": "none",
         "reflection"  : "False",
         "not_for_school_8":"False",
+         "not_for_school_10":"False",
         "time_count": "no"
     },
     {
@@ -295,53 +351,10 @@ questions = [
         "feedback_type": "none",
         "reflection"  : "False",
         "not_for_school_8":"False",
+         "not_for_school_10":"False",
         "time_count": "no"
     },
-    # {
-    #     "question": ids.return_text_by_the_id("ZPTI1"),
-    #     "type": "closed",
-    #     "options": ids_levels1,
-    #     "options_style":"horizontal",
-    #     "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-    #                   "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-    #                   "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-    #                   "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
-    #     "feedback_system_prompt_name": 'common_feedback',
-    #     "feedback_type": "none",
-    #     "reflection"  : "False",
-    #     "not_for_school_8":"False",
-    #     "time_count": "no"
-    # },
-    # {
-    #     "question": ids.return_text_by_the_id("ZPTI4"),
-    #     "type": "closed",
-    #     "options": ids_levels1,
-    #     "options_style":"horizontal",
-    #     "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-    #                   "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-    #                   "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-    #                   "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
-    #     "feedback_system_prompt_name": 'common_feedback',
-    #     "feedback_type": "none",
-    #     "reflection"  : "False",
-    #     "not_for_school_8":"False",
-    #     "time_count": "no"
-    # },
-    # {
-    #     "question": ids.return_text_by_the_id("ZPTI13"),
-    #     "type": "closed",
-    #     "options": ids_levels1,
-    #     "options_style":"horizontal",
-    #     "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-    #                   "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-    #                   "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-    #                   "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
-    #     "feedback_system_prompt_name": 'common_feedback',
-    #     "feedback_type": "none",
-    #     "reflection"  : "False",
-    #     "not_for_school_8":"False",
-    #     "time_count": "no"
-    # },
+  
 
 
 ##### Q2
@@ -360,6 +373,7 @@ questions = [
         "feedback_type": "none",
         "reflection"  : "False",
         "not_for_school_8":"False",
+         "not_for_school_10":"False",
         "time_count": "no"
     },
     {
@@ -375,6 +389,7 @@ questions = [
         "feedback_type": "none",
         "reflection"  : "False",
         "not_for_school_8":"False",
+         "not_for_school_10":"False",
         "time_count": "no"
     },
     {
@@ -389,7 +404,8 @@ questions = [
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
         "reflection"  : "False",
-        "not_for_school_8":"False",
+        "not_for_school_8":"False",#          "not_for_school_10":"False",
+         "not_for_school_10":"False",
         "time_count": "no"
     },
     {
@@ -404,7 +420,8 @@ questions = [
         "feedback_system_prompt_name": 'common_feedback',
         "feedback_type": "none",
         "reflection"  : "False",
-        "not_for_school_8":"False",
+        "not_for_school_8":"False",#          "not_for_school_10":"False",
+        "not_for_school_10":"False",
         "time_count": "no"
     },
     {
@@ -420,6 +437,7 @@ questions = [
         "feedback_type": "none",
         "reflection"  : "False",
         "not_for_school_8":"False",
+         "not_for_school_10":"False",
         "time_count": "no"
     },
     {
@@ -435,6 +453,7 @@ questions = [
         "feedback_type": "none",
         "reflection"  : "False",
         "not_for_school_8":"False",
+         "not_for_school_10":"False",
         "time_count": "no"
     },
     {
@@ -450,38 +469,10 @@ questions = [
         "feedback_type": "none",
         "reflection"  : "False",
         "not_for_school_8":"False",
+         "not_for_school_10":"False",
         "time_count": "no"
     },
-    # {
-    #     "question": ids.return_text_by_the_id("ZPTI9"),
-    #     "type": "closed",
-    #     "options": ids_levels2,
-    #     "options_style":"horizontal",
-    #     "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-    #                   "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-    #                   "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-    #                   "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
-    #     "feedback_system_prompt_name": 'common_feedback',
-    #     "feedback_type": "none",
-    #     "reflection"  : "False",
-    #     "not_for_school_8":"False",
-    #     "time_count": "no"
-    # },
-    # {
-    #     "question": ids.return_text_by_the_id("RISC4"),
-    #     "type": "closed",
-    #     "options": ids_levels2,
-    #     "options_style":"horizontal",
-    #     "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-    #                   "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-    #                   "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-    #                   "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
-    #     "feedback_system_prompt_name": 'common_feedback',
-    #     "feedback_type": "none",
-    #     "reflection"  : "False",
-    #     "not_for_school_8":"False",
-    #     "time_count": "no"
-    # },
+ 
 
 #########Q3
 
@@ -503,6 +494,7 @@ questions = [
         "feedback_type": "none",
         "reflection"  : "False",
         "not_for_school_8":"False",
+         "not_for_school_10":"False",
         "time_count": "no"
     },
     {
@@ -518,6 +510,7 @@ questions = [
         "feedback_type": "none",
         "reflection"  : "False",
         "not_for_school_8":"False",
+         "not_for_school_10":"False",
         "time_count": "no"
     },
     {
@@ -533,6 +526,7 @@ questions = [
         "feedback_type": "none",
         "reflection"  : "False",
         "not_for_school_8":"False",
+        "not_for_school_10":"False",
         "time_count": "no"
     },
     {
@@ -548,6 +542,7 @@ questions = [
         "feedback_type": "none",
         "reflection"  : "False",
         "not_for_school_8":"False",
+         "not_for_school_10":"False",
         "time_count": "no"
     },
     {
@@ -563,6 +558,7 @@ questions = [
         "feedback_type": "none",
         "reflection"  : "False",
         "not_for_school_8":"False",
+         "not_for_school_10":"False",
         "time_count": "no"
     },
     {
@@ -578,6 +574,7 @@ questions = [
         "feedback_type": "none",
         "reflection"  : "False",
         "not_for_school_8":"False",
+         "not_for_school_10":"False",
         "time_count": "no"
     },
     {
@@ -593,36 +590,7 @@ questions = [
         "feedback_type": "none",
         "reflection"  : "False",
         "not_for_school_8":"False",
-        "time_count": "no"
-    },
-    {
-        "question": ids.return_text_by_the_id("ICI3"),
-        "type": "closed",
-        "options": ids_levels3,
-        "options_style":"horizontal",
-        "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
-        "feedback_system_prompt_name": 'common_feedback',
-        "feedback_type": "none",
-        "reflection"  : "False",
-        "not_for_school_8":"False",
-        "time_count": "no"
-    },
-    {
-        "question": ids.return_text_by_the_id("ZPTI14"),
-        "type": "closed",
-        "options": ids_levels3,
-        "options_style":"horizontal",
-        "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
-        "feedback_system_prompt_name": 'common_feedback',
-        "feedback_type": "none",
-         "reflection"  : "False",
-        "not_for_school_8":"False",
+         "not_for_school_10":"False",
         "time_count": "no"
     },
     
@@ -689,7 +657,9 @@ questions = [
          "feedback_system_prompt_name": 'common_feedback',
          "feedback_type": "none",
          "reflection"  : "True",
-        "not_for_school_8":"False",
+         "not_for_school_8":"False",
+         "not_for_school_10":"False",
+
          "time_count": "no"
     },
     {
@@ -701,7 +671,8 @@ questions = [
          "feedback_system_prompt_name": 'common_feedback',
          "feedback_type": "none",
          "reflection"  : "True",
-        "not_for_school_8":"False",
+         "not_for_school_8":"False",
+         "not_for_school_10":"False",
          "time_count": "no"
     },
     {
@@ -714,6 +685,7 @@ questions = [
          "feedback_type": "none",
          "reflection"  : "True",
          "not_for_school_8":"False",
+         "not_for_school_10":"False",
          "time_count": "no"
     },
     {
@@ -726,6 +698,7 @@ questions = [
          "feedback_type": "none",
          "reflection"  : "True",
          "not_for_school_8":"False",
+         "not_for_school_10":"False",
          "time_count": "no"
     },
     # {
@@ -738,6 +711,7 @@ questions = [
     #      "feedback_type": "none",
     #      "reflection"  : "True",
     #      "not_for_school_8":"False",
+    #       "not_for_school_10":"False",
     #      "time_count": "no"
     # },
     # {
@@ -750,6 +724,7 @@ questions = [
     #      "feedback_type": "none",
     #      "reflection"  : "True",
     #      "not_for_school_8":"False",
+    #      "not_for_school_10":"False",
     #      "time_count": "no"
     # },
     # {
@@ -762,6 +737,7 @@ questions = [
     #      "feedback_type": "none",
     #      "reflection"  : "True",
     #      "not_for_school_8":"False",
+    #      "not_for_school_10":"False",
     #      "time_count": "no"
     # },
     
@@ -775,6 +751,7 @@ questions = [
     #      "feedback_type": "none",
     #      "reflection"  : "True",
     #      "not_for_school_8":"False",
+    #       "not_for_school_10":"False",
     #      "time_count": "no"
     # },
     

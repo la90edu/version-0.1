@@ -228,10 +228,10 @@ def show_simulation2():
 
 
 #questions functions
-def show_closed_question(question, options,options_style, feedbacks,not_for_school_8): 
-    if ((not_for_school_8=="True")and(st.session_state.grade=='SCHOOL_8')):
+def show_closed_question(question, options,options_style, feedbacks,not_for_school_8,not_for_school_10): 
+    if (((not_for_school_8=="True")and(st.session_state.grade=='SCHOOL_8')) or ((not_for_school_10=="True")and(st.session_state.grade=='SCHOOL_10'))):
         #st.session_state.user_data.append("ללא")
-        data.date.add_and_update_user_data("ללא")
+        data.add_and_update_user_data("ללא")
         st.session_state.current_question += 1
         st.rerun()
     else:     
@@ -239,6 +239,17 @@ def show_closed_question(question, options,options_style, feedbacks,not_for_scho
             conversation.display_bot_message_with_typing_effect(question)
             st.session_state.messages.append({"role": "assistant", "content": question})
             st.session_state.is_question_waiting_to_be_written[st.session_state.current_question]=False
+    
+    # if ((not_for_school_10=="True")and(st.session_state.grade=='SCHOOL_10')):
+    #     #st.session_state.user_data.append("ללא")
+    #     data.add_and_update_user_data("ללא")
+    #     st.session_state.current_question += 1
+    #     st.rerun()
+    # else:     
+    #     if st.session_state.is_question_waiting_to_be_written[st.session_state.current_question]:
+    #         conversation.display_bot_message_with_typing_effect(question)
+    #         st.session_state.messages.append({"role": "assistant", "content": question})
+    #         st.session_state.is_question_waiting_to_be_written[st.session_state.current_question]=False
 
     flag=st.session_state.is_current_button_was_clicked
     if (not flag):
@@ -540,7 +551,7 @@ if not st.session_state.finished:
                             question=question[1]
                             options=options[1]
                     match st.session_state.question_stage:
-                        case 0:show_closed_question(question, options,current_q["options_style"] ,current_q["feedbacks"],current_q["not_for_school_8"])
+                        case 0:show_closed_question(question, options,current_q["options_style"] ,current_q["feedbacks"],current_q["not_for_school_8"],current_q["not_for_school_10"])
                         case 1:show_closed_question2(current_q["feedback_type"],current_q["feedback_system_prompt_name"],current_q["feedbacks"])
                         #case 3:show_closed_question_other
                     display_input_box(disabled=True)  # השבתת תיבת ה-input
