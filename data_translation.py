@@ -12,11 +12,11 @@ response_list = [
     {"key": "ממש לא כמוני 🙁", "content": 1},
 
 
-    {"key": "😄 נכון מאוד לגביי", "content": 5},
-    {"key": "😊 נכון לגביי", "content": 4},
-    {"key": "😐 נכון לגביי באופן חלקי", "content": 3},
-    {"key": "🙁 לא כל כך נכון לגביי", "content": 2},
-    {"key": "😡 ממש לא נכון לגביי", "content": 1},
+    {"key": "😄 מתאר אותי במדויק", "content": 5},
+    {"key": "😊 מתאר אותי", "content": 4},
+    {"key": "😐 מתאר אותי במעט", "content": 3},
+    {"key": "🙁 לא ממש מתאר אותי", "content": 2},
+    {"key": "😡 כלל לא מתאר אותי ", "content": 1},
     
     {"key": "כיתה י", "content": "class_10"},
     {"key": "כיתה ח", "content": "class_8"}
