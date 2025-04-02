@@ -131,8 +131,8 @@ def stop_counting_time():
                 data.add_and_update_user_data(response_time_count)
 
 def show_simulation0():
-    q1="בחר דרגת קושי "
-    q2="פטרו את השאלה הבאה"
+    q1=" לפניך סימולציה, אנא בחר את רמת הקושי המתאימה לך"
+    q2="פתרו את השאלה הבאה"
 
     if (st.session_state.is_question_waiting_to_be_written[st.session_state.current_question]):
         conversation.display_bot_message_with_typing_effect(q1)
