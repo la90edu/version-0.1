@@ -1,17 +1,7 @@
 import streamlit as st
 import base64
 
-st.set_page_config(
-    page_title="מבט לרגע",
-    page_icon="🚀",  # אייקון של בוט
-    layout="wide",  # הגדרה לתצוגה רחבה
-    # initial_sidebar_state="expanded",
-    # menu_items={
-    #     "Get Help": None,
-    #     "Report a bug": None,
-    #     "About": None
-    
-)
+
 
 
 st.markdown(

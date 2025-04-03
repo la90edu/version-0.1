@@ -5,8 +5,8 @@ class ReflectiveQuestions:
     reflections = [
     {
     "id": 0,
-    "correct_reflection_question": "מה ההרגשה שלך לגבי ההתמודדות שלך עם השאלה?",
-    "incorrect_reflection_question": "מה ההרגשה שלך לגבי ההתמודדות שלך עם השאלה?",
+    "correct_reflection_question": "22. מה ההרגשה שלך לגבי ההתמודדות שלך עם השאלה? ",
+    "incorrect_reflection_question": "22. מה ההרגשה שלך לגבי ההתמודדות שלך עם השאלה?",
     "correct_answer_options": [
         "כלל לא מרוצה",
         "קצת לא מרוצה",
@@ -41,8 +41,8 @@ class ReflectiveQuestions:
     # },
     {
         "id": 1,
-        "correct_reflection_question": "חבריך לכיתה התקשו בפתרון הבעיה הזו, למה לדעתך זה קרה?",
-        "incorrect_reflection_question": "חבריך לכיתה גם התקשו בפתרון הבעיה הזו, למה לדעתך זה קרה?",
+        "correct_reflection_question": "23. חבריך לכיתה התקשו בפתרון הבעיה הזו, למה לדעתך זה קרה?",
+        "incorrect_reflection_question": "23. חבריך לכיתה גם התקשו בפתרון הבעיה הזו, למה לדעתך זה קרה?",
         "correct_answer_options": [
             "כי אין להם/ן את הכישורים, אבל עם ההשקעה הנכונה הם יצליחו",
             "יכול להיות שחסר להם/ן חלק מהידע הנדרש לפתרון",
@@ -75,8 +75,8 @@ class ReflectiveQuestions:
     # },
     {
         "id": 2,
-        "correct_reflection_question": "הסיבה העיקרית שהצלחתי לפתור את הבעיה היא",
-        "incorrect_reflection_question": "הסיבה העיקרית שלא הצלחתי לפתור את הבעיה היא",
+        "correct_reflection_question": "24. הסיבה העיקרית שהצלחתי לפתור את הבעיה היא",
+        "incorrect_reflection_question": "24. הסיבה העיקרית שלא הצלחתי לפתור את הבעיה היא",
         "correct_answer_options": [
             "העבודה הקשה שהשקעתי בחשיבה על החומר שצריך",
             "שילוב של היכולות שלי והמאמץ שהשקעתי",
@@ -92,8 +92,8 @@ class ReflectiveQuestions:
     },
     {
         "id": 3,
-        "correct_reflection_question": "אם אני אתמודד עם בעיה דומה ואתקשה בפתרון שלה",
-        "incorrect_reflection_question": "עכשיו אחרי שלא הצלחתי לפתור את הבעיה",
+        "correct_reflection_question": "25. אם אני אתמודד עם בעיה דומה ואתקשה בפתרון שלה",
+        "incorrect_reflection_question": "25. עכשיו אחרי שלא הצלחתי לפתור את הבעיה",
         "correct_answer_options": [
             "ארצה להבין איפה טעיתי וללמוד מהטעויות שלי",
             "אתאכזב, אבל אסתקרן ללמוד לפעם הבאה",

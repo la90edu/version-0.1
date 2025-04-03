@@ -28,6 +28,17 @@ import base64
 import conversation
 import data
 
+st.set_page_config(
+    page_title="מבט לרגע",
+    page_icon="🚀",  # אייקון של בוט
+    layout="wide",  # הגדרה לתצוגה רחבה
+    # initial_sidebar_state="expanded",
+    # menu_items={
+    #     "Get Help": None,
+    #     "Report a bug": None,
+    #     "About": None
+    
+)
 
 
 st.markdown(
@@ -131,7 +142,10 @@ def stop_counting_time():
                 data.add_and_update_user_data(response_time_count)
 
 def show_simulation0():
-    q1=" לפניך סימולציה, אנא בחר את רמת הקושי המתאימה לך"
+    q1="""
+    21.
+    לפניך סימולציה, אנא בחר את רמת הקושי המתאימה לך
+    """
     q2="פתרו את השאלה הבאה"
 
     if (st.session_state.is_question_waiting_to_be_written[st.session_state.current_question]):
