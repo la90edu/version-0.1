@@ -40,6 +40,7 @@ from anthropic import Anthropic, APIError
 import base64
 import conversation
 import data
+import active_sim
 
 
 
@@ -147,7 +148,7 @@ def stop_counting_time():
 def show_simulation0():
     q1="""
     21.
-    לפניך סימולציה, אנא בחר את רמת הקושי המתאימה לך
+    לפניך סימולציה, אנא בחר/י את רמת הקושי המתאימה לך
     """
     q2="פתרו את השאלה הבאה"
 
@@ -349,15 +350,28 @@ def show_open_question(question, feedback):
         st.session_state.is_question_waiting_to_be_written[st.session_state.current_question]=False
  
 # פונקציה להצגת היסטוריית השיחה
+def show_open_question_llm():
+    st.session_state.current_question += 1
+    st.rerun()
+    
 
+# def show_open_question_llm(llm_prompt_name):
+#         # time.sleep(0.5)  # הוספת השהיה של 0.5 שניות
+#         prompt=llm_manager.get_active_bot_1()
+#         if st.session_state.is_question_waiting_to_be_written[st.session_state.current_question]:
+#             conversation.display_bot_message_with_typing_effect(question)
+#             st.session_state.messages.append({"role": "assistant", "content": question})
+#             st.session_state.is_question_waiting_to_be_written[st.session_state.current_question]=False
+            
 
-       
 
 # פונקציה להצגת תיבת הקלט הקבועה בתחתית
-def display_input_box(disabled):
+def display_input_box(disabled,save_to_messages_reflection_bot):
     user_input = st.chat_input("הכנס את התשובה שלך כאן", disabled=disabled)
     
     if user_input:
+        if save_to_messages_reflection_bot:
+            st.session_state.messages_bot_reflection.append({"role": "user", "content": user_input})
         # אם המשתמש מקליד לאחר סיום השאלות, נוסיף להיסטוריה בלבד
         if st.session_state.current_question >= len(questions):
             st.session_state.messages.append({"role": "user", "content": user_input})
@@ -382,10 +396,12 @@ def display_input_box(disabled):
                 # אם זו שאלה סגורה, השאלה תוצג מחדש כדי שהמשתמש יבחר באחת האפשרויות
                 elif current_q["type"] == "closed":
                     st.session_state.messages.append({"role": "assistant", "content": current_q["question"]})
-            
+        
+        st.session_state.current_question += 1
         st.rerun()
         
-
+def llm_function_finish_conversation():
+    st.session_state.finish_conversation=True
 
 def handle_llm(system_prompt_name):
     text=""
@@ -394,7 +410,20 @@ def handle_llm(system_prompt_name):
     elif (system_prompt_name=="reflection"):
         give_feedback_reflection(st.session_state.messages)
     st.session_state.current_question += 1
-    st.rerun()    
+    st.rerun()   
+    
+def handle_llm_his(system_prompt_name):
+    gender='זכר'
+    prompt=llm_manager.get_active_bot_1(gender)
+    history=st.session_state.messages_bot_reflection
+    if (len(history)==0):
+        #llm with out history
+        generate_claude_stream(prompt, "היי",save_to_messages=True)
+    if (len(history)>0):
+            generate_claude_stream_with_history(prompt, history,save_to_messages=True)
+        
+    st.session_state.current_question += 1
+    st.rerun()
     
 def give_feedback_hegedim(conversation_history):
     gender=crop_for_llm.return_gender_from_conversation(conversation_history)
@@ -422,12 +451,12 @@ def give_feedback_reflection(conversation_history):
 
 client = Anthropic(api_key=os.getenv('ANTHROPIC_API_KEY'))
 
-def generate_claude_stream(system_prompt, user_prompt):
-    try:
+def generate_claude_stream(system_prompt, user_prompt,save_to_messages=False):
+    # try:
         # Create the stream
         with client.messages.stream(
-            model="claude-3-sonnet-20240229", 
-            temperature=0.1,
+            model="claude-3-7-sonnet-20250219", 
+            # temperature=0.1,
             max_tokens=1024,  
             system=system_prompt,
             messages=[
@@ -451,21 +480,78 @@ def generate_claude_stream(system_prompt, user_prompt):
             # Insert full_response to the history 
             st.session_state.messages.append({"role": "assistant", "content": full_response})
             # gd.add_row_to_sheet2([full_response])  # אם צריך לשמור את התשובה
-        
+            if (save_to_messages):
+                st.session_state.messages_bot_reflection.append({"role": "assistant", "content": full_response})
+                
             return full_response  # מחזיר את התשובה המלאה
 
-    except APIError as e:
-        st.warning("⚠️ מערכת עמוסה כרגע. נסה שוב בעוד כמה רגעים.")
-        #print(f"שגיאת API: {e}")
-        return ""  # מחזיר מחרוזת ריקה במקרה של שגיאה
+    # except APIError as e:
+    #     st.warning(e)
+    #     #print(f"שגיאת API: {e}")
+    #     return ""  # מחזיר מחרוזת ריקה במקרה של שגיאה
     
-    except Exception as e:
-        st.error("❌ שגיאה בלתי צפויה התרחשה.")
-        #print(f"שגיאה כללית: {e}")
-        return ""  # מחזיר מחרוזת ריקה עבור כל שגיאה אחרת
+    # except Exception as e:
+    #     st.error("❌ שגיאה בלתי צפויה התרחשה.")
+    #     #print(f"שגיאה כללית: {e}")
+    #     return ""  # מחזיר מחרוזת ריקה עבור כל שגיאה אחרת
 
 
-    #LLM
+
+def generate_claude_stream_with_history(system_prompt, messages,save_to_messages=False):#user_prompt, conversation_history=None,save_to_messages=False):
+    # try:
+        # Prepare messages list with history if provided
+        # messages = []
+        
+        # # Add conversation history if provided
+        # if conversation_history and len(conversation_history) > 0:
+        #     for message in conversation_history:
+        #         # Check if message is a dictionary before accessing 'role'
+        #         if isinstance(message, dict) and message.get("role") in ["user", "assistant"]:
+        #             messages.append({"role": message["role"], "content": message["content"]})
+        
+        # # Add the current user prompt
+        # messages.append({"role": "user", "content": user_prompt})
+        
+        # Create the stream
+        with client.messages.stream(
+            model="claude-3-sonnet-20240229", 
+            temperature=0.1,
+            max_tokens=1024,  
+            system=system_prompt,
+            messages=messages
+        ) as stream:
+        
+            # Create a placeholder for the story
+            story_placeholder = st.empty()
+            full_response = ""
+        
+            # Process each chunk of the response
+            for chunk in stream:
+                if chunk.type == "content_block_delta":
+                    full_response += chunk.delta.text
+                    story_placeholder.markdown(f'<div style="direction: rtl; text-align: right;">{full_response}</div>', unsafe_allow_html=True)
+
+            # Show final response without cursor
+            story_placeholder.markdown(f'<div style="direction: rtl; text-align: right;">{full_response}</div>', unsafe_allow_html=True)
+
+            # Insert full_response to the history 
+            st.session_state.messages.append({"role": "assistant", "content": full_response})
+            # gd.add_row_to_sheet2([full_response])  # אם צריך לשמור את התשובה
+            if (save_to_messages):
+                st.session_state.messages_bot_reflection.append({"role": "assistant", "content": full_response})
+            return full_response  # מחזיר את התשובה המלאה
+
+    # except APIError as e:
+    #     st.warning("⚠️ מערכת עמוסה כרגע. נסה שוב בעוד כמה רגעים.")
+    #     #print(f"שגיאת API: {e}")
+    #     return ""  # מחזיר מחרוזת ריקה במקרה של שגיאה
+    
+    # except Exception as e:
+    #     st.error("❌ שגיאה בלתי צפויה התרחשה.")
+    #     #print(f"שגיאה כללית: {e}")
+    #     return ""  # מחזיר מחרוזת ריקה עבור כל שגיאה אחרת
+
+ 
 
 def show_selectbox_schools_question(question, feedbacks):
     # הצגת השאלה
@@ -536,7 +622,9 @@ if 'messages' not in st.session_state:
         st.session_state.gd_line=None
         st.session_state.current_question_answer=""
         st.session_state.is_current_button_was_clicked=False
-
+        st.session_state.messages_bot_reflection=[]
+        # st.session_state.messages_bot_reflection.append({"role": "assistant", "content": active_sim.question})
+        st.session_state.finish_conversation=False
     # הצגת היסטוריית השיחה
 conversation.show_chat_history()
 
@@ -554,7 +642,15 @@ if not st.session_state.finished:
                     data.update_data_in_sheet()
                 case "open":
                     show_open_question(current_q["question"], current_q["feedback"])
-                    display_input_box(disabled=False)  # הפעלת תיבת ה-input
+                    display_input_box(disabled=False,save_to_messages_reflection_bot=False)  # הפעלת תיבת ה-input
+                case "open_save":
+                    if (not st.session_state.finish_conversation):
+                        display_input_box(disabled=False,save_to_messages_reflection_bot=True)
+                        # show_open_question_llm()
+                case "llm_history":
+                    if (not st.session_state.finish_conversation):
+                        handle_llm_his(current_q["system_prompt_name"])
+                        display_input_box(disabled=True,save_to_messages_reflection_bot=False)  # השבתת תיבת ה-input
                 case "closed":
                     question=current_q["question"]
                     options=current_q["options"]
@@ -571,7 +667,7 @@ if not st.session_state.finished:
                         case 0:show_closed_question(question, options,current_q["options_style"] ,current_q["feedbacks"],current_q["not_for_school_8"],current_q["not_for_school_10"])
                         case 1:show_closed_question2(current_q["feedback_type"],current_q["feedback_system_prompt_name"],current_q["feedbacks"])
                         #case 3:show_closed_question_other
-                    display_input_box(disabled=True)  # השבתת תיבת ה-input
+                    display_input_box(disabled=True,save_to_messages_reflection_bot=False)  # השבתת תיבת ה-input
                 #case "close_with_othewise"
                 case "simulation":
                     stage=st.session_state.question_stage
@@ -579,25 +675,26 @@ if not st.session_state.finished:
                         case 0:show_simulation0()
                         case 1:show_simulation1()
                         case 2:show_simulation2()
-                    display_input_box(disabled=True)  # השבתת תיבת ה-input
+                    display_input_box(disabled=True,save_to_messages_reflection_bot=False)  # השבתת תיבת ה-input
                 case "selectbox_schools":
                     show_selectbox_schools_question(current_q["question"], current_q["feedbacks"])
-                    display_input_box(disabled=True)  # השבתת תיבת ה-input
+                    display_input_box(disabled=True,save_to_messages_reflection_bot=False)  # השבתת תיבת ה-input
                 case "image":
                     conversation.display_bot_image(current_q["url"])
-                    display_input_box(disabled=True)  # השבתת תיבת ה-input
+                    display_input_box(disabled=True,save_to_messages_reflection_bot=False)  # השבתת תיבת ה-input
                 case "video":
                     conversation.display_bot_video(current_q["url"])
-                    display_input_box(disabled=True)  # השבתת תיבת ה-input
+                    display_input_box(disabled=True,save_to_messages_reflection_bot=False)  # השבתת תיבת ה-input
                 case "closed_grade":
                     show_closed_grade_question(current_q["question"], current_q["options"], current_q["feedbacks"], current_q["session_state_answer"])
-                    display_input_box(disabled=True)  # השבתת תיבת ה-input
+                    display_input_box(disabled=True,save_to_messages_reflection_bot=False)  # השבתת תיבת ה-input
                 case "text":
                     conversation.show_text(current_q["question"])
-                    display_input_box(disabled=True)  # השבתת תיבת ה-input
+                    display_input_box(disabled=True,save_to_messages_reflection_bot=False)  # השבתת תיבת ה-input
                 case "text_llm":
-                    handle_llm(current_q["system_prompt_name"])
-                    display_input_box(disabled=True)  # השבתת תיבת ה-input
+                    if (not st.session_state.finish_conversation):
+                        handle_llm(current_q["system_prompt_name"])
+                        display_input_box(disabled=True,save_to_messages_reflection_bot=False)  # השבתת תיבת ה-input
 
                 
             # if current_q["time_count"] == "yes":
@@ -614,8 +711,8 @@ if not st.session_state.finished:
             # st.session_state.messages.append({"role": "assistant", "content": summary_message})
 
             # השבתת תיבת ה-input בסיום השיחה
-            display_input_box(disabled=True)
+            display_input_box(disabled=True,save_to_messages_reflection_bot=False)
 
             
 #            write_to_file.write_to_file(st.session_state.messages)
-    
+
