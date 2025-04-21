@@ -429,7 +429,6 @@ def get_gender(conversation_history):
 def give_feedback_hegedim(conversation_history):
     gender=crop_for_llm.return_gender_from_conversation(conversation_history)
     croped=crop_for_llm.crop_hegedim(conversation_history)
-    st.write(croped)
     hegedim_after_translation=translate_hegedim.translate_hegedim(croped)
     #gd.add_row_to_sheet2([hegedim_after_translation])
 

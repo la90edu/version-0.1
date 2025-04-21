@@ -19,7 +19,7 @@ simulations = [
         # "יצור כחול ועגול ויצור אדום ומרובע"
     ],
     "correct_answer": "18",
-    "image": "img/H_hard-1.png"
+    "image": "img/H_hard.png"
 },
 
     ### SCHOOL_8 MEDIUM###

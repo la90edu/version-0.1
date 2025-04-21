@@ -10,9 +10,9 @@ ids_level3=questions2.ids_levels3
 
 
 def return_levels(question_num):
-        if (question_num<=9): 
+        if (question_num<=6): 
            levels=questions2.ids_levels1
-        elif (question_num<=18):
+        elif (question_num<=13):
                levels=questions2.ids_levels2
         else:
            levels=questions2.ids_levels3
@@ -23,7 +23,7 @@ def translate_hegedim(original_hegedim):
         
     hegedim_result =[]
     j=1
-    for i in range(1,28):
+    for i in range(1,20):
          
         levels=return_levels(i)        
    
