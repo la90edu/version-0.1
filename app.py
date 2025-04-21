@@ -146,10 +146,7 @@ def stop_counting_time():
                 data.add_and_update_user_data(response_time_count)
 
 def show_simulation0():
-    q1="""
-    21.
-    לפניך סימולציה, אנא בחר/י את רמת הקושי המתאימה לך
-    """
+    q1="21. לפניך סימולציה, אנא בחר/י את רמת הקושי המתאימה לך"
     q2="פתרו את השאלה הבאה"
 
     if (st.session_state.is_question_waiting_to_be_written[st.session_state.current_question]):
@@ -425,9 +422,14 @@ def handle_llm_his(system_prompt_name):
     st.session_state.current_question += 1
     st.rerun()
     
+def get_gender(conversation_history):
+    gender=crop_for_llm.return_gender_from_conversation(conversation_history)
+    return gender
+    
 def give_feedback_hegedim(conversation_history):
     gender=crop_for_llm.return_gender_from_conversation(conversation_history)
     croped=crop_for_llm.crop_hegedim(conversation_history)
+    st.write(croped)
     hegedim_after_translation=translate_hegedim.translate_hegedim(croped)
     #gd.add_row_to_sheet2([hegedim_after_translation])
 
@@ -715,4 +717,3 @@ if not st.session_state.finished:
 
             
 #            write_to_file.write_to_file(st.session_state.messages)
-

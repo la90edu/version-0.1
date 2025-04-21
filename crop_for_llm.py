@@ -1,7 +1,10 @@
 import ids
 
-hegedim_start_phrase =  '1. יש לי רצון לקחת על עצמי משימות שדורשות ממני להיות אחראי/ת על אחרים 💪'
+HEGEDIM_NUMBER = 20
+hegedim_start_phrase =  "1.  חוויות כואבות מהעבר ממשיכות להשפיע על קבלת ההחלטות שלי כיום"
+hegedim_end_phrase = "21. לפניך סימולציה, אנא בחר/י את רמת הקושי המתאימה לך"
 reflection_start_phrase = "תשובתך היא:"
+
 
 def crop_hegedim(data):
     filtered_data = [message for message in data if message["content"] is not None]
@@ -9,10 +12,13 @@ def crop_hegedim(data):
     for i, item in enumerate(filtered_data):
         if hegedim_start_phrase in item.get('content', ''):
             data_returned= data[i:]
-            data_returned.pop()
-            data_returned.pop()
-            return data_returned
-    return []  # Return an empty list if the start_phrase is not found
+       
+    for i, item in enumerate(data_returned):
+        # Check if the content contains "21" and return the data up to that point
+        if hegedim_end_phrase in item.get('content', ''):
+            updated_data_returned= data_returned[:i]
+            return updated_data_returned
+    return updated_data_returned  # Return an empty list if the start_phrase is not found
 
 def crop_reflection(data):
     #remove messages with no content (images, etc.)    
