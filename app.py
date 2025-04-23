@@ -410,7 +410,7 @@ def handle_llm(system_prompt_name):
     st.rerun()   
     
 def handle_llm_his(system_prompt_name):
-    gender='זכר'
+    gender=get_gender(st.session_state.messages)
     prompt=llm_manager.get_active_bot_1(gender)
     history=st.session_state.messages_bot_reflection
     if (len(history)==0):
@@ -467,7 +467,7 @@ def generate_claude_stream(system_prompt, user_prompt,save_to_messages=False):
         
             # Create a placeholder for the story
             story_placeholder = st.empty()
-            full_response = ""
+            full_response = " 🤖 "
         
             # Process each chunk of the response
             for chunk in stream:
@@ -536,7 +536,7 @@ def generate_claude_stream_with_history(system_prompt, messages,save_to_messages
         
             # Create a placeholder for the story
             story_placeholder = st.empty()
-            full_response = ""
+            full_response = " "
         
             # Process each chunk of the response
             for chunk in stream:
@@ -549,6 +549,10 @@ def generate_claude_stream_with_history(system_prompt, messages,save_to_messages
                         # Remove "END" from the response
                         full_response = full_response.replace("END", "")
                         st.session_state.finish_conversation = True
+                #         text="""
+                #         ולסיום, הבינה המלאכותית עברה על התשובות שלך מהחלק הראשון של השאלון, ורוצים לשתף אותך בתובנות שהיא מצאה. קבל/י אותן כאן!      
+                # """
+                #         conversation.show_text(text)
                        # st.session_state.user_data.append(st.session_state.messages_bot_reflection)
                         # end_conversation()
                         break  # Exit the loop if "END" is found
@@ -676,7 +680,7 @@ if not st.session_state.finished:
                     else :
                         # questions_to_pass=st.session_state.max_conversation_questions-st.session_state.count_conversation_questions-1
                         # st.session_state.current_question += questions_to_pass
-                        st.session_state.current_question += 1
+                        st.session_state.current_question += 2
                         st.rerun()
                 case "llm_history":
                     if (not st.session_state.finish_conversation):
