@@ -35,29 +35,29 @@ ids_levels3= [
 questions = [
     
      
-#     {
-#         "question": """
-# כיף שהצטרפת לתוכנית ההייטק הלאומית🤩
+    {
+        "question": """
+כיף שהצטרפת לתוכנית ההייטק הלאומית🤩
 
-# ב-10-15 דק' הקרובות 
-# ארצה ללמוד עלייך כמה דברים
+ב-10-15 דק' הקרובות 
+ארצה ללמוד עלייך כמה דברים
 
-# ✔️ קצת עלייך ומה עושה ביום יום  
+✔️ קצת עלייך ומה עושה ביום יום  
 
-# ✔️ החוזקות שלך 
+✔️ החוזקות שלך 
 
-# ✔️ איך מתמודד/ת עם אתגרים 
+✔️ איך מתמודד/ת עם אתגרים 
 
-# קח/י בחשבון 
-# שהכל אנונימי לגמרי,
-# ככה שתיקח/י את הזמן להגיב ולענות, 
+קח/י בחשבון 
+שהכל אנונימי לגמרי,
+ככה שתיקח/י את הזמן להגיב ולענות, 
 
-# ומה הקשר לבינה מלאכותית? 
-# מלא/י עד הסוף ותגלה/י 🚀
-#         """,
-#         "type": "text",  
-#         "time_count":"no"
-#     },
+ומה הקשר לבינה מלאכותית? 
+מלא/י עד הסוף ותגלה/י 🚀
+        """,
+        "type": "text",  
+        "time_count":"no"
+    },
     {
         "question": "מה המגדר שלך?",
         "type": "closed",  # שאלה סגורה
@@ -109,498 +109,498 @@ questions = [
 #     #     "time_count":"no"
 #     # },
     
-#     {
-#         "question": """
-# אנא כתב/י את הפעילויות שאת/ה משתתפ/ת בהן מחוץ לבית הספר למשל חוגים, אימונים, תנועות נוער וכו
-# """,
-#         "type": "open",  # שאלה פתוחה
-#         "feedback": "תודה",
-#         "time_count":"no",
-#     },
+    {
+        "question": """
+אנא כתב/י את הפעילויות שאת/ה משתתפ/ת בהן מחוץ לבית הספר למשל חוגים, אימונים, תנועות נוער וכו
+""",
+        "type": "open",  # שאלה פתוחה
+        "feedback": "תודה",
+        "time_count":"no",
+    },
     
-#     {
-#         "question": """
-#         הרחבות (בנוסף למתמטיקה, אנגלית, פיזיקה/מדמ"ח), אנא בחר/י את הקרוב ביותר
-#         """,
-#         "type": "closed",  # שאלה סגורה
-#         "options":[
-#              "אין הרחבות נוספות",
-#              "מגמות טכנולוגיות", 
-#              "מגמות מדעיות", 
-#              "מגמות שפה",
-#              "מגמות אומנותיות",
-#              "מגמות מדעי החברה", 
-#              "מגמות מדעי הרוח", 
-#              "אחר"
-#              ],
-#         "options_style":"horizontal",
-#         "feedbacks": [],
-#         "feedback_system_prompt_name":'common_feedback',
-#         "feedback_type":"none",
-#         "reflection"  : "False",
-#         "not_for_school_8":"True",
-#         "not_for_school_10":"False",
-#         "time_count":"no"
-#     },
+    {
+        "question": """
+        הרחבות (בנוסף למתמטיקה, אנגלית, פיזיקה/מדמ"ח), אנא בחר/י את הקרוב ביותר
+        """,
+        "type": "closed",  # שאלה סגורה
+        "options":[
+             "אין הרחבות נוספות",
+             "מגמות טכנולוגיות", 
+             "מגמות מדעיות", 
+             "מגמות שפה",
+             "מגמות אומנותיות",
+             "מגמות מדעי החברה", 
+             "מגמות מדעי הרוח", 
+             "אחר"
+             ],
+        "options_style":"horizontal",
+        "feedbacks": [],
+        "feedback_system_prompt_name":'common_feedback',
+        "feedback_type":"none",
+        "reflection"  : "False",
+        "not_for_school_8":"True",
+        "not_for_school_10":"False",
+        "time_count":"no"
+    },
     
      
-#     {
-#         "question": """
-#         בהסתכלות קדימה לקראת שנה הבאה, האם היית רוצה לפרוש מ-5 יחידות מתמטיקה?
-#         """,
-#         "type": "closed",  # שאלה סגורה
-#         "options":[
-#              "בוודאי",
-#              "כנראה שכן", 
-#              "כנראה שלא", 
-#              "בוודאות לא"
-#              ],
-#         "options_style":"horizontal",
+    {
+        "question": """
+        בהסתכלות קדימה לקראת שנה הבאה, האם היית רוצה לפרוש מ-5 יחידות מתמטיקה?
+        """,
+        "type": "closed",  # שאלה סגורה
+        "options":[
+             "בוודאי",
+             "כנראה שכן", 
+             "כנראה שלא", 
+             "בוודאות לא"
+             ],
+        "options_style":"horizontal",
         
-#         "feedbacks": [],
-#         "feedback_system_prompt_name":'common_feedback',
-#         "feedback_type":"none",
-#         "reflection"  : "False",
-#         "not_for_school_8":"True",
-#         "not_for_school_10":"False",
-#         "time_count":"no"
-#     },
+        "feedbacks": [],
+        "feedback_system_prompt_name":'common_feedback',
+        "feedback_type":"none",
+        "reflection"  : "False",
+        "not_for_school_8":"True",
+        "not_for_school_10":"False",
+        "time_count":"no"
+    },
     
-#      {
-#         "question": """
-# בהסתכלות קדימה לקראת שנת התיכון, האם היית רוצה ללמוד מ-5 יחידות מתמטיקה?        """,
-#         "type": "closed",  # שאלה סגורה
-#         "options":[
-#              "בוודאי",
-#              "כנראה שכן", 
-#              "כנראה שלא", 
-#              "בוודאות לא"
-#              ],
-#         "options_style":"horizontal",
+     {
+        "question": """
+בהסתכלות קדימה לקראת שנת התיכון, האם היית רוצה ללמוד מ-5 יחידות מתמטיקה?        """,
+        "type": "closed",  # שאלה סגורה
+        "options":[
+             "בוודאי",
+             "כנראה שכן", 
+             "כנראה שלא", 
+             "בוודאות לא"
+             ],
+        "options_style":"horizontal",
         
-#         "feedbacks": [],
-#         "feedback_system_prompt_name":'common_feedback',
-#         "feedback_type":"none",
-#         "reflection"  : "False",
-#         "not_for_school_8":"False",
-#         "not_for_school_10":"True",
-#         "time_count":"no"
-#     },
+        "feedbacks": [],
+        "feedback_system_prompt_name":'common_feedback',
+        "feedback_type":"none",
+        "reflection"  : "False",
+        "not_for_school_8":"False",
+        "not_for_school_10":"True",
+        "time_count":"no"
+    },
     
-#      {
-#         "question": "האם את/ה מכיר/ה מישהו שעובד בהיי-טק?",
-#         # שאלה סגורה
-#         "type": "closed",  # שאלה סגורה
-#         "options":[
-#                 "לא מכיר/ה",
-#                 "כן, מישהו מהמשפחה הגרעינית -אמא, אבא, אח, אחות",
-#                 "כן, מישהו מהמשפחה המורחבת - דוד, דודה, בן דוד, אחיינית וכו'",
-#                 "כן, מישהו מהשכונה",
-#                 "כן, חברים של ההורים",
-#                 "כן, מישהו שלא קשור למשפחה"
-#             # "אחר"
-#             ],
-#         "options_style":"horizontal",
-#         "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
-#         "feedback_system_prompt_name":'common_feedback',
-#         "feedback_type":"none",
-#         "reflection"  : "False",
-#         "not_for_school_8":"False",
-#         "not_for_school_10":"False",
-#         "time_count":"no"
-#     },
+     {
+        "question": "האם את/ה מכיר/ה מישהו שעובד בהיי-טק?",
+        # שאלה סגורה
+        "type": "closed",  # שאלה סגורה
+        "options":[
+                "לא מכיר/ה",
+                "כן, מישהו מהמשפחה הגרעינית -אמא, אבא, אח, אחות",
+                "כן, מישהו מהמשפחה המורחבת - דוד, דודה, בן דוד, אחיינית וכו'",
+                "כן, מישהו מהשכונה",
+                "כן, חברים של ההורים",
+                "כן, מישהו שלא קשור למשפחה"
+            # "אחר"
+            ],
+        "options_style":"horizontal",
+        "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
+        "feedback_system_prompt_name":'common_feedback',
+        "feedback_type":"none",
+        "reflection"  : "False",
+        "not_for_school_8":"False",
+        "not_for_school_10":"False",
+        "time_count":"no"
+    },
      
-#      {
-#         "question": "האם אובחנת באופן רשמי עם אחד או יותר מהבאים?",
-#         "type": "closed",  # שאלה סגורה
-#         "options": [
-#                 "לא אובחנתי",
-#                 "דיסלקציה",
-#                 "דיסגרפיה",
-#                 "דיסקלקוליה",
-#                 "ADHD/ADD",
-#                 "לקות למידה אחרת",
-#                 "מעדיף/ה לא לציין"
-#                 ],
-#         "options_style":"horizontal",
-#         "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
-#         "feedback_system_prompt_name":'common_feedback',
-#         "feedback_type":"none",
-#         "reflection"  : "False",
-#         "not_for_school_8":"False",
-#         "not_for_school_10":"False",
-#         "time_count":"no"
-#     },
+     {
+        "question": "האם אובחנת באופן רשמי עם אחד או יותר מהבאים?",
+        "type": "closed",  # שאלה סגורה
+        "options": [
+                "לא אובחנתי",
+                "דיסלקציה",
+                "דיסגרפיה",
+                "דיסקלקוליה",
+                "ADHD/ADD",
+                "לקות למידה אחרת",
+                "מעדיף/ה לא לציין"
+                ],
+        "options_style":"horizontal",
+        "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
+        "feedback_system_prompt_name":'common_feedback',
+        "feedback_type":"none",
+        "reflection"  : "False",
+        "not_for_school_8":"False",
+        "not_for_school_10":"False",
+        "time_count":"no"
+    },
      
-#      ####היגדים #####################################
+     ####היגדים #####################################
 
-#         #הקדמה
-#     #   {
-#     #     "question":"""
-#     #     עכשיו נעבור לחלק השני!
-#     #     בחלק הקרוב יוצגו לפניך 20 היגדים.
-#     #     אנא ענה/י עליהם בכנות לגבי עצמך.
-#     #     """,
-#     #     "type": "text",  
-#     #     "time_count":"no"
-#     # },
+        #הקדמה
+    #   {
+    #     "question":"""
+    #     עכשיו נעבור לחלק השני!
+    #     בחלק הקרוב יוצגו לפניך 20 היגדים.
+    #     אנא ענה/י עליהם בכנות לגבי עצמך.
+    #     """,
+    #     "type": "text",  
+    #     "time_count":"no"
+    # },
       
       
-#       #Q1
-#       {
-#         "question": ids.return_text_by_the_id("Q1"),
-#         "type": "text",  
-#         "time_count":"no"
-#     }, 
+      #Q1
+      {
+        "question": ids.return_text_by_the_id("Q1"),
+        "type": "text",  
+        "time_count":"no"
+    }, 
    
-#     {
-#         "question": ids.return_text_by_the_id('ICI2'),
-#         "type": "closed",
-#         "options": ids_levels1,
-#         "options_style":"horizontal",
-#         "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
-#         "feedback_system_prompt_name": 'common_feedback',
-#         "feedback_type": "none",
-#         "reflection"  : "False",
-#         "not_for_school_8":"False",
-#         "not_for_school_10":"False",
-#         "time_count": "no"
-#     },
-#     {
-#         "question": ids.return_text_by_the_id("ZPTI16"),
-#         "type": "closed",
-#         "options": ids_levels1,
-#         "options_style":"horizontal",
-#         "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
-#         "feedback_system_prompt_name": 'common_feedback',
-#         "feedback_type": "none",
-#         "reflection"  : "False",
-#         "not_for_school_8":"False",
-#          "not_for_school_10":"False",
+    {
+        "question": ids.return_text_by_the_id('ICI2'),
+        "type": "closed",
+        "options": ids_levels1,
+        "options_style":"horizontal",
+        "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
+        "feedback_system_prompt_name": 'common_feedback',
+        "feedback_type": "none",
+        "reflection"  : "False",
+        "not_for_school_8":"False",
+        "not_for_school_10":"False",
+        "time_count": "no"
+    },
+    {
+        "question": ids.return_text_by_the_id("ZPTI16"),
+        "type": "closed",
+        "options": ids_levels1,
+        "options_style":"horizontal",
+        "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
+        "feedback_system_prompt_name": 'common_feedback',
+        "feedback_type": "none",
+        "reflection"  : "False",
+        "not_for_school_8":"False",
+         "not_for_school_10":"False",
 
-#         "time_count": "no"
-#     },
-#     {
-#         "question": ids.return_text_by_the_id("ZPTI10"),
-#         "type": "closed",
-#         "options": ids_levels1,
-#         "options_style":"horizontal",
-#         "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
-#         "feedback_system_prompt_name": 'common_feedback',
-#         "feedback_type": "none",
-#         "reflection"  : "False",
-#         "not_for_school_8":"False",
-#          "not_for_school_10":"False",
-#         "time_count": "no"
-#     },
-#     {
-#         "question": ids.return_text_by_the_id("RISC2"),
-#         "type": "closed",
-#         "options": ids_levels1,
-#         "options_style":"horizontal",
-#         "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
-#         "feedback_system_prompt_name": 'common_feedback',
-#         "feedback_type": "none",
-#         "reflection"  : "False",
-#         "not_for_school_8":"False",
-#          "not_for_school_10":"False",
-#         "time_count": "no"
-#     },
-#     {
-#         "question": ids.return_text_by_the_id("ICI5"),
-#         "type": "closed",
-#         "options": ids_levels1,
-#         "options_style":"horizontal",
-#         "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
-#         "feedback_system_prompt_name": 'common_feedback',
-#         "feedback_type": "none",
-#         "reflection"  : "False",
-#         "not_for_school_8":"False",
-#          "not_for_school_10":"False",
-#         "time_count": "no"
-#     },
-#     {
-#         "question": ids.return_text_by_the_id("ZPTI7"),
-#         "type": "closed",
-#         "options": ids_levels1,
-#         "options_style":"horizontal",
-#         "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
-#         "feedback_system_prompt_name": 'common_feedback',
-#         "feedback_type": "none",
-#         "reflection"  : "False",
-#         "not_for_school_8":"False",
-#          "not_for_school_10":"False",
-#         "time_count": "no"
-#     },
+        "time_count": "no"
+    },
+    {
+        "question": ids.return_text_by_the_id("ZPTI10"),
+        "type": "closed",
+        "options": ids_levels1,
+        "options_style":"horizontal",
+        "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
+        "feedback_system_prompt_name": 'common_feedback',
+        "feedback_type": "none",
+        "reflection"  : "False",
+        "not_for_school_8":"False",
+         "not_for_school_10":"False",
+        "time_count": "no"
+    },
+    {
+        "question": ids.return_text_by_the_id("RISC2"),
+        "type": "closed",
+        "options": ids_levels1,
+        "options_style":"horizontal",
+        "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
+        "feedback_system_prompt_name": 'common_feedback',
+        "feedback_type": "none",
+        "reflection"  : "False",
+        "not_for_school_8":"False",
+         "not_for_school_10":"False",
+        "time_count": "no"
+    },
+    {
+        "question": ids.return_text_by_the_id("ICI5"),
+        "type": "closed",
+        "options": ids_levels1,
+        "options_style":"horizontal",
+        "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
+        "feedback_system_prompt_name": 'common_feedback',
+        "feedback_type": "none",
+        "reflection"  : "False",
+        "not_for_school_8":"False",
+         "not_for_school_10":"False",
+        "time_count": "no"
+    },
+    {
+        "question": ids.return_text_by_the_id("ZPTI7"),
+        "type": "closed",
+        "options": ids_levels1,
+        "options_style":"horizontal",
+        "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
+        "feedback_system_prompt_name": 'common_feedback',
+        "feedback_type": "none",
+        "reflection"  : "False",
+        "not_for_school_8":"False",
+         "not_for_school_10":"False",
+        "time_count": "no"
+    },
   
 
 
-# ##### Q2
+##### Q2
        
        
-#     {
-#         "question": ids.return_text_by_the_id("ICI4"),
-#         "type": "closed",
-#         "options": ids_levels2,
-#         "options_style":"horizontal",
-#         "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
-#         "feedback_system_prompt_name": 'common_feedback',
-#         "feedback_type": "none",
-#         "reflection"  : "False",
-#         "not_for_school_8":"False",
-#          "not_for_school_10":"False",
-#         "time_count": "no"
-#     },
-#     {
-#         "question": ids.return_text_by_the_id("ZPTI15"),
-#         "type": "closed",
-#         "options": ids_levels2,
-#         "options_style":"horizontal",
-#         "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
-#         "feedback_system_prompt_name": 'common_feedback',
-#         "feedback_type": "none",
-#         "reflection"  : "False",
-#         "not_for_school_8":"False",
-#          "not_for_school_10":"False",
-#         "time_count": "no"
-#     },
-#     {
-#         "question": ids.return_text_by_the_id("ICI7"),
-#         "type": "closed",
-#         "options": ids_levels2,
-#         "options_style":"horizontal",
-#         "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
-#         "feedback_system_prompt_name": 'common_feedback',
-#         "feedback_type": "none",
-#         "reflection"  : "False",
-#         "not_for_school_8":"False",#          "not_for_school_10":"False",
-#          "not_for_school_10":"False",
-#         "time_count": "no"
-#     },
-#     {
-#         "question": ids.return_text_by_the_id("ZPTI6"),
-#         "type": "closed",
-#         "options": ids_levels2,
-#         "options_style":"horizontal",
-#         "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
-#         "feedback_system_prompt_name": 'common_feedback',
-#         "feedback_type": "none",
-#         "reflection"  : "False",
-#         "not_for_school_8":"False",#          "not_for_school_10":"False",
-#         "not_for_school_10":"False",
-#         "time_count": "no"
-#     },
-#     {
-#         "question": ids.return_text_by_the_id("RISC1"),
-#         "type": "closed",
-#         "options": ids_levels2,
-#         "options_style":"horizontal",
-#         "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
-#         "feedback_system_prompt_name": 'common_feedback',
-#         "feedback_type": "none",
-#         "reflection"  : "False",
-#         "not_for_school_8":"False",
-#          "not_for_school_10":"False",
-#         "time_count": "no"
-#     },
-#     {
-#         "question": ids.return_text_by_the_id("ZPTI12"),
-#         "type": "closed",
-#         "options": ids_levels2,
-#         "options_style":"horizontal",
-#         "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
-#         "feedback_system_prompt_name": 'common_feedback',
-#         "feedback_type": "none",
-#         "reflection"  : "False",
-#         "not_for_school_8":"False",
-#          "not_for_school_10":"False",
-#         "time_count": "no"
-#     },
-#     {
-#         "question": ids.return_text_by_the_id("ZPTI3"),
-#         "type": "closed",
-#         "options": ids_levels2,
-#         "options_style":"horizontal",
-#         "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
-#         "feedback_system_prompt_name": 'common_feedback',
-#         "feedback_type": "none",
-#         "reflection"  : "False",
-#         "not_for_school_8":"False",
-#          "not_for_school_10":"False",
-#         "time_count": "no"
-#     },
+    {
+        "question": ids.return_text_by_the_id("ICI4"),
+        "type": "closed",
+        "options": ids_levels2,
+        "options_style":"horizontal",
+        "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
+        "feedback_system_prompt_name": 'common_feedback',
+        "feedback_type": "none",
+        "reflection"  : "False",
+        "not_for_school_8":"False",
+         "not_for_school_10":"False",
+        "time_count": "no"
+    },
+    {
+        "question": ids.return_text_by_the_id("ZPTI15"),
+        "type": "closed",
+        "options": ids_levels2,
+        "options_style":"horizontal",
+        "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
+        "feedback_system_prompt_name": 'common_feedback',
+        "feedback_type": "none",
+        "reflection"  : "False",
+        "not_for_school_8":"False",
+         "not_for_school_10":"False",
+        "time_count": "no"
+    },
+    {
+        "question": ids.return_text_by_the_id("ICI7"),
+        "type": "closed",
+        "options": ids_levels2,
+        "options_style":"horizontal",
+        "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
+        "feedback_system_prompt_name": 'common_feedback',
+        "feedback_type": "none",
+        "reflection"  : "False",
+        "not_for_school_8":"False",#          "not_for_school_10":"False",
+         "not_for_school_10":"False",
+        "time_count": "no"
+    },
+    {
+        "question": ids.return_text_by_the_id("ZPTI6"),
+        "type": "closed",
+        "options": ids_levels2,
+        "options_style":"horizontal",
+        "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
+        "feedback_system_prompt_name": 'common_feedback',
+        "feedback_type": "none",
+        "reflection"  : "False",
+        "not_for_school_8":"False",#          "not_for_school_10":"False",
+        "not_for_school_10":"False",
+        "time_count": "no"
+    },
+    {
+        "question": ids.return_text_by_the_id("RISC1"),
+        "type": "closed",
+        "options": ids_levels2,
+        "options_style":"horizontal",
+        "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
+        "feedback_system_prompt_name": 'common_feedback',
+        "feedback_type": "none",
+        "reflection"  : "False",
+        "not_for_school_8":"False",
+         "not_for_school_10":"False",
+        "time_count": "no"
+    },
+    {
+        "question": ids.return_text_by_the_id("ZPTI12"),
+        "type": "closed",
+        "options": ids_levels2,
+        "options_style":"horizontal",
+        "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
+        "feedback_system_prompt_name": 'common_feedback',
+        "feedback_type": "none",
+        "reflection"  : "False",
+        "not_for_school_8":"False",
+         "not_for_school_10":"False",
+        "time_count": "no"
+    },
+    {
+        "question": ids.return_text_by_the_id("ZPTI3"),
+        "type": "closed",
+        "options": ids_levels2,
+        "options_style":"horizontal",
+        "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
+        "feedback_system_prompt_name": 'common_feedback',
+        "feedback_type": "none",
+        "reflection"  : "False",
+        "not_for_school_8":"False",
+         "not_for_school_10":"False",
+        "time_count": "no"
+    },
  
 
-# #########Q3
+#########Q3
 
-#         {
-#         "question": ids.return_text_by_the_id("Q3"),
-#         "type": "text",  
-#         "time_count":"no"
-#     },
-#     {
-#         "question": ids.return_text_by_the_id("RISC3"),
-#         "type": "closed",
-#         "options": ids_levels3,
-#         "options_style":"horizontal",
-#         "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
-#         "feedback_system_prompt_name": 'common_feedback',
-#         "feedback_type": "none",
-#         "reflection"  : "False",
-#         "not_for_school_8":"False",
-#          "not_for_school_10":"False",
-#         "time_count": "no"
-#     },
-#     {
-#         "question": ids.return_text_by_the_id("GRT1"),
-#         "type": "closed",
-#         "options": ids_levels3,
-#         "options_style":"horizontal",
-#         "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
-#         "feedback_system_prompt_name": 'common_feedback',
-#         "feedback_type": "none",
-#         "reflection"  : "False",
-#         "not_for_school_8":"False",
-#          "not_for_school_10":"False",
-#         "time_count": "no"
-#     },
-#     {
-#         "question": ids.return_text_by_the_id("ZPTI2"),
-#         "type": "closed",
-#         "options": ids_levels3,
-#         "options_style":"horizontal",
-#         "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
-#         "feedback_system_prompt_name": 'common_feedback',
-#         "feedback_type": "none",
-#         "reflection"  : "False",
-#         "not_for_school_8":"False",
-#         "not_for_school_10":"False",
-#         "time_count": "no"
-#     },
-#     {
-#         "question": ids.return_text_by_the_id("ZPTI11"),
-#         "type": "closed",
-#         "options": ids_levels3,
-#         "options_style":"horizontal",
-#         "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
-#         "feedback_system_prompt_name": 'common_feedback',
-#         "feedback_type": "none",
-#         "reflection"  : "False",
-#         "not_for_school_8":"False",
-#          "not_for_school_10":"False",
-#         "time_count": "no"
-#     },
-#     {
-#         "question": ids.return_text_by_the_id("ZPTI5"),
-#         "type": "closed",
-#         "options": ids_levels3,
-#         "options_style":"horizontal",
-#         "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
-#         "feedback_system_prompt_name": 'common_feedback',
-#         "feedback_type": "none",
-#         "reflection"  : "False",
-#         "not_for_school_8":"False",
-#          "not_for_school_10":"False",
-#         "time_count": "no"
-#     },
-#     {
-#         "question": ids.return_text_by_the_id("ICI6"),
-#         "type": "closed",
-#         "options": ids_levels3,
-#         "options_style":"horizontal",
-#         "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
-#         "feedback_system_prompt_name": 'common_feedback',
-#         "feedback_type": "none",
-#         "reflection"  : "False",
-#         "not_for_school_8":"False",
-#          "not_for_school_10":"False",
-#         "time_count": "no"
-#     },
-#     {
-#         "question": ids.return_text_by_the_id("ZPTI8"),
-#         "type": "closed",
-#         "options": ids_levels3,
-#         "options_style":"horizontal",
-#         "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
-#                       "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
-#         "feedback_system_prompt_name": 'common_feedback',
-#         "feedback_type": "none",
-#         "reflection"  : "False",
-#         "not_for_school_8":"False",
-#          "not_for_school_10":"False",
-#         "time_count": "no"
-#     },
+        {
+        "question": ids.return_text_by_the_id("Q3"),
+        "type": "text",  
+        "time_count":"no"
+    },
+    {
+        "question": ids.return_text_by_the_id("RISC3"),
+        "type": "closed",
+        "options": ids_levels3,
+        "options_style":"horizontal",
+        "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
+        "feedback_system_prompt_name": 'common_feedback',
+        "feedback_type": "none",
+        "reflection"  : "False",
+        "not_for_school_8":"False",
+         "not_for_school_10":"False",
+        "time_count": "no"
+    },
+    {
+        "question": ids.return_text_by_the_id("GRT1"),
+        "type": "closed",
+        "options": ids_levels3,
+        "options_style":"horizontal",
+        "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
+        "feedback_system_prompt_name": 'common_feedback',
+        "feedback_type": "none",
+        "reflection"  : "False",
+        "not_for_school_8":"False",
+         "not_for_school_10":"False",
+        "time_count": "no"
+    },
+    {
+        "question": ids.return_text_by_the_id("ZPTI2"),
+        "type": "closed",
+        "options": ids_levels3,
+        "options_style":"horizontal",
+        "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
+        "feedback_system_prompt_name": 'common_feedback',
+        "feedback_type": "none",
+        "reflection"  : "False",
+        "not_for_school_8":"False",
+        "not_for_school_10":"False",
+        "time_count": "no"
+    },
+    {
+        "question": ids.return_text_by_the_id("ZPTI11"),
+        "type": "closed",
+        "options": ids_levels3,
+        "options_style":"horizontal",
+        "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
+        "feedback_system_prompt_name": 'common_feedback',
+        "feedback_type": "none",
+        "reflection"  : "False",
+        "not_for_school_8":"False",
+         "not_for_school_10":"False",
+        "time_count": "no"
+    },
+    {
+        "question": ids.return_text_by_the_id("ZPTI5"),
+        "type": "closed",
+        "options": ids_levels3,
+        "options_style":"horizontal",
+        "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
+        "feedback_system_prompt_name": 'common_feedback',
+        "feedback_type": "none",
+        "reflection"  : "False",
+        "not_for_school_8":"False",
+         "not_for_school_10":"False",
+        "time_count": "no"
+    },
+    {
+        "question": ids.return_text_by_the_id("ICI6"),
+        "type": "closed",
+        "options": ids_levels3,
+        "options_style":"horizontal",
+        "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
+        "feedback_system_prompt_name": 'common_feedback',
+        "feedback_type": "none",
+        "reflection"  : "False",
+        "not_for_school_8":"False",
+         "not_for_school_10":"False",
+        "time_count": "no"
+    },
+    {
+        "question": ids.return_text_by_the_id("ZPTI8"),
+        "type": "closed",
+        "options": ids_levels3,
+        "options_style":"horizontal",
+        "feedbacks": ["הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת.",
+                      "הבנתי. תודה על התשובה. אשמח שתספרו לי על זה עוד קצת."],
+        "feedback_system_prompt_name": 'common_feedback',
+        "feedback_type": "none",
+        "reflection"  : "False",
+        "not_for_school_8":"False",
+         "not_for_school_10":"False",
+        "time_count": "no"
+    },
     
-#      {
-#         "type": "insert_data",  
-#         "options": [""],
-#         "time_count":"no"
-#     },
+     {
+        "type": "insert_data",  
+        "options": [""],
+        "time_count":"no"
+    },
 
 #  ###LLM
  
@@ -825,12 +825,12 @@ questions = [
     #      "time_count":"no"
     #  },
       
-    #   {
-    #      "question": "",
-    #      "type": "text_llm",
-    #      "system_prompt_name":"hegedim",
-    #      "time_count":"no"
-    # },
+      {
+         "question": "",
+         "type": "text_llm",
+         "system_prompt_name":"hegedim",
+         "time_count":"no"
+    },
     {
         "question": """
       השאלון הסתיים! תודה רבה על הזמן שהקדשת. בהצלחה בתכנית

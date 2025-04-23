@@ -496,7 +496,19 @@ def generate_claude_stream(system_prompt, user_prompt,save_to_messages=False):
     #     #print(f"שגיאה כללית: {e}")
     #     return ""  # מחזיר מחרוזת ריקה עבור כל שגיאה אחרת
 
-
+def end_conversation():
+    st.session_state.finish_conversation=True
+    to_save=st.session_state.messages_bot_reflection
+    #save history
+    
+    #feedback hegedim
+    handle_llm(current_q["system_prompt_name"])
+    display_input_box(disabled=True,save_to_messages_reflection_bot=False)  # השבתת תיבת ה-input
+    #show finish_text
+    
+    conversation.show_text("סיימנו את השיחה, תודה על השיחה!")
+    # display_input_box(disabled=True,save_to_messages_reflection_bot=False)  # השבתת תיבת ה-input
+    
 
 def generate_claude_stream_with_history(system_prompt, messages,save_to_messages=False):#user_prompt, conversation_history=None,save_to_messages=False):
     # try:
@@ -531,6 +543,15 @@ def generate_claude_stream_with_history(system_prompt, messages,save_to_messages
                 if chunk.type == "content_block_delta":
                     full_response += chunk.delta.text
                     story_placeholder.markdown(f'<div style="direction: rtl; text-align: right;">{full_response}</div>', unsafe_allow_html=True)
+                    
+                    # Check if "END" appears in the response
+                    if "END" in full_response:
+                        # Remove "END" from the response
+                        full_response = full_response.replace("END", "")
+                        st.session_state.finish_conversation = True
+                       # st.session_state.user_data.append(st.session_state.messages_bot_reflection)
+                        # end_conversation()
+                        break  # Exit the loop if "END" is found
 
             # Show final response without cursor
             story_placeholder.markdown(f'<div style="direction: rtl; text-align: right;">{full_response}</div>', unsafe_allow_html=True)
@@ -598,7 +619,7 @@ def show_selectbox_schools_question(question, feedbacks):
    
 
 #MAIN#####
-# כותרת
+# כותרתt ru
 
 # write_to_file.write_to_file("messages.txt")
 st.markdown('<h1 class="main-title">מבט לרגע🚀</h1>', unsafe_allow_html=True)
@@ -626,6 +647,9 @@ if 'messages' not in st.session_state:
         st.session_state.messages_bot_reflection=[]
         # st.session_state.messages_bot_reflection.append({"role": "assistant", "content": active_sim.question})
         st.session_state.finish_conversation=False
+        st.session_state.count_conversation_questions=0
+        st.session_state.max_conversation_questions=15
+    
     # הצגת היסטוריית השיחה
 conversation.show_chat_history()
 
@@ -646,12 +670,24 @@ if not st.session_state.finished:
                     display_input_box(disabled=False,save_to_messages_reflection_bot=False)  # הפעלת תיבת ה-input
                 case "open_save":
                     if (not st.session_state.finish_conversation):
+                        st.session_state.count_conversation_questions+=1
                         display_input_box(disabled=False,save_to_messages_reflection_bot=True)
                         # show_open_question_llm()
+                    else :
+                        # questions_to_pass=st.session_state.max_conversation_questions-st.session_state.count_conversation_questions-1
+                        # st.session_state.current_question += questions_to_pass
+                        st.session_state.current_question += 1
+                        st.rerun()
                 case "llm_history":
                     if (not st.session_state.finish_conversation):
+                        st.session_state.count_conversation_questions+=1
                         handle_llm_his(current_q["system_prompt_name"])
                         display_input_box(disabled=True,save_to_messages_reflection_bot=False)  # השבתת תיבת ה-input
+                    else :
+                        # questions_to_pass=st.session_state.max_conversation_questions-st.session_state.count_conversation_questions-1
+                        # st.session_state.current_question += questions_to_pass
+                        st.session_state.current_question += 1
+                        st.rerun()
                 case "closed":
                     question=current_q["question"]
                     options=current_q["options"]
@@ -693,7 +729,6 @@ if not st.session_state.finished:
                     conversation.show_text(current_q["question"])
                     display_input_box(disabled=True,save_to_messages_reflection_bot=False)  # השבתת תיבת ה-input
                 case "text_llm":
-                    if (not st.session_state.finish_conversation):
                         handle_llm(current_q["system_prompt_name"])
                         display_input_box(disabled=True,save_to_messages_reflection_bot=False)  # השבתת תיבת ה-input
 
