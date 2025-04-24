@@ -231,8 +231,8 @@ def show_simulation2():
         conversation.display_bot_message_with_typing_effect("תשובתך היא:")
         st.session_state.messages.append({"role": "assistant", "content": "תשובתך היא:"})
         
-        conversation.display_bot_message_with_typing_effect("תשובה שגויה")   
-        st.session_state.messages.append({"role": "assistant", "content": "תשובה שגויה"})
+        conversation.display_bot_message_with_typing_effect("תשובה לא נכונה")   
+        st.session_state.messages.append({"role": "assistant", "content": "תשובה לא נכונה"})
 
         
     st.session_state.question_stage=0
