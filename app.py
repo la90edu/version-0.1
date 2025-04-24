@@ -457,8 +457,8 @@ def generate_claude_stream(system_prompt, user_prompt,save_to_messages=False):
         # Create the stream
         with client.messages.stream(
             model="claude-3-7-sonnet-20250219", 
-            # temperature=0.1,
-            max_tokens=1024,  
+            temperature=0.5,
+            max_tokens=700,  
             system=system_prompt,
             messages=[
                 {"role": "user", "content": user_prompt}
@@ -528,8 +528,8 @@ def generate_claude_stream_with_history(system_prompt, messages,save_to_messages
         # Create the stream
         with client.messages.stream(
             model="claude-3-sonnet-20240229", 
-            temperature=0.1,
-            max_tokens=1024,  
+            temperature=0.5,
+            max_tokens=700,  
             system=system_prompt,
             messages=messages
         ) as stream:
