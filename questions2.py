@@ -4,11 +4,11 @@ from after_simulation import ReflectiveQuestions
 import active_sim
 
 ids_levels1 = [
-     "😃 דומה לחלוטין",
-     "🙂 דומה",
-      "😐 קצת דומה",
-      "🙁 לא כל כך דומה",
-    "😡 לא דומה בכלל",
+     "😄 מתארת אותי בול",
+    "😊  מתארת אותי לא רע",
+    "😐 קצת מתארת אותי",
+    "🙁 לא מתארת אותי ",
+    "😡 ממש לא מתארת אותי "
      
        
 ]
@@ -22,11 +22,11 @@ ids_levels2 = [
 ]
 
 ids_levels3= [
-    "😄 מתאר אותי בול",
-    "😊  מתאר אותי לא רע",
-    "😐 קצת מתאר אותי",
-    "🙁 לא מתאר אותי ",
-    "😡 ממש לא מתאר אותי "
+    "😄 מתאר אותי במדויק",
+    "😊 מתאר אותי",
+    "😐 מתאר אותי מעט",
+    "🙁 לא ממש מתאר אותי ",
+    "😡 כלל לא מתאר אותי "
 ]
 
 
@@ -103,11 +103,7 @@ questions = [
         "time_count":"no"
     },
     
-#     # {
-#     #     "type": "insert_data",  
-#     #     "options": [""],
-#     #     "time_count":"no"
-#     # },
+
     
     {
         "question": """

@@ -339,7 +339,7 @@ def show_closed_grade_question(question, options,feedbacks, session_state_answer
 # פונקציה להצגת שאלה פתוחה
 def show_open_question(question, feedback):
     # הצגת השאלה הפתוחה מהבוט
-    time.sleep(0.5)  # הוספת השהיה של 0.5 שניות
+    # time.sleep(0.5)  # הוספת השהיה של 0.5 שניות
 
     if st.session_state.is_question_waiting_to_be_written[st.session_state.current_question]:
         conversation.display_bot_message_with_typing_effect(question)
@@ -379,8 +379,8 @@ def display_input_box(disabled,save_to_messages_reflection_bot):
             st.session_state.messages.append({"role": "user", "content": user_input})
             
             # שמירת התשובה של המשתמש במשתנה user_data
-            #st.session_state.user_data.append(user_input)
-            data.add_and_update_user_data(user_input)
+            if (not save_to_messages_reflection_bot):
+                data.add_and_update_user_data(user_input)
 
             # טיפול בשאלה הפתוחה או החזרה לשאלה הסגורה
             if st.session_state.current_question < len(questions):
@@ -389,7 +389,7 @@ def display_input_box(disabled,save_to_messages_reflection_bot):
                 # אם זו שאלה פתוחה, השאלה תטופל כאן
                 if current_q["type"] == "open":
                     st.session_state.messages.append({"role": "assistant", "content": current_q["feedback"]})
-                    st.session_state.current_question += 1
+                    # st.session_state.current_question += 1
                 # אם זו שאלה סגורה, השאלה תוצג מחדש כדי שהמשתמש יבחר באחת האפשרויות
                 elif current_q["type"] == "closed":
                     st.session_state.messages.append({"role": "assistant", "content": current_q["question"]})
@@ -549,11 +549,10 @@ def generate_claude_stream_with_history(system_prompt, messages,save_to_messages
                         # Remove "END" from the response
                         full_response = full_response.replace("END", "")
                         st.session_state.finish_conversation = True
-                #         text="""
-                #         ולסיום, הבינה המלאכותית עברה על התשובות שלך מהחלק הראשון של השאלון, ורוצים לשתף אותך בתובנות שהיא מצאה. קבל/י אותן כאן!      
-                # """
-                #         conversation.show_text(text)
-                       # st.session_state.user_data.append(st.session_state.messages_bot_reflection)
+
+                        string_conversation= crop_for_llm.data_to_string(st.session_state.messages_bot_reflection)
+                        data.add_and_update_user_data(string_conversation)
+                        # st.session_state.user_data.append(string_conversation)
                         # end_conversation()
                         break  # Exit the loop if "END" is found
 
