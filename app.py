@@ -450,7 +450,8 @@ def give_feedback_reflection(conversation_history):
 
 
 
-client = Anthropic(api_key=os.getenv('ANTHROPIC_API_KEY'))
+# client = Anthropic(api_key=os.getenv('ANTHROPIC_API_KEY'))
+client = Anthropic(api_key=st.secrets['ANTHROPIC_API_KEY'])
 
 def generate_claude_stream(system_prompt, user_prompt,save_to_messages=False):
     # try:

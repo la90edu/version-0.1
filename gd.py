@@ -1,13 +1,15 @@
 
 import gspread
 from google.oauth2.service_account import Credentials
+import streamlit as st
 
 import os
 #from dotenv import load_dotenv,dotenv_values
 
 scopes = [ "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive"]
-creds = Credentials.from_service_account_file("/etc/secrets/cred.json", scopes=scopes)#for deployment
+creds = Credentials.from_service_account_info(st.secrets["creds"], scopes=scopes)
+# creds = Credentials.from_service_account_file("/etc/secrets/cred.json", scopes=scopes)#for deployment
 #creds = Credentials.from_service_account_file("cred.json", scopes=scopes)#local development
 client = gspread.authorize(creds)
 
