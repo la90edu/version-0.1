@@ -25,7 +25,6 @@ import time_1 as ti
 from schools import School_Type
 import schools
 import simulations
-from after_simulation import ReflectiveQuestions
 import write_to_file
 import llm_manager
 import data_translation
@@ -36,6 +35,7 @@ import translate_hegedim
 import date
 import os
 from anthropic import Anthropic, APIError
+from after_simulation import ReflectiveQuestions
 
 import base64
 import conversation
@@ -450,8 +450,7 @@ def give_feedback_reflection(conversation_history):
 
 
 
-# client = Anthropic(api_key=os.getenv('ANTHROPIC_API_KEY'))
-client = Anthropic(api_key=st.secrets['ANTHROPIC_API_KEY'])
+client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
 
 def generate_claude_stream(system_prompt, user_prompt,save_to_messages=False):
     # try:

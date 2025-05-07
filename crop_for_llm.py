@@ -2,7 +2,7 @@ import ids
 
 HEGEDIM_NUMBER = 20
 hegedim_start_phrase =  "1.  חוויות כואבות מהעבר ממשיכות להשפיע על קבלת ההחלטות שלי כיום"
-hegedim_end_phrase = "21. לפניך סימולציה, אנא בחר/י את רמת הקושי המתאימה לך"
+hegedim_end_phrase = "21. לפניך אתגר חשיבה, אנא בחר/י את רמת הקושי המתאימה לך"
 reflection_start_phrase = "תשובתך היא:"
 
 
@@ -18,7 +18,7 @@ def crop_hegedim(data):
         if hegedim_end_phrase in item.get('content', ''):
             updated_data_returned= data_returned[:i]
             return updated_data_returned
-    return updated_data_returned  # Return an empty list if the start_phrase is not found
+    return updated_data_returned  # Return data_returned instead of undefined updated_data_returned
 
 def crop_reflection(data):
     #remove messages with no content (images, etc.)    
