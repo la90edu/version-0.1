@@ -453,7 +453,7 @@ def give_feedback_reflection(conversation_history):
 client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
 
 def generate_claude_stream(system_prompt, user_prompt,save_to_messages=False):
-    # try:
+    try:
         # Create the stream
         with client.messages.stream(
             model="claude-3-7-sonnet-20250219", 
@@ -485,7 +485,13 @@ def generate_claude_stream(system_prompt, user_prompt,save_to_messages=False):
                 st.session_state.messages_bot_reflection.append({"role": "assistant", "content": full_response})
                 
             return full_response  # מחזיר את התשובה המלאה
-
+    except APIError as e:
+        # שגיאת API - ממשיך בשקט
+        return ""  # מחזיר מחרוזת ריקה במקרה של שגיאה
+    
+    except Exception as e:
+        # כל שגיאה אחרת - ממשיך בשקט
+        return ""  # מחזיר מחרוזת ריקה עבור כל שגיאה אחרת
     # except APIError as e:
     #     st.warning(e)
     #     #print(f"שגיאת API: {e}")
@@ -511,7 +517,7 @@ def end_conversation():
     
 
 def generate_claude_stream_with_history(system_prompt, messages,save_to_messages=False):#user_prompt, conversation_history=None,save_to_messages=False):
-    # try:
+    try:
         # Prepare messages list with history if provided
         # messages = []
         
@@ -565,7 +571,14 @@ def generate_claude_stream_with_history(system_prompt, messages,save_to_messages
             if (save_to_messages):
                 st.session_state.messages_bot_reflection.append({"role": "assistant", "content": full_response})
             return full_response  # מחזיר את התשובה המלאה
-
+        
+    except APIError as e:
+        # שגיאת API - ממשיך בשקט
+        return ""  # מחזיר מחרוזת ריקה במקרה של שגיאה
+    
+    except Exception as e:
+        # כל שגיאה אחרת - ממשיך בשקט
+        return ""  # מחזיר מחרוזת ריקה עבור כל שגיאה אחרת
     # except APIError as e:
     #     st.warning("⚠️ מערכת עמוסה כרגע. נסה שוב בעוד כמה רגעים.")
     #     #print(f"שגיאת API: {e}")
