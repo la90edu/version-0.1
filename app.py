@@ -453,143 +453,110 @@ def give_feedback_reflection(conversation_history):
 client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
 
 def generate_claude_stream(system_prompt, user_prompt,save_to_messages=False):
-    try:
-        # Create the stream
-        with client.messages.stream(
-            model="claude-3-7-sonnet-20250219", 
-            temperature=0.5,
-            max_tokens=1024,  
-            system=system_prompt,
-            messages=[
-                {"role": "user", "content": user_prompt}
-            ]
-        ) as stream:
+    max_retries = 3
+    retry_count = 0
+    
+    while retry_count < max_retries:
+        try:
+            # Create the stream
+            with client.messages.stream(
+                model="claude-3-7-sonnet-20250219", 
+                temperature=0.5,
+                max_tokens=1024,  
+                system=system_prompt,
+                messages=[
+                    {"role": "user", "content": user_prompt}
+                ]
+            ) as stream:
         
-            # Create a placeholder for the story
-            story_placeholder = st.empty()
-            full_response = " 🤖 "
+                # Create a placeholder for the story
+                story_placeholder = st.empty()
+                full_response = " 🤖 "
         
-            # Process each chunk of the response
-            for chunk in stream:
-                if chunk.type == "content_block_delta":
-                    full_response += chunk.delta.text
-                    story_placeholder.markdown(f'<div style="direction: rtl; text-align: right;">{full_response}</div>', unsafe_allow_html=True)
+                # Process each chunk of the response
+                for chunk in stream:
+                    if chunk.type == "content_block_delta":
+                        full_response += chunk.delta.text
+                        story_placeholder.markdown(f'<div style="direction: rtl; text-align: right;">{full_response}</div>', unsafe_allow_html=True)
 
-            # Show final response without cursor
-            story_placeholder.markdown(f'<div style="direction: rtl; text-align: right;">{full_response}</div>', unsafe_allow_html=True)
+                # Show final response without cursor
+                story_placeholder.markdown(f'<div style="direction: rtl; text-align: right;">{full_response}</div>', unsafe_allow_html=True)
 
-            # Insert full_response to the history 
-            st.session_state.messages.append({"role": "assistant", "content": full_response})
-            # gd.add_row_to_sheet2([full_response])  # אם צריך לשמור את התשובה
-            if (save_to_messages):
-                st.session_state.messages_bot_reflection.append({"role": "assistant", "content": full_response})
-                
-            return full_response  # מחזיר את התשובה המלאה
-    except APIError as e:
-        # שגיאת API - ממשיך בשקט
-        return ""  # מחזיר מחרוזת ריקה במקרה של שגיאה
-    
-    except Exception as e:
-        # כל שגיאה אחרת - ממשיך בשקט
-        return ""  # מחזיר מחרוזת ריקה עבור כל שגיאה אחרת
-    # except APIError as e:
-    #     st.warning(e)
-    #     #print(f"שגיאת API: {e}")
-    #     return ""  # מחזיר מחרוזת ריקה במקרה של שגיאה
-    
-    # except Exception as e:
-    #     st.error("❌ שגיאה בלתי צפויה התרחשה.")
-    #     #print(f"שגיאה כללית: {e}")
-    #     return ""  # מחזיר מחרוזת ריקה עבור כל שגיאה אחרת
-
-def end_conversation():
-    st.session_state.finish_conversation=True
-    to_save=st.session_state.messages_bot_reflection
-    #save history
-    
-    #feedback hegedim
-    handle_llm(current_q["system_prompt_name"])
-    display_input_box(disabled=True,save_to_messages_reflection_bot=False)  # השבתת תיבת ה-input
-    #show finish_text
-    
-    conversation.show_text("סיימנו את השיחה, תודה על השיחה!")
-    # display_input_box(disabled=True,save_to_messages_reflection_bot=False)  # השבתת תיבת ה-input
-    
-
-def generate_claude_stream_with_history(system_prompt, messages,save_to_messages=False):#user_prompt, conversation_history=None,save_to_messages=False):
-    try:
-        # Prepare messages list with history if provided
-        # messages = []
-        
-        # # Add conversation history if provided
-        # if conversation_history and len(conversation_history) > 0:
-        #     for message in conversation_history:
-        #         # Check if message is a dictionary before accessing 'role'
-        #         if isinstance(message, dict) and message.get("role") in ["user", "assistant"]:
-        #             messages.append({"role": message["role"], "content": message["content"]})
-        
-        # # Add the current user prompt
-        # messages.append({"role": "user", "content": user_prompt})
-        
-        # Create the stream
-        with client.messages.stream(
-            model="claude-3-sonnet-20240229", 
-            temperature=0.5,
-            max_tokens=1024,  
-            system=system_prompt,
-            messages=messages
-        ) as stream:
-        
-            # Create a placeholder for the story
-            story_placeholder = st.empty()
-            full_response = " "
-        
-            # Process each chunk of the response
-            for chunk in stream:
-                if chunk.type == "content_block_delta":
-                    full_response += chunk.delta.text
-                    story_placeholder.markdown(f'<div style="direction: rtl; text-align: right;">{full_response}</div>', unsafe_allow_html=True)
+                # Insert full_response to the history 
+                st.session_state.messages.append({"role": "assistant", "content": full_response})
+                if (save_to_messages):
+                    st.session_state.messages_bot_reflection.append({"role": "assistant", "content": full_response})
                     
-                    # Check if "END" appears in the response
-                    if "END" in full_response:
-                        # Remove "END" from the response
-                        full_response = full_response.replace("END", "")
-                        st.session_state.finish_conversation = True
+                return full_response  # מחזיר את התשובה המלאה
 
-                        string_conversation= crop_for_llm.data_to_string(st.session_state.messages_bot_reflection)
-                        data.add_and_update_user_data(string_conversation)
-                        # st.session_state.user_data.append(string_conversation)
-                        # end_conversation()
-                        break  # Exit the loop if "END" is found
-
-            # Show final response without cursor
-            story_placeholder.markdown(f'<div style="direction: rtl; text-align: right;">{full_response}</div>', unsafe_allow_html=True)
-
-            # Insert full_response to the history 
-            st.session_state.messages.append({"role": "assistant", "content": full_response})
-            # gd.add_row_to_sheet2([full_response])  # אם צריך לשמור את התשובה
-            if (save_to_messages):
-                st.session_state.messages_bot_reflection.append({"role": "assistant", "content": full_response})
-            return full_response  # מחזיר את התשובה המלאה
+        except APIError as e:
+            # שגיאת API - ממשיך בשקט
+            return ""  # מחזיר מחרוזת ריקה במקרה של שגיאה
         
-    except APIError as e:
-        # שגיאת API - ממשיך בשקט
-        return ""  # מחזיר מחרוזת ריקה במקרה של שגיאה
-    
-    except Exception as e:
-        # כל שגיאה אחרת - ממשיך בשקט
-        return ""  # מחזיר מחרוזת ריקה עבור כל שגיאה אחרת
-    # except APIError as e:
-    #     st.warning("⚠️ מערכת עמוסה כרגע. נסה שוב בעוד כמה רגעים.")
-    #     #print(f"שגיאת API: {e}")
-    #     return ""  # מחזיר מחרוזת ריקה במקרה של שגיאה
-    
-    # except Exception as e:
-    #     st.error("❌ שגיאה בלתי צפויה התרחשה.")
-    #     #print(f"שגיאה כללית: {e}")
-    #     return ""  # מחזיר מחרוזת ריקה עבור כל שגיאה אחרת
+        except Exception as e:
+            # כל שגיאה אחרת - ממשיך בשקט
+            return ""  # מחזיר מחרוזת ריקה עבור כל שגיאה אחרת
 
- 
+def generate_claude_stream_with_history(system_prompt, messages,save_to_messages=False):
+    max_retries = 3
+    retry_count = 0
+    is_finished=False
+    
+    while (retry_count < max_retries)and (not is_finished):
+        try:
+            # Create the stream
+            with client.messages.stream(
+                model="claude-3-sonnet-20240229", 
+                temperature=0.5,
+                max_tokens=1024,  
+                system=system_prompt,
+                messages=messages
+            ) as stream:
+        
+                # Create a placeholder for the story
+                story_placeholder = st.empty()
+                full_response = " "
+        
+                # Process each chunk of the response
+                for chunk in stream:
+                    if chunk.type == "content_block_delta":
+                        full_response += chunk.delta.text
+                        story_placeholder.markdown(f'<div style="direction: rtl; text-align: right;">{full_response}</div>', unsafe_allow_html=True)
+                        
+                        # Check if "END" appears in the response
+                        if "END" in full_response:
+                            # Remove "END" from the response
+                            full_response = full_response.replace("END", "")
+                            st.session_state.finish_conversation = True
+
+                            string_conversation= crop_for_llm.data_to_string(st.session_state.messages_bot_reflection)
+                            data.add_and_update_user_data(string_conversation)
+                            break  # Exit the loop if "END" is found
+                is_finished=True
+
+                # Show final response without cursor
+                story_placeholder.markdown(f'<div style="direction: rtl; text-align: right;">{full_response}</div>', unsafe_allow_html=True)
+
+                # Insert full_response to the history 
+                st.session_state.messages.append({"role": "assistant", "content": full_response})
+                if (save_to_messages):
+                    st.session_state.messages_bot_reflection.append({"role": "assistant", "content": full_response})
+                    
+                return full_response  # מחזיר את התשובה המלאה
+
+        except APIError as e:
+            # שגיאת API - ממשיך בשקט
+            retry_count += 1
+            
+            #return ""  # מחזיר מחרוזת ריקה במקרה של שגיאה
+        
+        except Exception as e:
+            # כל שגיאה אחרת - ממשיך בשקט
+            retry_count += 1
+            
+            #return ""  # מחזיר מחרוזת ריקה עבור כל שגיאה אחרת
+    if ((retry_count >= max_retries)and (not is_finished)) :
+        return "תודה" 
 
 def show_selectbox_schools_question(question, feedbacks):
     # הצגת השאלה
@@ -697,8 +664,8 @@ if not st.session_state.finished:
                 case "llm_history":
                     if (not st.session_state.finish_conversation):
                         st.session_state.count_conversation_questions+=1
-                        handle_llm_his(current_q["system_prompt_name"])
                         display_input_box(disabled=True,save_to_messages_reflection_bot=False)  # השבתת תיבת ה-input
+                        handle_llm_his(current_q["system_prompt_name"])
                     else :
                         # questions_to_pass=st.session_state.max_conversation_questions-st.session_state.count_conversation_questions-1
                         # st.session_state.current_question += questions_to_pass
